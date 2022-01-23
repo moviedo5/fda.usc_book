@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Functional Data Analysis, Regression, Classification and Clustering using fda.usc package</title>
+  <title>Chapter 5 Funding and Financial Support: | Functional Data Analysis, Regression, Classification and Clustering using fda.usc package</title>
   <meta name="description" content="Este libro es una introducción al paquete bookdown para la escritura de libros (en castellano, galego, …)." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Functional Data Analysis, Regression, Classification and Clustering using fda.usc package" />
+  <meta property="og:title" content="Chapter 5 Funding and Financial Support: | Functional Data Analysis, Regression, Classification and Clustering using fda.usc package" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="moviedo5/bookdown_fda_usc" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Functional Data Analysis, Regression, Classification and Clustering using fda.usc package" />
+  <meta name="twitter:title" content="Chapter 5 Funding and Financial Support: | Functional Data Analysis, Regression, Classification and Clustering using fda.usc package" />
   
   <meta name="twitter:description" content="Este libro es una introducción al paquete bookdown para la escritura de libros (en castellano, galego, …)." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="documentation.html"/>
 
-<link rel="next" href="definition.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -262,95 +262,158 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Functional Data Analysis, Regression, Classification and Clustering using fda.usc package</h1>
-<p class="author"><em>Manuel Oviedo de la Fuente</em></p>
-<p class="date"><em>May 11, 2021</em></p>
-</div>
-<div id="introduction" class="section level1 unnumbered">
-<h1>Introduction</h1>
-<p>This vignette describes the usage of fda.usc in R.
-fda.usc package carries out exploratory and descriptive analysis of functional data exploring its most important features such as:</p>
-<ul>
-<li><p>Functional Data Representation</p></li>
-<li><p>Functional Regression</p></li>
-<li><p>Functional Classification</p></li>
-<li><p>Functional ANOVA</p></li>
-</ul>
-<p>The co-author of fda.usc is <em>Manuel Febrero-Bande</em>, the contributors are <strong>Pedro Galeano</strong>, <strong>Alicia Nieto</strong> and <strong>Eduardo Garcia-Portugues</strong>.</p>
-<div id="cran-task-view" class="section level2 unnumbered">
-<h2>CRAN Task View</h2>
-<p>R task view devoted to FDA: <a href="https://cran.r-project.org/web/views/FunctionalData.html" class="uri">https://cran.r-project.org/web/views/FunctionalData.html</a></p>
-<p>*<strong>fda.usc</strong> is included in the set of the 7 recommended core packages.</p>
-<p>Dependencies:</p>
-<ul>
-<li><p>Imports, dependent: MASS, fda, mgcv, nlme, rpart (depecrated)</p></li>
-<li><p>Reverse depends: GPFDA, ILS, MFHD, NITPicker, qcr</p></li>
-<li><p>Reverse imports: classiFunc, PCRedux, mlr</p></li>
-<li><p>Versions (by year): 5 (2012), 6 (2013), 2 (2014), 1 (2015), 2 (2016), 1 (2018), 1 (2019)</p></li>
-</ul>
-<p>fda.usc package download by month:</p>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.1.1</code></pre>
-<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
-</div>
-<div id="functional-data-analysis-in-r" class="section level2 unnumbered">
-<h2>Functional Data Analysis in R</h2>
-<ol style="list-style-type: decimal">
-<li><p><span style="color:red">fda</span> It is a basic reference to work in R with functional data, see <span class="citation">(<a href="#ref-Ramsay2005" role="doc-biblioref">Ramsay and Silverman 2005a</a>)</span>, <a href="http://ego.psych.mcgill.ca/misc/fda/" class="uri">http://ego.psych.mcgill.ca/misc/fda/</a></p></li>
-<li><p>Ferray and Vieu, (2006) processed FD from a nonparametric point of view (normed or semi–normed functional spaces).
-These authors are part of the French group STAPH maintaining the page
-<a href="http://www.lsp.ups-tlse.fr/staph/" class="uri">http://www.lsp.ups-tlse.fr/staph/</a></p></li>
-<li><p><span style="color:red">Core packages: </span></p></li>
-</ol>
-<ul>
-<li><span style="color:red">FDboost</span>: Boosting Functional Regression Models</li>
-<li><span style="color:red">fds</span>: Functional Data Sets</li>
-<li><span style="color:red">ftsa</span>: Functional Time Series Analysis</li>
-<li><span style="color:red">fdasrvf</span>: Elastic Functional Data Analysis</li>
-<li><span style="color:red">refund</span>: Regression with Functional Data</li>
-<li><span style="color:red">fdapace</span>: Functional Data Analysis and Empirical Dynamics</li>
-</ul>
-<p>4.<span style="color:red">Interactive tools: </span>
-+ <span style="color:red">StatFda</span>: exploratory analysis and functional regression models,<a href="http://www.statfda.com" class="uri">http://www.statfda.com</a> forand refund.shiny package
-for interactive plotting.
-+ <span style="color:red">refund.shiny</span>: Interactive Plotting for Functional Data Analyses
-+ <span style="color:red">tidyfun</span>: makes data wrangling and exploratory analysis of functional data easier, <a href="https://fabian-s.github.io/tidyfun" class="uri">https://fabian-s.github.io/tidyfun</a></p>
-<ol start="5" style="list-style-type: decimal">
-<li><span style="color:red">Other packages: </span></li>
-</ol>
-<ul>
-<li><span style="color:red">GPFDA</span>: Use Functional regression as the mean structure and Gaussian Process as the covariance structure.</li>
-<li><span style="color:red">MFHD</span>: Multivariate Functional Halfspace Depth</li>
-<li><span style="color:red">rainbow</span>: Bagplots, Boxplots and Rainbow Plots for Functional Data</li>
-<li><span style="color:red">NITPicker</span>: Finds the Best Subset of Points to Sample</li>
-<li><span style="color:red">fdatest</span>: Interval Testing Procedure for Functional Data</li>
-<li><span style="color:red">fdakma</span>: Functional Data Analysis: K-Mean Alignment</li>
-<li><span style="color:red">fdaMixed</span>: Functional data analysis in a mixed model framework</li>
-<li><span style="color:red">geofd</span>: Spatial Prediction for Function Value Data</li>
-<li><span style="color:red">goffda</span>: Goodness-of-Fit Tests for Functional Data</li>
-<li><span style="color:red">mlr</span>: Machine Learning in R</li>
-</ul>
-</div>
-<div id="installation" class="section level2 unnumbered">
-<h2>Installation</h2>
-<p>Like many other R packages, the simplest way to obtain <code>fda.usc</code> is to install it directly from CRAN. Type the following command in R console:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;fda.usc&quot;</span>, <span class="at">repos =</span> <span class="st">&quot;http://cran.us.r-project.org&quot;</span>)</span></code></pre></div>
-<p>Users may change the <code>repos</code> options depending on their locations and preferences. Other options such as the directories where to install the packages can be altered in the command. For more details, see <code>help(install.packages)</code>.</p>
-<p>Here the R package has been downloaded and installed to the default directories.</p>
-<p>Alternatively, users can download the package source at <a href="http://cran.r-project.org/web/packages/fda.usc/index.html" class="uri">http://cran.r-project.org/web/packages/fda.usc/index.html</a> and type Unix commands to install it to the desired location.</p>
-</div>
-<div id="quick-start" class="section level2 unnumbered">
-<h2>Quick Start</h2>
-<p>The purpose of this section is to give users a general sense of the package, including the components, what they do and some basic usage. We will briefly go over the main functions, see the basic operations and have a look at the outputs. Users may have a better idea after this section what functions are available, which one to choose, or at least where to seek help. More details are given in later sections.</p>
-<p>First, we load the <code>fda.usc</code> package:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fda.usc)</span></code></pre></div>
+<div id="funding-and-financial-support" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Funding and Financial Support:</h1>
+<p>This work has been supported by Project MTM2016-76969-P from Ministerio de Economía y Competitividad - Agencia Estatal de Investigacion and European Regional Development Fund (ERDF).</p>
 
-</div>
-</div>
-<h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-Ramsay2005" class="csl-entry">
+<div class="csl-entry">
+Akaike, Htrotugu. 1973. <span>“Maximum Likelihood Identification of Gaussian Autoregressive Moving Average Models.”</span> <em>Biometrika</em> 60 (2): 255–65.
+</div>
+<div class="csl-entry">
+Aneiros-Pérez, Germán, and Philippe Vieu. 2006. <span>“Semi-Functional Partial Linear Regression.”</span> <em>Statist. Probab. Lett.</em> 76 (11): 1102–10.
+</div>
+<div class="csl-entry">
+Berrendero, José R, Antonio Cuevas, and Jos’e L Torrecilla. 2018. <span>“On the Use of Reproducing Kernel Hilbert Spaces in Func2tional Classification.”</span> <em>Journal of the American Statistical Association</em> 113: 1210–18.
+</div>
+<div class="csl-entry">
+Berrendero, José R, Antonio Cuevas, and José L Torrecilla. 2016. <span>“Variable Selection in Functional Data Classification: A Maxima-Hunting Proposal.”</span> <em>Statistica Sinica</em>, 619–38.
+</div>
+<div class="csl-entry">
+Cardot, Hervé, Christophe Crambes, and Pascal Sarda. 2005. <span>“Quantile Regression When the Covariates Are Functions.”</span> <em>Nonparametric Statistics</em> 17 (7): 841–56.
+</div>
+<div class="csl-entry">
+Cardot, Hervé, Frédéric Ferraty, and Pascal Sarda. 1999. <span>“Functional Linear Model.”</span> <em>Statist. Probab. Lett.</em> 45 (1): 11–22.
+</div>
+<div class="csl-entry">
+Carmack, Patrick S, Jeffrey S Spence, and William R Schucany. 2012. <span>“Generalised Correlated Cross-Validation.”</span> <em>Journal of Nonparametric Statistics</em> 24 (2): 269–82.
+</div>
+<div class="csl-entry">
+Chiou, Jeng-Min, Hans-Georg Muller, Jane-Ling Wang et al. 2004. <span>“Functional Response Models.”</span> <em>Statistica Sinica</em> 14 (3): 675–94.
+</div>
+<div class="csl-entry">
+Cuesta-Albertos, JA, and M Febrero-Bande. 2010. <span>“A Simple Multiway Anova for Functional Data.”</span> <em>Test</em> 19 (3): 537–57.
+</div>
+<div class="csl-entry">
+Cuesta-Albertos, Juan A, Manuel Febrero-Bande, and Manuel Oviedo de la Fuente. 2017. <span>“The DDG-Classifier in the Functional Setting.”</span> <em>Test</em> 26 (1): 119–42.
+</div>
+<div class="csl-entry">
+Cuesta-Albertos, Juan, and Alicia Nieto-Reyes. 2008. <span>“The Random Tukey Depth.”</span> <em>Computational Statistics and Data Analysis</em> 52 (11): 4979–88.
+</div>
+<div class="csl-entry">
+Cuevas, A., M. Febrero, and R. Fraiman. 2004. <span>“An Anova Test for Functional Data.”</span> <em>Comput. Statist. Data Anal.</em> 47 (1): 111–22. <a href="http://www.sciencedirect.com/science/article/pii/S016794730300269X">http://www.sciencedirect.com/science/article/pii/S016794730300269X</a>.
+</div>
+<div class="csl-entry">
+Cuevas, Antonio, Manuel Febrero, and Ricardo Fraiman. 2007. <span>“Robust Estimation and Classification for Functional Data via Projection-Based Depth Notions.”</span> <em>Comput. Statist.</em> 22 (3): 481–96. <a href="http://link.springer.com/article/10.1007/s00180-007-0053-0">http://link.springer.com/article/10.1007/s00180-007-0053-0</a>.
+</div>
+<div class="csl-entry">
+Efron, Bradley, Trevor Hastie, Iain Johnstone, Robert Tibshirani et al. 2004. <span>“Least Angle Regression.”</span> <em>The Annals of Statistics</em> 32 (2): 407–99.
+</div>
+<div class="csl-entry">
+Faraway, Julian J. 1997. <span>“Regression Analysis for a Functional Response.”</span> <em>Technometrics</em> 39 (3): 254–61.
+</div>
+<div class="csl-entry">
+Febrero-Bande, Manuel, Pedro Galeano, and Wenceslao González-Manteiga. 2008. <span>“Outlier Detection in Functional Data by Depth Measures, with Application to Identify Abnormal <span><span class="math inline">\({\rm NO}_x\)</span></span> Levels.”</span> <em>Environmetrics</em> 19 (4): 331–45.
+</div>
+<div class="csl-entry">
+———. 2010. <span>“Measures of Influence for the Functional Linear Model with Scalar Response.”</span> <em>J. Multivariate Anal.</em> 101 (2): 327–39.
+</div>
+<div class="csl-entry">
+Febrero-Bande, Manuel, and Wenceslao González-Manteiga. 2013. <span>“Generalized Additive Models for Functional Data.”</span> <em>Test</em> 22 (2): 278–92. <a href="http://dx.doi.org/10.1007/s11749-012-0308-0">http://dx.doi.org/10.1007/s11749-012-0308-0</a>.
+</div>
+<div class="csl-entry">
+Febrero-Bande, Manuel, Wenceslao González-Manteiga, and Manuel Oviedo de la Fuente. 2019. <span>“Variable Selection in Functional Additive Regression Models.”</span> <em>Computational Statistics</em> 34 (2): 469–87. <a href="https://doi.org/10.1007/s00180-018-0844-5">https://doi.org/10.1007/s00180-018-0844-5</a>.
+</div>
+<div class="csl-entry">
+Febrero-Bande, Manuel, and M Oviedo de la Fuente. 2012. <span>“Statistical Computing in Functional Data Analysis: The <span>R</span> Package <span class="nocase">fda.usc</span>.”</span> <em>J. Statist. Software</em> 51 (4): 1–28.
+</div>
+<div class="csl-entry">
+Ferraty, Frédéric, Aldo Goia, Ernesto Salinelli, and Philippe Vieu. 2013. <span>“Functional Projection Pursuit Regression.”</span> <em>Test</em> 22 (2): 293–320.
+</div>
+<div class="csl-entry">
+Ferraty, Frédéric, P Hall, and Philippe Vieu. 2010. <span>“Most-Predictive Design Points for Functional Data Predictors.”</span> <em>Biometrika</em> 97 (4): 807–24.
+</div>
+<div class="csl-entry">
+Ferraty, Frédéric, Juhyun Park, and Philippe Vieu. 2011. <span>“Estimation of a Functional Single Index Model.”</span> In <em>Recent Advances in Functional Data Analysis and Related Topics</em>, 111–16. Springer.
+</div>
+<div class="csl-entry">
+Ferraty, Frédéric, Ingrid Van Keilegom, and Philippe Vieu. 2012. <span>“Regression When Both Response and Predictor Are Functions.”</span> <em>Journal of Multivariate Analysis</em> 109: 10–28.
+</div>
+<div class="csl-entry">
+Ferraty, Frédéric, and Philippe Vieu. 2003. <span>“Curves Discrimination: A Nonparametric Functional Approach.”</span> <em>Comput. Statist. Data Anal.</em> 44 (1): 161–73. <a href="http://www.sciencedirect.com/science/article/pii/S016794730300032X">http://www.sciencedirect.com/science/article/pii/S016794730300032X</a>.
+</div>
+<div class="csl-entry">
+———. 2006. <em>Nonparametric Functional Data Analysis</em>. Springer Series in Statistics. New York: Springer-Verlag.
+</div>
+<div class="csl-entry">
+Ferraty, F., and P. Vieu. 2009. <span>“Additive Prediction and Boosting for Functional Data.”</span> <em>Comput. Statist. Data Anal.</em> 53 (4): 1400–1413. <a href="http://www.sciencedirect.com/science/article/pii/S0167947308005628">http://www.sciencedirect.com/science/article/pii/S0167947308005628</a>.
+</div>
+<div class="csl-entry">
+Fraiman, Ricardo, and Graciela Muniz. 2001. <span>“Trimmed Means for Functional Data.”</span> <em>Test</em> 10 (2): 419–40.
+</div>
+<div class="csl-entry">
+Garcı́a-Portugués, Eduardo, Wenceslao González-Manteiga, and Manuel Febrero-Bande. 2014. <span>“A Goodness-of-Fit Test for the Functional Linear Model with Scalar Response.”</span> <em>Journal of Computational and Graphical Statistics</em> 23 (3): 761–78.
+</div>
+<div class="csl-entry">
+Hartigan, John A, and Manchek A Wong. 1979. <span>“Algorithm AS 136: A k-Means Clustering Algorithm.”</span> <em>Journal of the Royal Statistical Society. Series C (Applied Statistics)</em> 28 (1): 100–108.
+</div>
+<div class="csl-entry">
+Kato, Kengo et al. 2012. <span>“Estimation in Functional Linear Quantile Regression.”</span> <em>The Annals of Statistics</em> 40 (6): 3108–36.
+</div>
+<div class="csl-entry">
+Krämer, Nicole, and Masashi Sugiyama. 2011. <span>“The Degrees of Freedom of Partial Least Squares Regression.”</span> <em>Journal of the American Statistical Association</em> 106 (494): 697–705.
+</div>
+<div class="csl-entry">
+Li, Jun, Juan A Cuesta-Albertos, and Regina Y Liu. 2012. <span>“<span class="math inline">\(DD\)</span>–Classifier: Nonparametric Classification Procedure Based on <span class="math inline">\(DD\)</span>–Plot.”</span> <em>J. Amer. Statist. Assoc.</em> 107 (498): 737–53. <a href="http://amstat.tandfonline.com/doi/abs/10.1080/01621459.2012.688462">http://amstat.tandfonline.com/doi/abs/10.1080/01621459.2012.688462</a>.
+</div>
+<div class="csl-entry">
+Lin, Yi, Hao Helen Zhang et al. 2006. <span>“Component Selection and Smoothing in Multivariate Nonparametric Regression.”</span> <em>The Annals of Statistics</em> 34 (5): 2272–97.
+</div>
+<div class="csl-entry">
+López-Pintado, Satan, and Juan Romo. 2009. <span>“On the Concept of Depth for Functional Data.”</span> <em>Journal of the American Statistical Association</em> 104: 718–34.
+</div>
+<div class="csl-entry">
+Muller, Hans-Georg, and Ulrich Stadtmuller. 2005. <span>“Generalized Functional Linear Models.”</span> <em>Annals of Statistics</em>, 774–805.
+</div>
+<div class="csl-entry">
+Müller, Hans-Georg et al. 2008. <span>“Functional Modeling of Longitudinal Data.”</span> In <em>Longitudinal Data Analysis</em>, 237–66. Chapman; Hall/CRC.
+</div>
+<div class="csl-entry">
+Müller, Hans-Georg, and Fang Yao. 2012. <span>“Functional Additive Models.”</span> <em>Journal of the American Statistical Association</em>.
+</div>
+<div class="csl-entry">
+Ordóñez, Celestino, Manuel Oviedo de la Fuente, Javier Roca-Pardiñas, and José Ramón Rodrı́guez-Pérez. 2018. <span>“Determining Optimum Wavelengths for Leaf Water Content Estimation from Reflectance: A Distance Correlation Approach.”</span> <em>Chemometrics and Intelligent Laboratory Systems</em> 173: 41–50.
+</div>
+<div class="csl-entry">
+Oviedo de la Fuente, Manuel, Manuel Febrero-Bande, Marı́a Pilar Muñoz, and Àngela Domı́nguez. 2018. <span>“Predicting Seasonal Influenza Transmission Using Functional Regression Models with Temporal Dependence.”</span> <em>PloS One</em> 13 (4): e0194250.
+</div>
+<div class="csl-entry">
+Peng, Hanchuan, Fuhui Long, and Chris Ding. 2005. <span>“Feature Selection Based on Mutual Information: Criteria of Max-Dependency, Max-Relevance, and Min-Redundancy.”</span> <em>IEEE Transactions on Pattern Analysis &amp; Machine Intelligence</em>, no. 8: 1226–38.
+</div>
+<div class="csl-entry">
+Preda, C., and G. Saporta. 2005. <span>“P<span>LS</span> Regression on a Stochastic Process.”</span> <em>Comput. Statist. Data Anal.</em> 48 (1): 149–58.
+</div>
+<div class="csl-entry">
 Ramsay, J. O., and B. W. Silverman. 2005a. <em>Functional Data Analysis</em>. Springer.
+</div>
+<div class="csl-entry">
+———. 2005b. <em>Functional Data Analysis</em>. Second. Springer Series in Statistics. New York: Springer-Verlag.
+</div>
+<div class="csl-entry">
+Székely, Gábor J, and Maria L Rizzo. 2013. <span>“The Distance Correlation <span class="math inline">\(t\)</span>-Test of Independence in High Dimension.”</span> <em>J. Multivariate Anal.</em> 117: 193–213.
+</div>
+<div class="csl-entry">
+Székely, Gábor J, Maria L Rizzo, and Nail K Bakirov. 2007. <span>“Measuring and Testing Dependence by Correlation of Distances.”</span> <em>Ann. Statist.</em> 35 (6): 2769–94. <a href="http://projecteuclid.org/euclid.aos/1201012979">http://projecteuclid.org/euclid.aos/1201012979</a>.
+</div>
+<div class="csl-entry">
+Yenigün, C Deniz, and Maria L Rizzo. 2015. <span>“Variable Selection in Regression Using Maximal Correlation and Distance Correlation.”</span> <em>Journal of Statistical Computation and Simulation</em> 85 (8): 1692–1705.
+</div>
+<div class="csl-entry">
+Zhao, Yihong, Huaihou Chen, and R Todd Ogden. 2015. <span>“Wavelet-Based Weighted LASSO and Screening Approaches in Functional Linear Regression.”</span> <em>Journal of Computational and Graphical Statistics</em> 24 (3): 655–75.
+</div>
+<div class="csl-entry">
+Zivot, Eric, and Jiahui Wang. 2006. <em>Modeling Financial Time Series with s-PLUS</em>. Vol. 2. Springer.
+</div>
 </div>
 </div>
             </section>
@@ -358,8 +421,8 @@ Ramsay, J. O., and B. W. Silverman. 2005a. <em>Functional Data Analysis</em>. Sp
           </div>
         </div>
       </div>
+<a href="documentation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="definition.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -390,7 +453,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/moviedo5/bookdown_fda_usc/edit/master/index.Rmd",
+"link": "https://github.com/moviedo5/bookdown_fda_usc/edit/master/09-Documentation.Rmd",
 "text": "Edit"
 },
 "history": {
