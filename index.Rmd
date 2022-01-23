@@ -1,9 +1,169 @@
 --- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAME HERE"
-date: "`r Sys.Date()`"
+title: "Functional Data Analysis, Regression, Classification and Clustering using fda.usc  package "
+author: "Manuel Oviedo de la Fuente"
+date: "May 11, 2021"
 site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [packages.bib, bibliografia.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: moviedo5/bookdown_fda_usc
+description: "Este libro es una introducción al paquete bookdown para la escritura de libros (en castellano, galego, ...)."
 ---
 
-# Down the rabbit-hole
+<!--
+date: "`r Sys.Date()`"
+###       Manuel Oviedo de la Fuente (University of Santiago de Compostela)
+###       Web page: http://eio.usc.es/pub/moviedo/index.php/software
+###       E-mail: manuel.oviedo@udc.es
+###       Slides: https://rpubs.com/moviedo/
 
+-->
+
+<!--
+
+# Prólogo {-}
+
+Este libro es una pequeña guía sobre como emplear el paquete `bookdown` de R para la escritura de libros, incluyendo algunos detalles de configuración para la escritura en otros idiomas distintos del inglés (castellano, galego,...). 
+
+Este mismo libro ha sido escrito en [R-Markdown](http://rmarkdown.rstudio.com) empleando el paquete [`bookdown`](https://bookdown.org/yihui/bookdown/)  y está disponible en el repositorio Github: [rubenfcasal/bookdown_intro](https://github.com/rubenfcasal/bookdown_intro). 
+
+Para generar el libro (compilar) puede ser recomendable instalar la última versión de [RStudio]((https://www.rstudio.com/products/rstudio/download/)) y la versión de desarrollo de `bookdown` disponible en [Github](https://github.com/rstudio/bookdown). 
+En la Sección \@ref(requisitos) se detallan los requisitos necesarios.
+
+```{r echo=FALSE, fig.align='left'}
+knitr::include_graphics("images/by-sa-88x31.png")
+```
+
+Esta obra está bajo una licencia de [Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional](https://creativecommons.org/licenses/by-sa/4.0/deed.es).
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+# funciones auxiliares
+inline <- function(x = "") paste0("`` `r ", x, "` ``")
+inline2 <- function(x = "") paste0("`r ", x, "`")
+```
+# Preface {-}
+-->
+
+
+
+# Introduction {-}
+ 
+This vignette describes the usage of fda.usc in R. 
+fda.usc package carries out exploratory and descriptive analysis of functional data exploring its most important features such as: 
+
+* Functional Data Representation 
+
+* Functional Regression  
+
+* Functional Classification
+
+* Functional ANOVA	
+
+The co-author of fda.usc is *Manuel Febrero-Bande*, the contributors are **Pedro Galeano**, **Alicia Nieto** and **Eduardo Garcia-Portugues**.
+
+
+
+## CRAN Task View {-}
+
+R task view devoted to FDA: https://cran.r-project.org/web/views/FunctionalData.html
+
+***fda.usc** is  included in the set  of the 7 recommended core packages. 
+
+Dependencies:
+
++ Imports, dependent: MASS, fda, mgcv, nlme, rpart (depecrated)
+
++ Reverse depends:	GPFDA, ILS, MFHD, NITPicker, qcr
+
++ Reverse imports:	classiFunc, PCRedux, mlr	
+
++ Versions (by year): 5 (2012), 6 (2013), 2 (2014), 1 (2015), 2 (2016), 1 (2018), 1 (2019)
+
+fda.usc package download by month: 
+
+```{r, cache=TRUE,echo=FALSE,message=FALSE,fig.width=8, fig.height=4}
+library("ggplot2")
+library("dlstats")
+pkg.core <- c( "fda", "fda.usc","ftsa","fdasrvf","refund","fdapace","FDboost","fds")
+#x <- cran_stats(pkg.core)
+x <- cran_stats(pkg.core[2])
+#as.numeric(x[,1])
+#class(x[,1])
+#head(x)
+#ii<-which(x$package=="fda.usc")
+#x<-x[ii,]
+# ii<-(x[,2]!="2019-05-08")
+#x$log_downloads<-log(x[,3])
+#ggplot(x[ii,], aes(end, log_downloads, group=package, color=package)) +
+ggplot(x[1:(nrow(x)-1),], aes(end, downloads, group=package, color=package)) +
+geom_line() + geom_point(aes(shape=package))+  xlab("Months") 
+par(mfrow=c(1,2))
+```
+
+
+##  Functional Data Analysis in R {-}
+
+1.  <span style="color:red">fda</span>  It is a basic reference to work in R with functional data, see [@Ramsay2005], <http://ego.psych.mcgill.ca/misc/fda/>
+
+2. Ferray and Vieu, (2006) processed FD from a nonparametric point of view  (normed or semi--normed functional spaces).
+  These authors are part of the French group STAPH maintaining the page 
+<http://www.lsp.ups-tlse.fr/staph/>
+
+3. <span style="color:red">Core packages: </span> 
++ <span style="color:red">FDboost</span>: Boosting Functional Regression Models
++ <span style="color:red">fds</span>:  Functional Data Sets
++ <span style="color:red">ftsa</span>: Functional Time Series Analysis
++ <span style="color:red">fdasrvf</span>: Elastic Functional Data Analysis
++ <span style="color:red">refund</span>:  Regression with Functional Data
++ <span style="color:red">fdapace</span>: Functional Data Analysis and Empirical Dynamics
+
+4.<span style="color:red">Interactive tools:  </span> 
++ <span style="color:red">StatFda</span>: exploratory analysis and functional regression models,http://www.statfda.com forand refund.shiny package
+for interactive plotting.
++ <span style="color:red">refund.shiny</span>: Interactive Plotting for Functional Data Analyses
++ <span style="color:red">tidyfun</span>: makes data wrangling and exploratory analysis of functional data easier, https://fabian-s.github.io/tidyfun
+
+5. <span style="color:red">Other packages:   </span> 
++ <span style="color:red">GPFDA</span>: Use Functional regression as the mean structure and Gaussian Process as the covariance structure.
++ <span style="color:red">MFHD</span>: Multivariate Functional Halfspace Depth
++ <span style="color:red">rainbow</span>: Bagplots, Boxplots and Rainbow Plots for Functional Data
++ <span style="color:red">NITPicker</span>:  Finds the Best Subset of Points to Sample
++ <span style="color:red">fdatest</span>:     Interval Testing Procedure for Functional Data
++ <span style="color:red">fdakma</span>: 	Functional Data Analysis: K-Mean Alignment
++ <span style="color:red">fdaMixed</span>: 	Functional data analysis in a mixed model framework
++ <span style="color:red">geofd</span>: Spatial Prediction for Function Value Data
++ <span style="color:red">goffda</span>: Goodness-of-Fit Tests for Functional Data
++ <span style="color:red">mlr</span>: Machine Learning in R
+
+
+
+## Installation {-}
+ 
+Like many other R packages, the simplest way to obtain `fda.usc` is to install it directly from CRAN. Type the following command in R console:
+
+```{r, eval=FALSE}
+install.packages("fda.usc", repos = "http://cran.us.r-project.org")
+```
+
+Users may change the `repos` options depending on their locations and preferences. Other options such as the directories where to install the packages can be altered in the command. For more details, see `help(install.packages)`.
+
+Here the R package has been downloaded and installed to the default directories.
+
+Alternatively, users can download the package source at http://cran.r-project.org/web/packages/fda.usc/index.html and type Unix commands to install it to the desired location.
+
+
+
+## Quick Start {-}
+ 
+The purpose of this section is to give users a general sense of the package, including the components, what they do and some basic usage. We will briefly go over the main functions, see the basic operations and have a look at the outputs. Users may have a better idea after this section what functions are available, which one to choose, or at least where to seek help. More details are given in later sections.
+
+First, we load the `fda.usc` package:
+```{r, results='hide',warning=FALSE,message=FALSE}
+library(fda.usc)
+```
