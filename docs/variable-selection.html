@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Variable Selection | Functional Data Analysis, Regression, Classification and Clustering using fda.usc package</title>
+  <meta name="description" content="Este libro es una introducción al paquete bookdown para la escritura de libros (en castellano, galego, …)." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Variable Selection | Functional Data Analysis, Regression, Classification and Clustering using fda.usc package" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este libro es una introducción al paquete bookdown para la escritura de libros (en castellano, galego, …)." />
+  <meta name="github-repo" content="moviedo5/bookdown_fda_usc" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Variable Selection | Functional Data Analysis, Regression, Classification and Clustering using fda.usc package" />
+  
+  <meta name="twitter:description" content="Este libro es una introducción al paquete bookdown para la escritura de libros (en castellano, galego, …)." />
+  
+
+<meta name="author" content="Manuel Oviedo de la Fuente" />
+
+
+<meta name="date" content="2021-05-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="functional-supervised-classification.html"/>
+<link rel="next" href="references-2.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Escritura de libros con bookdown</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cran-task-view"><i class="fa fa-check"></i>CRAN Task View</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#functional-data-analysis-in-r"><i class="fa fa-check"></i>Functional Data Analysis in R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#installation"><i class="fa fa-check"></i>Installation</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#quick-start"><i class="fa fa-check"></i>Quick Start</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="definition.html"><a href="definition.html"><i class="fa fa-check"></i><b>1</b> Functional Data: Definition, Representation and Manipulation</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="definition.html"><a href="definition.html#some-definitions-of-functional-data"><i class="fa fa-check"></i><b>1.1</b> Some definitions of Functional Data</a></li>
+<li class="chapter" data-level="1.2" data-path="definition.html"><a href="definition.html#in-fda.usc-the-data-are-curves"><i class="fa fa-check"></i><b>1.2</b> In fda.usc: ``The data are curves’’</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="definition.html"><a href="definition.html#definition-of-fdata-class-in-r"><i class="fa fa-check"></i><b>1.2.1</b> Definition of –fdata– class in R</a></li>
+<li class="chapter" data-level="1.2.2" data-path="definition.html"><a href="definition.html#some-utilities-of-fda.usc-package"><i class="fa fa-check"></i><b>1.2.2</b> Some utilities of fda.usc package</a></li>
+<li class="chapter" data-level="1.2.3" data-path="definition.html"><a href="definition.html#definition-of-ldata-class-in-r"><i class="fa fa-check"></i><b>1.2.3</b> Definition of –ldata– class in R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="definition.html"><a href="definition.html#resume-by-smoothing"><i class="fa fa-check"></i><b>1.3</b> Resume by smoothing</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="definition.html"><a href="definition.html#derivatives"><i class="fa fa-check"></i><b>1.3.1</b> Derivatives</a></li>
+<li class="chapter" data-level="1.3.2" data-path="definition.html"><a href="definition.html#computing-distances-norms-and-inner-products"><i class="fa fa-check"></i><b>1.3.2</b> Computing distances, norms and inner products</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="definition.html"><a href="definition.html#correlation-distances"><i class="fa fa-check"></i><b>1.4</b> Correlation Distances</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="definition.html"><a href="definition.html#depth-for-functional-data"><i class="fa fa-check"></i><b>1.4.1</b> Depth for functional data</a></li>
+<li class="chapter" data-level="1.4.2" data-path="definition.html"><a href="definition.html#depth-and-distances-for-multivariate-functional-data-cuesta2017"><i class="fa fa-check"></i><b>1.4.2</b> Depth (and distances) for multivariate functional data <span class="citation">(<span>J. A. Cuesta-Albertos, Febrero-Bande, and Oviedo de la Fuente 2017</span>)</span></a></li>
+<li class="chapter" data-level="1.4.3" data-path="definition.html"><a href="definition.html#outliers-detection"><i class="fa fa-check"></i><b>1.4.3</b> Outliers detection</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="definition.html"><a href="definition.html#references"><i class="fa fa-check"></i><b>1.5</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>2</b> Functional Regression Model</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="regression.html"><a href="regression.html#functional-linear-model-flr-with-basis-representation"><i class="fa fa-check"></i><b>2.1</b> Functional linear model (FLR) with basis representation</a></li>
+<li class="chapter" data-level="2.2" data-path="regression.html"><a href="regression.html#flm-with-functional-and-non-functional-covariates"><i class="fa fa-check"></i><b>2.2</b> FLM with functional and non functional covariates</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="regression.html"><a href="regression.html#predict-method-for-functional-regression-model"><i class="fa fa-check"></i><b>2.2.1</b> Predict method for functional regression model</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="regression.html"><a href="regression.html#other-procedures"><i class="fa fa-check"></i><b>2.3</b> Other procedures</a></li>
+<li class="chapter" data-level="2.4" data-path="regression.html"><a href="regression.html#non-linear-model-fv2006"><i class="fa fa-check"></i><b>2.4</b> Non Linear Model <span class="citation">(<span>Frédéric Ferraty and Vieu 2006</span>)</span></a></li>
+<li class="chapter" data-level="2.5" data-path="regression.html"><a href="regression.html#semi-linear-model-aneiros2005"><i class="fa fa-check"></i><b>2.5</b> Semi Linear Model <span class="citation">(<span>Aneiros-Pérez and Vieu 2006</span>)</span></a></li>
+<li class="chapter" data-level="2.6" data-path="regression.html"><a href="regression.html#generalized-linear-models"><i class="fa fa-check"></i><b>2.6</b> Generalized Linear Models</a></li>
+<li class="chapter" data-level="2.7" data-path="regression.html"><a href="regression.html#generalized-functional-additive-model"><i class="fa fa-check"></i><b>2.7</b> Generalized Functional Additive Model</a></li>
+<li class="chapter" data-level="2.8" data-path="regression.html"><a href="regression.html#functional-gls-model"><i class="fa fa-check"></i><b>2.8</b> Functional GLS model</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="regression.html"><a href="regression.html#dependent-data-example"><i class="fa fa-check"></i><b>2.8.1</b> Dependent data example,</a></li>
+<li class="chapter" data-level="2.8.2" data-path="regression.html"><a href="regression.html#functional-response-model"><i class="fa fa-check"></i><b>2.8.2</b> Functional Response Model</a></li>
+<li class="chapter" data-level="2.8.3" data-path="regression.html"><a href="regression.html#other-models"><i class="fa fa-check"></i><b>2.8.3</b> Other Models:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="regression.html"><a href="regression.html#references-1"><i class="fa fa-check"></i><b>2.9</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html"><i class="fa fa-check"></i><b>3</b> Functional Supervised Classification</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#logistic-regression-model-glm-classif.glm"><i class="fa fa-check"></i><b>3.1</b> Logistic Regression Model (GLM): <code>classif.glm</code></a></li>
+<li class="chapter" data-level="3.2" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#generalized-additive-models-gam-classif.gsam-and-classif.gkam"><i class="fa fa-check"></i><b>3.2</b> Generalized Additive Models (GAM): <code>classif.gsam</code> and <code>classif.gkam</code></a></li>
+<li class="chapter" data-level="3.3" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#nonparametric-classification-methods-classif.knn-and-classif.np-ferraty2003"><i class="fa fa-check"></i><b>3.3</b> Nonparametric classification methods: <code>classif.knn</code> and <code>classif.np</code> <span class="citation">(<span>Frédéric Ferraty and Vieu 2003</span>)</span></a></li>
+<li class="chapter" data-level="3.4" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#maximum-depth-classif.depth-li2012"><i class="fa fa-check"></i><b>3.4</b> Maximum depth: <code>classif.depth</code> <span class="citation">(<span>Li, Cuesta-Albertos, and Liu 2012</span>)</span></a></li>
+<li class="chapter" data-level="3.5" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#the-ddgclassifier-classif.dd"><i class="fa fa-check"></i><b>3.5</b> The DD<span class="math inline">\(^G\)</span>–classifier <code>classif.DD</code></a></li>
+<li class="chapter" data-level="3.6" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#classifiers-adapted-from-multivariate-framework"><i class="fa fa-check"></i><b>3.6</b> Classifiers adapted from Multivariate Framework</a></li>
+<li class="chapter" data-level="3.7" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#k-means-clustering-for-functional-data"><i class="fa fa-check"></i><b>3.7</b> K-Means Clustering for functional data</a></li>
+<li class="chapter" data-level="3.8" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#functional-anova"><i class="fa fa-check"></i><b>3.8</b> Functional ANOVA</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#oneway-anova-model-for-functional-data-cuevas2004"><i class="fa fa-check"></i><b>3.8.1</b> One–way anova model for functional data, <span class="citation"><span>A. Cuevas, Febrero, and Fraiman</span> (<span>2004</span>)</span></a></li>
+<li class="chapter" data-level="3.8.2" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#functional-anova-with-random-project-cuesta-albertos2010"><i class="fa fa-check"></i><b>3.8.2</b> Functional ANOVA with Random Project, <span class="citation"><span>JA Cuesta-Albertos and Febrero-Bande</span> (<span>2010</span>)</span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="variable-selection.html"><a href="variable-selection.html"><i class="fa fa-check"></i><b>4</b> Variable Selection</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="variable-selection.html"><a href="variable-selection.html#functiondal-regression-with-points-of-impact"><i class="fa fa-check"></i><b>4.1</b> Functiondal regression with points of impact</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="variable-selection.html"><a href="variable-selection.html#state-of-art"><i class="fa fa-check"></i><b>4.1.1</b> State of Art</a></li>
+<li class="chapter" data-level="4.1.2" data-path="variable-selection.html"><a href="variable-selection.html#local-maxima-distance-correlation-approach-lmdc-ordonez2018"><i class="fa fa-check"></i><b>4.1.2</b> Local maxima distance correlation approach (LMDC), <span class="citation">(<span>Ordóñez et al. 2018</span>)</span></a></li>
+<li class="chapter" data-level="4.1.3" data-path="variable-selection.html"><a href="variable-selection.html#lmdc-algorithm-lmdc.select-function"><i class="fa fa-check"></i><b>4.1.3</b> LMDC Algorithm: <code>LMDC.select()</code> function</a></li>
+<li class="chapter" data-level="4.1.4" data-path="variable-selection.html"><a href="variable-selection.html#lmdc-algorithm-lmdc.regre-function"><i class="fa fa-check"></i><b>4.1.4</b> LMDC Algorithm: <code>LMDC.regre()</code> function</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="variable-selection.html"><a href="variable-selection.html#variable-selection-in-functional-regression"><i class="fa fa-check"></i><b>4.2</b> Variable selection in functional regression</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="variable-selection.html"><a href="variable-selection.html#state-of-art-1"><i class="fa fa-check"></i><b>4.2.1</b> State of Art</a></li>
+<li class="chapter" data-level="4.2.2" data-path="variable-selection.html"><a href="variable-selection.html#algorithm"><i class="fa fa-check"></i><b>4.2.2</b> Algorithm</a></li>
+<li class="chapter" data-level="4.2.3" data-path="variable-selection.html"><a href="variable-selection.html#r-example"><i class="fa fa-check"></i><b>4.2.3</b> R example</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i>Documentation</a></li>
+<li class="chapter" data-level="5" data-path="funding-and-financial-support.html"><a href="funding-and-financial-support.html"><i class="fa fa-check"></i><b>5</b> Funding and Financial Support:</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Functional Data Analysis, Regression, Classification and Clustering using fda.usc package</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="variable-selection" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Variable Selection</h1>
+<!-- 
+---
+output: html_document
+bibliography: biblio.bib
+---
+%\VignetteEngine{knitr::knitr} 
+%\VignetteIndexEntry{}
+#    Functional Data Analysis using fda.usc <img src="Rlogo.jpg" width="75"  /> package 
+<a id="top"></a>
+-->
+<div id="functiondal-regression-with-points-of-impact" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Functiondal regression with points of impact</h2>
+<div id="state-of-art" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> State of Art</h3>
+<ul>
+<li><p>Nonparametric variable selection approach (NOVAS). NOVAS is quite expensive from a computational perspective, <span class="citation"><a href="#ref-ferraty2010most" role="doc-biblioref">Frédéric Ferraty, Hall, and Vieu</a> (<a href="#ref-ferraty2010most" role="doc-biblioref">2010</a>)</span>.</p></li>
+<li><p>A wavelet-based weighted LASSO functional linear (FWLASSO).
+FWLASSO requires transforming the original variables and assuming a linear model, <span class="citation"><a href="#ref-Zhao2015" role="doc-biblioref">Zhao, Chen, and Ogden</a> (<a href="#ref-Zhao2015" role="doc-biblioref">2015</a>)</span>.</p></li>
+<li><p><span class="citation"><a href="#ref-berrendero2016variable" role="doc-biblioref">Berrendero, Cuevas, and Torrecilla</a> (<a href="#ref-berrendero2016variable" role="doc-biblioref">2016</a>)</span> use the Maxima-hunting proposal to choose the most relevant design points in functional classification setting.</p></li>
+</ul>
+</div>
+<div id="local-maxima-distance-correlation-approach-lmdc-ordonez2018" class="section level3" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Local maxima distance correlation approach (LMDC), <span class="citation">(<a href="#ref-Ordonez2018" role="doc-biblioref">Ordóñez et al. 2018</a>)</span></h3>
+<ul>
+<li><p>In this work we study the utility of distance correlation <span class="citation"><a href="#ref-Szekely2007" role="doc-biblioref">Székely, Rizzo, and Bakirov</a> (<a href="#ref-Szekely2007" role="doc-biblioref">2007</a>)</span> as an intrinsic method for variable selection.</p></li>
+<li><p>Neither projection nor transformation of the variables is needed. Moreover, it is unnecessary to assume an a priori regression model.</p></li>
+<li><p>LMDC approach consists in calculating the local maxima of the distance correlation along the curve.</p></li>
+</ul>
+</div>
+<div id="lmdc-algorithm-lmdc.select-function" class="section level3" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> LMDC Algorithm: <code>LMDC.select()</code> function</h3>
+<ol style="list-style-type: decimal">
+<li><p>Calculate de distance correlation (DC) <span class="math inline">\(R(t) = \left \lbrace R(X(t_j),Y) \right\rbrace {_{j=1}^N}\)</span>, from the data <span class="math inline">\(\left \lbrace X_i (t_j),Y_i \right\rbrace _{i=1}^n\)</span>.</p></li>
+<li><p>Calculate the LM of the <span class="math inline">\(\hat{\mathcal{R}} (t)\)</span>.
+Only the significant local maxima for a default level of significance are selected.
+Denoting the arguments values (argvals) of the local maxima a <span class="math inline">\(\tilde t_1,\tilde t_2,\ldots,\tilde t_{\tilde{N}}\)</span> (<span class="math inline">\(\tilde{N}&lt;N\)</span>), we ordered them from highest to lowest values of DC, that is <span class="math inline">\(\hat{\mathcal{R}}(\tilde t_1) \geq \hat{ \mathcal{R}}(\tilde t_2) &gt;\ldots \geq \hat {\mathcal{R}}(\tilde t_{\tilde{N}})\)</span></p></li>
+</ol>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="variable-selection.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fda.usc)</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="variable-selection.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(tecator)</span>
+<span id="cb198-2"><a href="variable-selection.html#cb198-2" aria-hidden="true" tabindex="-1"></a>X.d2<span class="ot">&lt;-</span><span class="fu">fdata.deriv</span>(tecator[[<span class="st">&quot;absorp.fdata&quot;</span>]],</span>
+<span id="cb198-3"><a href="variable-selection.html#cb198-3" aria-hidden="true" tabindex="-1"></a><span class="at">nderiv =</span> <span class="dv">2</span>)</span>
+<span id="cb198-4"><a href="variable-selection.html#cb198-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(X.d2[[<span class="st">&quot;data&quot;</span>]])<span class="ot">&lt;-</span><span class="fu">paste0</span>(<span class="st">&quot;X&quot;</span>,<span class="fu">round</span>(X.d2[[<span class="st">&quot;argvals&quot;</span>]]))</span>
+<span id="cb198-5"><a href="variable-selection.html#cb198-5" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;y&quot;</span><span class="ot">=</span>tecator[[<span class="st">&quot;y&quot;</span>]][[<span class="st">&quot;Fat&quot;</span>]],X.d2[[<span class="st">&quot;data&quot;</span>]] )</span>
+<span id="cb198-6"><a href="variable-selection.html#cb198-6" aria-hidden="true" tabindex="-1"></a>tol<span class="ot">&lt;-</span>.<span class="dv">2</span></span>
+<span id="cb198-7"><a href="variable-selection.html#cb198-7" aria-hidden="true" tabindex="-1"></a>dc.raw <span class="ot">&lt;-</span> <span class="fu">LMDC.select</span>(<span class="st">&quot;y&quot;</span>,<span class="at">data =</span> dat, <span class="at">tol =</span> tol,<span class="at">pvalue =</span> <span class="fl">0.05</span>,</span>
+<span id="cb198-8"><a href="variable-selection.html#cb198-8" aria-hidden="true" tabindex="-1"></a><span class="at">plot=</span>F)</span>
+<span id="cb198-9"><a href="variable-selection.html#cb198-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Preselected impact points </span></span>
+<span id="cb198-10"><a href="variable-selection.html#cb198-10" aria-hidden="true" tabindex="-1"></a>covar<span class="ot">&lt;-</span><span class="fu">names</span>(dat)[<span class="sc">-</span><span class="dv">1</span>][dc.raw[[<span class="st">&quot;maxLocal&quot;</span>]]]</span>
+<span id="cb198-11"><a href="variable-selection.html#cb198-11" aria-hidden="true" tabindex="-1"></a>covar</span></code></pre></div>
+<pre><code>##  [1] &quot;X933&quot;  &quot;X1046&quot; &quot;X907&quot;  &quot;X886&quot;  &quot;X896&quot;  &quot;X1010&quot; &quot;X1020&quot; &quot;X1030&quot; &quot;X945&quot; 
+## [10] &quot;X876&quot;  &quot;X915&quot;  &quot;X862&quot;  &quot;X993&quot;</code></pre>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="variable-selection.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(covar)</span></code></pre></div>
+<pre><code>## [1] 13</code></pre>
+</div>
+<div id="lmdc-algorithm-lmdc.regre-function" class="section level3" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> LMDC Algorithm: <code>LMDC.regre()</code> function</h3>
+<ol start="3" style="list-style-type: decimal">
+<li>(Optionally) Check if the relationship between the reponse and the predictor variables is linear: <span class="math inline">\(H_0:\,Y=\big&lt;X,\beta\big&gt;+\epsilon\)</span>, versus a general alternative using a test of linearity proposed in <span class="citation"><a href="#ref-garcia2014goodness" role="doc-biblioref">Garcı́a-Portugués, González-Manteiga, and Febrero-Bande</a> (<a href="#ref-garcia2014goodness" role="doc-biblioref">2014</a>)</span>.</li>
+</ol>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="variable-selection.html#cb202-1" aria-hidden="true" tabindex="-1"></a>ftest<span class="ot">&lt;-</span><span class="fu">flm.test</span>(dat[,<span class="sc">-</span><span class="dv">1</span>], dat[,<span class="st">&quot;y&quot;</span>],</span>
+<span id="cb202-2"><a href="variable-selection.html#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="at">verbose=</span>F,<span class="at">plot.it=</span>F)</span></code></pre></div>
+<pre><code>## [1] &quot;PLS1&quot;
+## [1] &quot;PLS2&quot;</code></pre>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="variable-selection.html#cb204-1" aria-hidden="true" tabindex="-1"></a>ftest</span></code></pre></div>
+<pre><code>## 
+##  PCvM test for the functional linear model using optimal PLS basis
+##  representation
+## 
+## data:  Y=&lt;X,b&gt;+e
+## PCvM statistic = 216.51, p-value &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="variable-selection.html#cb206-1" aria-hidden="true" tabindex="-1"></a>ftest[[<span class="st">&quot;p.value&quot;</span>]]</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Fit a regression model to the response of interest <span class="math inline">\(Y\)</span> using the vector of covariates <span class="math inline">\(X(\tilde{t})=\{X(\tilde t_1), \ldots, X(\tilde{t}_{\tilde{N}})\}\)</span>. A linear model will be used if the null hypothesis is not rejected and a nonparametric (e.g. generalized additive model) model otherwise.</p></li>
+<li><p>(Optionally) Once the type model has been selected, we propose to
+Apply a forward stepwise regression method to determine the significant covariates, taking advantage of the fact that the local maxima have been ordered. This means we start with a model with the first covariate (the one with the highest value of distance correlation), and the rest of the ordered covariates are added to the model in turn. This substantially reduces the computing time.</p></li>
+</ol>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="variable-selection.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (ftest<span class="sc">$</span>p.value <span class="sc">&gt;</span> <span class="fl">0.05</span>) { <span class="co"># Linear relationship, step-wise lm is recommended</span></span>
+<span id="cb208-2"><a href="variable-selection.html#cb208-2" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">LMDC.regre</span>(<span class="at">y =</span> <span class="st">&quot;y&quot;</span>, <span class="at">covar =</span> covar, <span class="at">data =</span> dat, <span class="at">pvalue=</span>.<span class="dv">05</span>, <span class="at">method =</span><span class="st">&quot;lm&quot;</span>)</span>
+<span id="cb208-3"><a href="variable-selection.html#cb208-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {<span class="co"># Non-Linear relationship, step-wise gam is recommended</span></span>
+<span id="cb208-4"><a href="variable-selection.html#cb208-4" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">LMDC.regre</span>(<span class="at">y =</span> <span class="st">&quot;y&quot;</span>, <span class="at">covar =</span> covar, <span class="at">data =</span> dat,<span class="at">pvalue=</span>.<span class="dv">05</span>, <span class="at">method =</span><span class="st">&quot;gam&quot;</span>)}  </span>
+<span id="cb208-5"><a href="variable-selection.html#cb208-5" aria-hidden="true" tabindex="-1"></a>out</span></code></pre></div>
+<pre><code>## $model
+## 
+## Family: gaussian 
+## Link function: identity 
+## 
+## Formula:
+## y ~ s(X933, k = 4) + s(X1046, k = 4) + s(X907, k = 4) + s(X886, 
+##     k = 4) + s(X896, k = 4) + s(X1010, k = 4) + s(X1020, k = 4) + 
+##     s(X1030, k = 4) + s(X945, k = 4) + s(X876, k = 4) + s(X915, 
+##     k = 4) + s(X993, k = 4)
+## 
+## Estimated degrees of freedom:
+## 3.00 2.55 2.83 2.00 1.00 1.00 2.94 
+## 2.92 2.81 2.57 1.00 2.85  total = 28.48 
+## 
+## GCV score: 0.4403176     
+## 
+## $xvar
+##  [1] &quot;X933&quot;  &quot;X1046&quot; &quot;X907&quot;  &quot;X886&quot;  &quot;X896&quot;  &quot;X1010&quot; &quot;X1020&quot; &quot;X1030&quot; &quot;X945&quot; 
+## [10] &quot;X876&quot;  &quot;X915&quot;  &quot;X993&quot; 
+## 
+## $pred
+## NULL
+## 
+## $edf
+## [1] 28.48142
+## 
+## $nvar
+## [1] 12</code></pre>
+<p>Differences in mean square prediction error between linear (usign <code>lm</code> model) and non-linear (usign <code>gam</code> model) model</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="variable-selection.html#cb210-1" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">LMDC.regre</span>(<span class="at">y =</span> <span class="st">&quot;y&quot;</span>, <span class="at">covar =</span> covar, <span class="at">data =</span> dat[<span class="dv">1</span><span class="sc">:</span><span class="dv">165</span>,],<span class="at">newdata=</span>dat[<span class="dv">166</span><span class="sc">:</span><span class="dv">215</span>,], <span class="at">pvalue=</span>.<span class="dv">05</span>, <span class="at">method =</span><span class="st">&quot;lm&quot;</span>)</span>
+<span id="cb210-2"><a href="variable-selection.html#cb210-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>((out<span class="sc">$</span>pred<span class="sc">-</span>dat<span class="sc">$</span>y[<span class="dv">166</span><span class="sc">:</span><span class="dv">215</span>])<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 11.75474</code></pre>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="variable-selection.html#cb212-1" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">LMDC.regre</span>(<span class="at">y =</span> <span class="st">&quot;y&quot;</span>, <span class="at">covar =</span> covar, <span class="at">data =</span> dat[<span class="dv">1</span><span class="sc">:</span><span class="dv">165</span>,],<span class="at">newdata=</span>dat[<span class="dv">166</span><span class="sc">:</span><span class="dv">215</span>,], <span class="at">pvalue=</span>.<span class="dv">05</span>, <span class="at">method =</span><span class="st">&quot;gam&quot;</span>)</span>
+<span id="cb212-2"><a href="variable-selection.html#cb212-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>((out<span class="sc">$</span>pred<span class="sc">-</span>dat<span class="sc">$</span>y[<span class="dv">166</span><span class="sc">:</span><span class="dv">215</span>])<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 1.148573</code></pre>
+<blockquote>
+<p>Binary classification example (Impact point selection, model estimation and prediction)</p>
+</blockquote>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="variable-selection.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(tecator)</span>
+<span id="cb214-2"><a href="variable-selection.html#cb214-2" aria-hidden="true" tabindex="-1"></a>X.d2<span class="ot">&lt;-</span><span class="fu">fdata.deriv</span>(tecator[[<span class="st">&quot;absorp.fdata&quot;</span>]],</span>
+<span id="cb214-3"><a href="variable-selection.html#cb214-3" aria-hidden="true" tabindex="-1"></a><span class="at">nderiv =</span> <span class="dv">2</span>)</span>
+<span id="cb214-4"><a href="variable-selection.html#cb214-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(X.d2[[<span class="st">&quot;data&quot;</span>]])<span class="ot">&lt;-</span><span class="fu">paste0</span>(<span class="st">&quot;X&quot;</span>,<span class="fu">round</span>(X.d2[[<span class="st">&quot;argvals&quot;</span>]]))</span>
+<span id="cb214-5"><a href="variable-selection.html#cb214-5" aria-hidden="true" tabindex="-1"></a>y2groups <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(tecator[[<span class="st">&quot;y&quot;</span>]][[<span class="st">&quot;Fat&quot;</span>]]<span class="sc">&lt;</span><span class="dv">12</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb214-6"><a href="variable-selection.html#cb214-6" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;y2groups&quot;</span><span class="ot">=</span>y2groups,X.d2[[<span class="st">&quot;data&quot;</span>]] )</span>
+<span id="cb214-7"><a href="variable-selection.html#cb214-7" aria-hidden="true" tabindex="-1"></a>tol<span class="ot">&lt;-</span>.<span class="dv">1</span></span>
+<span id="cb214-8"><a href="variable-selection.html#cb214-8" aria-hidden="true" tabindex="-1"></a>dc.raw <span class="ot">&lt;-</span> <span class="fu">LMDC.select</span>(<span class="st">&quot;y2groups&quot;</span>,<span class="at">data =</span> dat, <span class="at">tol =</span> tol,<span class="at">pvalue =</span> <span class="fl">0.05</span>,</span>
+<span id="cb214-9"><a href="variable-selection.html#cb214-9" aria-hidden="true" tabindex="-1"></a><span class="at">plot=</span>F)</span>
+<span id="cb214-10"><a href="variable-selection.html#cb214-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Preselected impact points </span></span>
+<span id="cb214-11"><a href="variable-selection.html#cb214-11" aria-hidden="true" tabindex="-1"></a>covar<span class="ot">&lt;-</span><span class="fu">names</span>(dat)[<span class="sc">-</span><span class="dv">1</span>][dc.raw[[<span class="st">&quot;maxLocal&quot;</span>]]]</span>
+<span id="cb214-12"><a href="variable-selection.html#cb214-12" aria-hidden="true" tabindex="-1"></a>covar</span></code></pre></div>
+<pre><code>##  [1] &quot;X945&quot;  &quot;X905&quot;  &quot;X933&quot;  &quot;X886&quot;  &quot;X1020&quot; &quot;X876&quot;  &quot;X1030&quot; &quot;X896&quot;  &quot;X1046&quot;
+## [10] &quot;X862&quot;  &quot;X1010&quot; &quot;X915&quot;  &quot;X965&quot;</code></pre>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="variable-selection.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(covar)</span></code></pre></div>
+<pre><code>## [1] 13</code></pre>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="variable-selection.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GLM model (using binomial family), other multivariate model can be used</span></span>
+<span id="cb218-2"><a href="variable-selection.html#cb218-2" aria-hidden="true" tabindex="-1"></a>ind <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">129</span></span>
+<span id="cb218-3"><a href="variable-selection.html#cb218-3" aria-hidden="true" tabindex="-1"></a>ldata<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span>dat[ind,])</span>
+<span id="cb218-4"><a href="variable-selection.html#cb218-4" aria-hidden="true" tabindex="-1"></a>form.glm<span class="ot">&lt;-</span><span class="fu">formula</span>(<span class="fu">paste0</span>(<span class="st">&quot;y2groups~&quot;</span>,<span class="fu">paste0</span>(covar,<span class="at">collapse=</span><span class="st">&quot;+&quot;</span>)))</span>
+<span id="cb218-5"><a href="variable-selection.html#cb218-5" aria-hidden="true" tabindex="-1"></a>out.glm  <span class="ot">&lt;-</span> <span class="fu">classif.glm</span>(form.glm, <span class="at">data =</span> ldata)</span>
+<span id="cb218-6"><a href="variable-selection.html#cb218-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(out.glm)</span></code></pre></div>
+<pre><code>##      - SUMMARY - 
+## 
+## -Probability of correct classification by group (prob.classification):
+## 0 1 
+## 1 1 
+## 
+## -Confusion matrix between the theoretical groups (by rows)
+##   and estimated groups (by column) 
+##    
+##      0  1
+##   0 58  0
+##   1  0 71
+## 
+## -Probability of correct classification:  1</code></pre>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="variable-selection.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prediction</span></span>
+<span id="cb220-2"><a href="variable-selection.html#cb220-2" aria-hidden="true" tabindex="-1"></a>newldata<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span>dat[<span class="sc">-</span>ind,])</span>
+<span id="cb220-3"><a href="variable-selection.html#cb220-3" aria-hidden="true" tabindex="-1"></a>pred.glm<span class="ot">&lt;-</span><span class="fu">predict</span>(out.glm,newldata)</span>
+<span id="cb220-4"><a href="variable-selection.html#cb220-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb220-5"><a href="variable-selection.html#cb220-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Confusion matrix</span></span>
+<span id="cb220-6"><a href="variable-selection.html#cb220-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(newldata<span class="sc">$</span>df<span class="sc">$</span>y2groups,pred.glm)</span></code></pre></div>
+<pre><code>##    pred.glm
+##      0  1
+##   0 40  0
+##   1  3 43</code></pre>
+</div>
+</div>
+<div id="variable-selection-in-functional-regression" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Variable selection in functional regression</h2>
+<p><span class="citation"><a href="#ref-Febrero-Bande2019" role="doc-biblioref">Febrero-Bande, González-Manteiga, and Oviedo de la Fuente</a> (<a href="#ref-Febrero-Bande2019" role="doc-biblioref">2019</a>)</span> consider the problem of variable selection in regression models in the case of functional variables that may be mixed with other type of variables (scalar, multivariate, directional, etc.).</p>
+<p>Our proposal begins with a simple null model and sequentially selects a new variable to be incorporated into the model based on the use of distance correlation proposed by <span class="citation">(<a href="#ref-Szekely2007" role="doc-biblioref">Székely, Rizzo, and Bakirov 2007</a>)</span>. For the sake of simplicity, this paper only uses additive models.</p>
+<p><span class="math display">\[
+Y_i=\alpha+\sum_{j=1}^Jf_j({X_i^{(j)}})+\varepsilon_i,\quad i=1,\ldots,N
+\]</span></p>
+<p>The proposed algorithm may assess the type of contribution (linear, non linear, …) of each variable. The algorithm has shown quite promising results when applied to simulations and real data sets.</p>
+<div id="state-of-art-1" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> State of Art</h3>
+<ul>
+<li><p>Stepwise regression, <span class="citation"><a href="#ref-Akaike1973" role="doc-biblioref">Akaike</a> (<a href="#ref-Akaike1973" role="doc-biblioref">1973</a>)</span>. The main idea is to use some diagnostic tools, directly derived from the linear model, to evaluate the contribution of a new covariate and decide whether it should be included in the model. The final subset is usually constructed using: the forward and/or the backward selection.</p></li>
+<li><p>Feature Selection using LASSO. The work by Tibshirani, 1996 proposing the LASSO estimator includes a <span class="math inline">\(l_1\)</span>-type constraint for the coefficient vector <span class="math inline">\(\beta\)</span>. Several examples following the same line but using penalties or constraints such as: LARS (<span class="citation"><a href="#ref-efron2004least" role="doc-biblioref">Efron et al. et al.</a> (<a href="#ref-efron2004least" role="doc-biblioref">2004</a>)</span>) and COSSO (<span class="citation"><a href="#ref-lin2006component" role="doc-biblioref">Lin, Zhang et al.</a> (<a href="#ref-lin2006component" role="doc-biblioref">2006</a>)</span>). Each methods is based on a specific model, all the covariates must be included in the model at the same time and for functional data problems, the previous steps that commonly include variable standardization.</p></li>
+<li><p><span class="citation"><a href="#ref-berrendero2016variable" role="doc-biblioref">Berrendero, Cuevas, and Torrecilla</a> (<a href="#ref-berrendero2016variable" role="doc-biblioref">2016</a>)</span> use the Minimum Redundance Maximum Relevance (mRMR) procedure to choose the most relevant design points in functional classification setting.</p></li>
+<li><p>A pure feature selection methods where the covariate is selected without a model. This is the approach employed in minimum Redundancy Maximum Relevance (mRMR), (<span class="citation"><a href="#ref-peng2005feature" role="doc-biblioref">Peng, Long, and Ding</a> (<a href="#ref-peng2005feature" role="doc-biblioref">2005</a>)</span>) where a new candidate covariate must have a great relevancy with the response while maintaining a lower redundancy with the covariates already selected in the model. he main advantage of this approach is that it is an incremental rule but the measures for redundancy and relevancy must be chosen in function of the regression model applied to ensure good predictive results in the final model. <span class="citation"><a href="#ref-berrendero2018" role="doc-biblioref">Berrendero, Cuevas, and Torrecilla</a> (<a href="#ref-berrendero2018" role="doc-biblioref">2018</a>)</span> used the Reproducing Kernel Hilbert Space (RKHS) for variable selection in FLM.</p></li>
+<li><p>Boosting, see <span class="citation"><a href="#ref-Ferraty2009" role="doc-biblioref">F. Ferraty and Vieu</a> (<a href="#ref-Ferraty2009" role="doc-biblioref">2009</a>)</span> in a functional data context. Boosting selects at each step the best covariate/model with respect to the unexplained part of the response. The final prediction is constructed as a combination of the different steps.</p></li>
+<li><p>Partial distance correlation (PDC): used in <span class="citation"><a href="#ref-Yenigun2015" role="doc-biblioref">Yenigün and Rizzo</a> (<a href="#ref-Yenigun2015" role="doc-biblioref">2015</a>)</span> for VS in multivariate linear models, a definition of PDC among <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given <span class="math inline">\(Z\)</span> was introduced based on computing the distance correlation among the residuals of two models: <span class="math inline">\(Y\)</span> respect to <span class="math inline">\(Z\)</span> and <span class="math inline">\(X\)</span> respect to <span class="math inline">\(Z\)</span>. PDC is constructed under linear relationship assumptions among variables. Its implementation only uses the distance matrices among elements of <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> (variables should have a similar scale).</p></li>
+</ul>
+<p>Specifically, <span class="math inline">\(Z\)</span> (the variables already in the model) could be a mix of functional, scalar or multivariate variables where an appropriate distance using all of them must be hard to compute. Even restricting ourselves to the scalar case, those variables should have a similar scale.</p>
+</div>
+<div id="algorithm" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Algorithm</h3>
+<p>All the previous solutions are not completely satisfactory in a functional data framework, specially when the number of possible covariates can be arbitrarily large. We are interested in an automatic regression procedure capable of dealing with a large number of covariates of different nature, possibly very closely related to one another.</p>
+<p>The key of the whole procedure is the extensive use of the DC that presents two important advantages: the choice of the variate is made without considering a model and it is possible to compute this quantity for variates of different nature as it is only computed from distances. The distance correlation (DC) is computed among the residuals of the current model with each candidate. Taking into account that the residuals have the same nature as the response variable, the DC can always be computed at each step.</p>
+<p>Our proposal is presented is a very general way, we have restricted ourselves to additive models that offer a balanced compromise between predictive ability and simplicity. The obtained results are quite promising in scenarios where no competitors are available because no other procedure can deal with variates of different nature in a homogeneous way.</p>
+<p>The procedure was applied to a real problem related with the Iberian Energy Market (Price and Demand) where the number of possible covariates is really big. The algorithm was able to find synthetic regression models offering interesting insights about the relationship among the response and the covariates. The final selected models mix functional, scalar and categorical information.</p>
+<p>Our algorithm can be formalized as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p>Let <span class="math inline">\(Y\)</span> the response and <span class="math inline">\(S=\{X^1,\ldots,X^p\}\)</span> the set of all possible predictors.</p></li>
+<li><p>Set <span class="math inline">\(\hat{Y}=\bar{Y}\)</span>, and let <span class="math inline">\(M^{(0)}=\emptyset\)</span> the initial set of the variates included in the model. Set <span class="math inline">\(i=0\)</span>.</p></li>
+<li><p>Compute the residuals of the current model: <span class="math inline">\(\hat{\varepsilon}=Y-\hat{Y}\)</span>.</p></li>
+<li><p>Choose <span class="math inline">\(X^j\in S\)</span> such that: 1) <span class="math inline">\(\mathcal{R}\{\hat{\varepsilon},X^j\}\ge \mathcal{R}\{\hat{\varepsilon},X^k\}, \forall k\ne j\in S\)</span> and 2) the null hypothesis for the test of independence among <span class="math inline">\(\left\{X^j\right\}\)</span> and <span class="math inline">\(\hat{\varepsilon}\)</span> is rejected. IF NOT, END.</p></li>
+<li><p>Update the sets <span class="math inline">\(M\)</span> and <span class="math inline">\(S\)</span>: <span class="math inline">\(M^{(i+1)}=M^{(i)}\cup\{X^j\}\)</span>, and <span class="math inline">\(S=S\backslash\{X^j\}\)</span>.</p></li>
+<li><p>Compute the new model for <span class="math inline">\(Y\)</span> using <span class="math inline">\(M^{(i+1)}\)</span> choosing the best contribution of the new covariate. Typically, there will be a catalog of all possible ways of constructing correct models with the variates in <span class="math inline">\(M^{(i+1)}\)</span> fixing the contributions of the variates in <span class="math inline">\(M^{(i)}\)</span> and adding the new one.</p></li>
+<li><p>Analyze the contribution of <span class="math inline">\(X^j\)</span> in the new model respect to the current:</p></li>
+</ol>
+<ul>
+<li><p>IF this contribution is not relevant (typically comparing with the current model)
+THEN <span class="math inline">\(M^{(i+1)}=M^{(i+1)}\backslash\{X^j\}\)</span> and the current model remains unalterable</p></li>
+<li><p>ELSE the new model becomes the current model and provides new predictions (<span class="math inline">\(\hat{Y}\)</span>). Along the paper we have employed an additive model: <span class="math inline">\(\hat{Y}=\bar{Y}+\sum_{m\in M}\hat{f}_m\left(X^{(m)}\right)\)</span> where at each step <span class="math inline">\(\hat{f}_m\)</span> could be linear or nonlinear.</p></li>
+</ul>
+<ol start="8" style="list-style-type: decimal">
+<li><p>Update the number of iterations: <span class="math inline">\(i=i+1\)</span> and go to 3</p></li>
+<li><p>END.</p></li>
+</ol>
+<p>The current model is the final model with the variates included in <span class="math inline">\(M^{(i)}\)</span>.
+<span class="math inline">\(S\)</span> is either the empty set or contains those variables that accept the null hypothesis of the test of independence respect to the residuals of the current model.</p>
+</div>
+<div id="r-example" class="section level3" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> R example</h3>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="variable-selection.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(tecator)</span>
+<span id="cb222-2"><a href="variable-selection.html#cb222-2" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span>tecator<span class="sc">$</span>y<span class="sc">$</span>Fat</span>
+<span id="cb222-3"><a href="variable-selection.html#cb222-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-4"><a href="variable-selection.html#cb222-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Potential functional covariates</span></span>
+<span id="cb222-5"><a href="variable-selection.html#cb222-5" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span>tecator<span class="sc">$</span>absorp.fdata</span>
+<span id="cb222-6"><a href="variable-selection.html#cb222-6" aria-hidden="true" tabindex="-1"></a>x1<span class="ot">&lt;-</span><span class="fu">fdata.deriv</span>(x)</span>
+<span id="cb222-7"><a href="variable-selection.html#cb222-7" aria-hidden="true" tabindex="-1"></a>x2<span class="ot">&lt;-</span><span class="fu">fdata.deriv</span>(x,<span class="at">nderiv=</span><span class="dv">2</span>)</span>
+<span id="cb222-8"><a href="variable-selection.html#cb222-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-9"><a href="variable-selection.html#cb222-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Potential factor covariates</span></span>
+<span id="cb222-10"><a href="variable-selection.html#cb222-10" aria-hidden="true" tabindex="-1"></a>xcat0<span class="ot">&lt;-</span><span class="fu">cut</span>(<span class="fu">rnorm</span>(<span class="fu">length</span>(y)),<span class="dv">4</span>)</span>
+<span id="cb222-11"><a href="variable-selection.html#cb222-11" aria-hidden="true" tabindex="-1"></a>xcat1<span class="ot">&lt;-</span><span class="fu">cut</span>(tecator<span class="sc">$</span>y<span class="sc">$</span>Protein,<span class="dv">4</span>)</span>
+<span id="cb222-12"><a href="variable-selection.html#cb222-12" aria-hidden="true" tabindex="-1"></a>xcat2<span class="ot">&lt;-</span><span class="fu">cut</span>(tecator<span class="sc">$</span>y<span class="sc">$</span>Water,<span class="dv">4</span>)</span>
+<span id="cb222-13"><a href="variable-selection.html#cb222-13" aria-hidden="true" tabindex="-1"></a>ind <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">129</span></span>
+<span id="cb222-14"><a href="variable-selection.html#cb222-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-15"><a href="variable-selection.html#cb222-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 functionals (x,x1,x2), 3 factors (xcat0, xcat1, xcat2)</span></span>
+<span id="cb222-16"><a href="variable-selection.html#cb222-16" aria-hidden="true" tabindex="-1"></a><span class="co"># and 100 potential scalars covariates (impact poitns of x1) </span></span>
+<span id="cb222-17"><a href="variable-selection.html#cb222-17" aria-hidden="true" tabindex="-1"></a>dat    <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;Fat&quot;</span><span class="ot">=</span>y, x1<span class="sc">$</span>data, xcat1, xcat2)</span>
+<span id="cb222-18"><a href="variable-selection.html#cb222-18" aria-hidden="true" tabindex="-1"></a>ldat <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span>dat[ind,],<span class="st">&quot;x&quot;</span><span class="ot">=</span>x[ind,],<span class="st">&quot;x1&quot;</span><span class="ot">=</span>x1[ind,],<span class="st">&quot;x2&quot;</span><span class="ot">=</span>x2[ind,])</span>
+<span id="cb222-19"><a href="variable-selection.html#cb222-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-20"><a href="variable-selection.html#cb222-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Time consuming</span></span>
+<span id="cb222-21"><a href="variable-selection.html#cb222-21" aria-hidden="true" tabindex="-1"></a>res.gam1<span class="ot">&lt;-</span><span class="fu">fregre.gsam.vs</span>(<span class="at">data=</span>ldat,<span class="at">y=</span><span class="st">&quot;Fat&quot;</span>)</span>
+<span id="cb222-22"><a href="variable-selection.html#cb222-22" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(res.gam1<span class="sc">$</span>model)</span></code></pre></div>
+<pre><code>##       Fat             X97                x2.PC1              x2.PC2          
+##  Min.   : 0.90   Min.   :-0.015836   Min.   :-0.003367   Min.   :-3.082e-03  
+##  1st Qu.: 7.70   1st Qu.:-0.010165   1st Qu.:-0.002367   1st Qu.:-7.165e-04  
+##  Median :14.60   Median :-0.009397   Median :-0.000950   Median :-2.801e-05  
+##  Mean   :18.24   Mean   :-0.009414   Mean   : 0.000000   Mean   : 0.000e+00  
+##  3rd Qu.:27.80   3rd Qu.:-0.008574   3rd Qu.: 0.001717   3rd Qu.: 6.665e-04  
+##  Max.   :49.10   Max.   :-0.006377   Max.   : 0.009573   Max.   : 6.246e-03  
+##      x2.PC3               x2.PC4          
+##  Min.   :-0.0032986   Min.   :-1.041e-03  
+##  1st Qu.:-0.0001912   1st Qu.:-1.193e-04  
+##  Median : 0.0001008   Median : 2.363e-05  
+##  Mean   : 0.0000000   Mean   : 0.000e+00  
+##  3rd Qu.: 0.0002728   3rd Qu.: 1.270e-04  
+##  Max.   : 0.0034901   Max.   : 1.131e-03</code></pre>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="variable-selection.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prediction like fregre.gsam() </span></span>
+<span id="cb224-2"><a href="variable-selection.html#cb224-2" aria-hidden="true" tabindex="-1"></a>newldat <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span>dat[<span class="sc">-</span>ind,],<span class="st">&quot;x&quot;</span><span class="ot">=</span>x[<span class="sc">-</span>ind,],<span class="st">&quot;x1&quot;</span><span class="ot">=</span>x1[<span class="sc">-</span>ind,],<span class="st">&quot;x2&quot;</span><span class="ot">=</span>x2[<span class="sc">-</span>ind,])</span>
+<span id="cb224-3"><a href="variable-selection.html#cb224-3" aria-hidden="true" tabindex="-1"></a>pred.gam1<span class="ot">&lt;-</span><span class="fu">predict</span>(res.gam1,newldat)</span>
+<span id="cb224-4"><a href="variable-selection.html#cb224-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dat[<span class="sc">-</span>ind,<span class="st">&quot;Fat&quot;</span>],pred.gam1)</span></code></pre></div>
+<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-64-1.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Akaike1973" class="csl-entry">
+Akaike, Htrotugu. 1973. <span>“Maximum Likelihood Identification of Gaussian Autoregressive Moving Average Models.”</span> <em>Biometrika</em> 60 (2): 255–65.
+</div>
+<div id="ref-berrendero2018" class="csl-entry">
+Berrendero, José R, Antonio Cuevas, and Jos’e L Torrecilla. 2018. <span>“On the Use of Reproducing Kernel Hilbert Spaces in Func2tional Classification.”</span> <em>Journal of the American Statistical Association</em> 113: 1210–18.
+</div>
+<div id="ref-berrendero2016variable" class="csl-entry">
+Berrendero, José R, Antonio Cuevas, and José L Torrecilla. 2016. <span>“Variable Selection in Functional Data Classification: A Maxima-Hunting Proposal.”</span> <em>Statistica Sinica</em>, 619–38.
+</div>
+<div id="ref-efron2004least" class="csl-entry">
+Efron, Bradley, Trevor Hastie, Iain Johnstone, Robert Tibshirani et al. 2004. <span>“Least Angle Regression.”</span> <em>The Annals of Statistics</em> 32 (2): 407–99.
+</div>
+<div id="ref-Febrero-Bande2019" class="csl-entry">
+Febrero-Bande, Manuel, Wenceslao González-Manteiga, and Manuel Oviedo de la Fuente. 2019. <span>“Variable Selection in Functional Additive Regression Models.”</span> <em>Computational Statistics</em> 34 (2): 469–87. <a href="https://doi.org/10.1007/s00180-018-0844-5">https://doi.org/10.1007/s00180-018-0844-5</a>.
+</div>
+<div id="ref-ferraty2010most" class="csl-entry">
+Ferraty, Frédéric, P Hall, and Philippe Vieu. 2010. <span>“Most-Predictive Design Points for Functional Data Predictors.”</span> <em>Biometrika</em> 97 (4): 807–24.
+</div>
+<div id="ref-Ferraty2009" class="csl-entry">
+Ferraty, F., and P. Vieu. 2009. <span>“Additive Prediction and Boosting for Functional Data.”</span> <em>Comput. Statist. Data Anal.</em> 53 (4): 1400–1413. <a href="http://www.sciencedirect.com/science/article/pii/S0167947308005628">http://www.sciencedirect.com/science/article/pii/S0167947308005628</a>.
+</div>
+<div id="ref-garcia2014goodness" class="csl-entry">
+Garcı́a-Portugués, Eduardo, Wenceslao González-Manteiga, and Manuel Febrero-Bande. 2014. <span>“A Goodness-of-Fit Test for the Functional Linear Model with Scalar Response.”</span> <em>Journal of Computational and Graphical Statistics</em> 23 (3): 761–78.
+</div>
+<div id="ref-lin2006component" class="csl-entry">
+Lin, Yi, Hao Helen Zhang et al. 2006. <span>“Component Selection and Smoothing in Multivariate Nonparametric Regression.”</span> <em>The Annals of Statistics</em> 34 (5): 2272–97.
+</div>
+<div id="ref-Ordonez2018" class="csl-entry">
+Ordóñez, Celestino, Manuel Oviedo de la Fuente, Javier Roca-Pardiñas, and José Ramón Rodrı́guez-Pérez. 2018. <span>“Determining Optimum Wavelengths for Leaf Water Content Estimation from Reflectance: A Distance Correlation Approach.”</span> <em>Chemometrics and Intelligent Laboratory Systems</em> 173: 41–50.
+</div>
+<div id="ref-peng2005feature" class="csl-entry">
+Peng, Hanchuan, Fuhui Long, and Chris Ding. 2005. <span>“Feature Selection Based on Mutual Information: Criteria of Max-Dependency, Max-Relevance, and Min-Redundancy.”</span> <em>IEEE Transactions on Pattern Analysis &amp; Machine Intelligence</em>, no. 8: 1226–38.
+</div>
+<div id="ref-Szekely2007" class="csl-entry">
+Székely, Gábor J, Maria L Rizzo, and Nail K Bakirov. 2007. <span>“Measuring and Testing Dependence by Correlation of Distances.”</span> <em>Ann. Statist.</em> 35 (6): 2769–94. <a href="http://projecteuclid.org/euclid.aos/1201012979">http://projecteuclid.org/euclid.aos/1201012979</a>.
+</div>
+<div id="ref-Yenigun2015" class="csl-entry">
+Yenigün, C Deniz, and Maria L Rizzo. 2015. <span>“Variable Selection in Regression Using Maximal Correlation and Distance Correlation.”</span> <em>Journal of Statistical Computation and Simulation</em> 85 (8): 1692–1705.
+</div>
+<div id="ref-Zhao2015" class="csl-entry">
+Zhao, Yihong, Huaihou Chen, and R Todd Ogden. 2015. <span>“Wavelet-Based Weighted LASSO and Screening Approaches in Functional Linear Regression.”</span> <em>Journal of Computational and Graphical Statistics</em> 24 (3): 655–75.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="functional-supervised-classification.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/moviedo5/bookdown_fda_usc/edit/master/04-vs.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown_intro.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
