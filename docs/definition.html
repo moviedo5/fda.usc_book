@@ -262,6 +262,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.7.3" data-path="functional-clustering.html"><a href="functional-clustering.html#davies-bouldin-index"><i class="fa fa-check"></i><b>5.7.3</b> Davies-Bouldin Index</a></li>
 <li class="chapter" data-level="5.7.4" data-path="functional-clustering.html"><a href="functional-clustering.html#calinski-harabasz-index"><i class="fa fa-check"></i><b>5.7.4</b> Calinski-Harabasz Index</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#conclusions-and-future-work"><i class="fa fa-check"></i>Conclusions and Future Work</a></li>
 <li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#chapter-references"><i class="fa fa-check"></i>Chapter references</a></li>
 <li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#funding-and-financial-support"><i class="fa fa-check"></i>Funding and Financial Support</a></li>
 <li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#references"><i class="fa fa-check"></i>References</a></li>
@@ -673,9 +674,9 @@ m\left(\left(x_0^1, \ldots, x_0^p\right), \left(x_i^1, \ldots, x_i^p\right)\righ
 <p>It is essential to ensure that the metrics for the individual components have similar scales to prevent one component from disproportionately influencing the overall distance.</p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="definition.html#cb67-1" tabindex="-1"></a><span class="co"># Checking the range of two components to assess scale differences</span></span>
 <span id="cb67-2"><a href="definition.html#cb67-2" tabindex="-1"></a><span class="fu">range</span>(d1)</span></code></pre></div>
-<pre><code>## [1] 0.005531143 0.091797359</code></pre>
+<pre><code>## [1] 0.009269209 0.074329337</code></pre>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="definition.html#cb69-1" tabindex="-1"></a><span class="fu">range</span>(d2)</span></code></pre></div>
-<pre><code>## [1] 0.0003143458 0.0105466510</code></pre>
+<pre><code>## [1] 0.0003392917 0.0077699816</code></pre>
 <p>Now the <code>mfhclust()</code> function from the <code>fda.clust</code> package allows the user to do this easily. The call would be:</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="definition.html#cb71-1" tabindex="-1"></a><span class="fu">library</span>(fda.clust)</span>
 <span id="cb71-2"><a href="definition.html#cb71-2" tabindex="-1"></a>mfdat<span class="ot">=</span><span class="fu">list</span>(<span class="st">&quot;xx&quot;</span><span class="ot">=</span>xx,</span>
@@ -838,8 +839,8 @@ m\left(\left(x_0^1, \ldots, x_0^p\right), \left(x_i^1, \ldots, x_i^p\right)\righ
 <span id="cb98-2"><a href="definition.html#cb98-2" tabindex="-1"></a>rpd <span class="ot">=</span> <span class="fu">depth.RP</span>(poblenou<span class="sc">$</span>nox, <span class="at">nproj =</span> <span class="dv">50</span>)</span>
 <span id="cb98-3"><a href="definition.html#cb98-3" tabindex="-1"></a>rtd <span class="ot">=</span> <span class="fu">depth.RT</span>(poblenou<span class="sc">$</span>nox)</span>
 <span id="cb98-4"><a href="definition.html#cb98-4" tabindex="-1"></a><span class="fu">print</span>(cur <span class="ot">&lt;-</span> <span class="fu">c</span>(fmd<span class="sc">$</span>lmed, md<span class="sc">$</span>lmed, rpd<span class="sc">$</span>lmed, rtd<span class="sc">$</span>lmed))</span></code></pre></div>
-<pre><code>## 2005-05-06 2005-05-06 2005-05-06 2005-03-04 
-##         63         63         63         10</code></pre>
+<pre><code>## 2005-05-06 2005-05-06 2005-05-06 2005-05-11 
+##         63         63         63         67</code></pre>
 <div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="definition.html#cb100-1" tabindex="-1"></a><span class="fu">plot</span>(poblenou<span class="sc">$</span>nox,<span class="at">col=</span><span class="st">&quot;grey&quot;</span>)</span>
 <span id="cb100-2"><a href="definition.html#cb100-2" tabindex="-1"></a><span class="fu">lines</span>(poblenou<span class="sc">$</span>nox[cur], <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
 <span id="cb100-3"><a href="definition.html#cb100-3" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;FMD&quot;</span>, <span class="st">&quot;MD&quot;</span>, <span class="st">&quot;RPD&quot;</span>, <span class="st">&quot;RTD&quot;</span>), <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span></code></pre></div>

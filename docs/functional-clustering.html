@@ -262,6 +262,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.7.3" data-path="functional-clustering.html"><a href="functional-clustering.html#davies-bouldin-index"><i class="fa fa-check"></i><b>5.7.3</b> Davies-Bouldin Index</a></li>
 <li class="chapter" data-level="5.7.4" data-path="functional-clustering.html"><a href="functional-clustering.html#calinski-harabasz-index"><i class="fa fa-check"></i><b>5.7.4</b> Calinski-Harabasz Index</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#conclusions-and-future-work"><i class="fa fa-check"></i>Conclusions and Future Work</a></li>
 <li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#chapter-references"><i class="fa fa-check"></i>Chapter references</a></li>
 <li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#funding-and-financial-support"><i class="fa fa-check"></i>Funding and Financial Support</a></li>
 <li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#references"><i class="fa fa-check"></i>References</a></li>
@@ -536,94 +537,19 @@ ICH_k = \frac{SS_M (n - k)}{SS_W (k - 1)}
 <span id="cb273-2"><a href="functional-clustering.html#cb273-2" tabindex="-1"></a>result_ch_index</span></code></pre></div>
 <pre><code>## [1] 0.5357454</code></pre>
 <p>The selection of the most appropriate measure depends on the shape, size, and separation of clusters.</p>
-<!--
-
-usuar mi codigo de hace años o este de aquí
-```
-
-# Heterogeneity Measures for Unsupervised Classification
-
-This document discusses the heterogeneity measure for unsupervised classification as presented in Chapter 9, Section 9.3 of *Nonparametric Functional Data Analysis: Theory and Practice*. The goal is to evaluate the heterogeneity of a sample and its potential subdivisions during clustering. This measure is useful for determining how homogeneous a cluster is, and it is often used in hierarchical clustering.
-
-## Heterogeneity Index (HI)
-
-The Heterogeneity Index (HI) for a sample \(S\) is defined as:
-
-$$
-HI(S) = \frac{d(M_1,S, M_2,S)}{d(M_1,S, 0) + d(M_2,S, 0)}
-$$
-
-Where:
-- \(M_1,S\) and \(M_2,S\) are two measures of centrality (e.g., mean, median, or mode) for the distribution of functional data \(S\).
-- \(d\) is a semi-metric used to compute the distance between two functional objects.
-
-The choice of \(M_1,S\) and \(M_2,S\) plays a crucial role in the heterogeneity index. Often, they are set as:
-- \(M_1,S = X_{\text{mean},S}\) (the mean of the sample) and \(M_2,S = X_{\text{mod},S}\) (the mode of the sample), or
-- \(M_1,S = X_{\text{med},S}\) (the median of the sample) and \(M_2,S = X_{\text{mod},S}\).
-
-The larger the value of \(HI(S)\), the more heterogeneous the sample \(S\) is considered to be. This measure is crucial for evaluating the need to partition a sample during hierarchical clustering.
-
-## Subsampled Heterogeneity Index (SHI)
-
-To increase robustness, a subsampled version of the Heterogeneity Index (SHI) is introduced. It is defined as:
-
-$$
-SHI(S) = \frac{1}{L} \sum_{l=1}^L HI(S^{(l)})
-$$
-
-Where \(S^{(l)}\) represents \(L\) randomly generated subsamples of \(S\) with the same size. This approach allows for a more stable estimate of the heterogeneity of the sample.
-
-## Partitioning Heterogeneity Index (PHI) and Splitting Score (SC)
-
-When performing hierarchical clustering, the Partitioning Heterogeneity Index (PHI) is used to evaluate the heterogeneity of each partition. Given a partition \([S_1, \ldots, S_K]\) of the sample \(S\), the PHI is defined as:
-
-$$
-PHI(S; S_1, \ldots, S_K) = \frac{1}{\text{card}(S)} \sum_{k=1}^K \text{card}(S_k) \cdot SHI(S_k)
-$$
-
-The Splitting Score (SC) is then calculated to evaluate if a partition improves the homogeneity of the sample. It is defined as:
-
-$$
-SC(S; S_1, \ldots, S_K) = \frac{SHI(S) - PHI(S; S_1, \ldots, S_K)}{SHI(S)}
-$$
-
-If \(SC > 0\), it indicates a gain in homogeneity from splitting the sample into partitions.
-
-## R Implementation
-
-Below is an example of how to calculate the Heterogeneity Index (HI) and Subsampled Heterogeneity Index (SHI) using R. Note that this implementation is a simplified example.
-
-
-``` r
-# Sample implementation for Heterogeneity Index (HI)
-heterogeneity_index <- function(sample, M1, M2, d) {
-  numerator <- d(M1(sample), M2(sample))
-  denominator <- d(M1(sample), 0) + d(M2(sample), 0)
-  HI <- numerator / denominator
-  return(HI)
-}
-
-# Example distance function (Euclidean distance)
-distance_function <- function(x, y) {
-  sqrt(sum((x - y)^2))
-}
-
-# Example sample and centrality measures
-set.seed(123)
-sample_data <- matrix(rnorm(100), ncol = 10)
-mean_center <- function(sample) colMeans(sample)
-mode_center <- function(sample) apply(sample, 2, function(x) as.numeric(names(sort(table(x), decreasing = TRUE)[1])))
-
-# Calculate HI
-HI_value <- heterogeneity_index(sample_data, mean_center, mode_center, distance_function)
-print(paste("Heterogeneity Index (HI):", round(HI_value, 4)))
-```
-
-```
-## [1] "Heterogeneity Index (HI): 0.8531"
-```
--->
 </div>
+</div>
+<div id="conclusions-and-future-work" class="section level2 unnumbered hasAnchor">
+<h2>Conclusions and Future Work<a href="functional-clustering.html#conclusions-and-future-work" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The development of <code>fda.clust</code> is ongoing, with several key areas for future improvement and expansion:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Automatic Parameter Selection</strong>: select key parameters like the number of clusters (<span class="math inline">\(k\)</span>), bandwidth (<span class="math inline">\(h\)</span>) for mean shift, and DBSCAN parameters (<span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\delta\)</span>).</p></li>
+<li><p><strong>Efficiency Improvements</strong>: Avoid redundant distance calculations by caching results and enabling parallel processing.</p></li>
+<li><p><strong>Other and New Clustering Procedures</strong>: Extend support for mode-based clustering, PCA-based clustering, and clustering for 2D functional data.</p></li>
+<li><p><strong>Heterogeneity Measures</strong>: Incorporate heterogeneity measures from FErraty and Vieu 2006 (Chapter 9, Section 3).</p></li>
+<li><p><strong>Enhanced Visualizations</strong>: Develop interactive plots.</p></li>
+<li><p><strong>Community Feedback</strong>.</p></li>
+</ol>
 </div>
 <div id="chapter-references" class="section level2 unnumbered hasAnchor">
 <h2>Chapter references<a href="functional-clustering.html#chapter-references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
