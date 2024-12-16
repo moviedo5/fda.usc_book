@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="functional-supervised-classification.html"/>
-<link rel="next" href="conclusions-and-future-work.html"/>
+<link rel="next" href="functional-clustering.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -182,13 +182,13 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="definition.html"><a href="definition.html#derivatives"><i class="fa fa-check"></i><b>1.3.1</b> Derivatives</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="definition.html"><a href="definition.html#correlation-distances-szekely2007"><i class="fa fa-check"></i><b>1.4</b> Correlation Distances <span class="citation">(G. J. Székely, Rizzo, and Bakirov 2007)</span></a>
+<li class="chapter" data-level="1.4" data-path="definition.html"><a href="definition.html#semi-metric-as-classification-rule"><i class="fa fa-check"></i><b>1.4</b> Semi-metric as classification rule</a></li>
+<li class="chapter" data-level="1.5" data-path="definition.html"><a href="definition.html#correlation-distances-szekely2007"><i class="fa fa-check"></i><b>1.5</b> Correlation Distances <span class="citation">(G. J. Székely, Rizzo, and Bakirov 2007)</span></a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="definition.html"><a href="definition.html#depth-for-functional-data"><i class="fa fa-check"></i><b>1.4.1</b> Depth for functional data</a></li>
-<li class="chapter" data-level="1.4.2" data-path="definition.html"><a href="definition.html#depth-and-distances-for-multivariate-functional-data-cuesta2017hbox"><i class="fa fa-check"></i><b>1.4.2</b> Depth (and distances) for multivariate functional data <span class="citation">(J. A. Cuesta-Albertos, Febrero-Bande, and Oviedo de la Fuente 2017)</span></a></li>
-<li class="chapter" data-level="1.4.3" data-path="definition.html"><a href="definition.html#outliers-detection"><i class="fa fa-check"></i><b>1.4.3</b> Outliers detection</a></li>
+<li class="chapter" data-level="1.5.1" data-path="definition.html"><a href="definition.html#depth-for-functional-data"><i class="fa fa-check"></i><b>1.5.1</b> Depth for functional data</a></li>
+<li class="chapter" data-level="1.5.2" data-path="definition.html"><a href="definition.html#depth-and-distances-for-multivariate-functional-data-cuesta2017hbox"><i class="fa fa-check"></i><b>1.5.2</b> Depth (and distances) for multivariate functional data <span class="citation">(J. A. Cuesta-Albertos, Febrero-Bande, and Oviedo de la Fuente 2017)</span></a></li>
+<li class="chapter" data-level="1.5.3" data-path="definition.html"><a href="definition.html#outliers-detection"><i class="fa fa-check"></i><b>1.5.3</b> Outliers detection</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="definition.html"><a href="definition.html#references"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>2</b> Functional Regression Model</a>
 <ul>
@@ -208,7 +208,6 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.9" data-path="regression.html"><a href="regression.html#functional-response-model"><i class="fa fa-check"></i><b>2.9</b> Functional Response Model</a></li>
 <li class="chapter" data-level="2.10" data-path="regression.html"><a href="regression.html#other-models"><i class="fa fa-check"></i><b>2.10</b> Other Models:</a></li>
-<li class="chapter" data-level="" data-path="regression.html"><a href="regression.html#references-1"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html"><i class="fa fa-check"></i><b>3</b> Functional Supervised Classification</a>
 <ul>
@@ -218,7 +217,6 @@ div.csl-indent {
 <li class="chapter" data-level="3.4" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#maximum-depth-classif.depth-li2012"><i class="fa fa-check"></i><b>3.4</b> Maximum depth: <code>classif.depth</code> <span class="citation">(Li, Cuesta-Albertos, and Liu 2012)</span></a></li>
 <li class="chapter" data-level="3.5" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#the-ddgclassifier-classif.dd-cuesta2017hbox"><i class="fa fa-check"></i><b>3.5</b> The DD<span class="math inline">\(^G\)</span>–classifier <code>classif.DD</code> <span class="citation">(J. A. Cuesta-Albertos, Febrero-Bande, and Oviedo de la Fuente 2017)</span></a></li>
 <li class="chapter" data-level="3.6" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#classifiers-adapted-from-multivariate-framework"><i class="fa fa-check"></i><b>3.6</b> Classifiers adapted from Multivariate Framework</a></li>
-<li class="chapter" data-level="" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#references-2"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="variable-selection.html"><a href="variable-selection.html"><i class="fa fa-check"></i><b>4</b> Variable Selection</a>
 <ul>
@@ -245,19 +243,28 @@ div.csl-indent {
 <li class="chapter" data-level="4.5" data-path="variable-selection.html"><a href="variable-selection.html#optimum-multiscale-selection-in-3d-point-cloud-classification-oviedo2021distance"><i class="fa fa-check"></i><b>4.5</b> Optimum Multiscale Selection in 3D Point Cloud Classification <span class="citation">(Oviedo-de la Fuente et al. 2021)</span></a></li>
 <li class="chapter" data-level="4.6" data-path="variable-selection.html"><a href="variable-selection.html#model-comparison"><i class="fa fa-check"></i><b>4.6</b> Model Comparison</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html"><i class="fa fa-check"></i><b>5</b> Conclusions and future work</a>
+<li class="chapter" data-level="5" data-path="functional-clustering.html"><a href="functional-clustering.html"><i class="fa fa-check"></i><b>5</b> Functional Clustering</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html#conclusions"><i class="fa fa-check"></i><b>5.1</b> Conclusions</a></li>
-<li class="chapter" data-level="5.2" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html#code-r-scripts-and-notebooks"><i class="fa fa-check"></i><b>5.2</b> Code: R scripts and notebooks</a></li>
-<li class="chapter" data-level="5.3" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html#future-work"><i class="fa fa-check"></i><b>5.3</b> Future work</a></li>
-<li class="chapter" data-level="5.4" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html#future-work-wells-riley-equation"><i class="fa fa-check"></i><b>5.4</b> Future work: Wells-Riley equation</a></li>
-<li class="chapter" data-level="" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html#references-3"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="5.1" data-path="functional-clustering.html"><a href="functional-clustering.html#r-packages-for-clustering"><i class="fa fa-check"></i><b>5.1</b> R Packages for Clustering</a></li>
+<li class="chapter" data-level="5.2" data-path="functional-clustering.html"><a href="functional-clustering.html#r-packages-for-clustering-functional-data"><i class="fa fa-check"></i><b>5.2</b> R Packages for Clustering Functional Data</a></li>
+<li class="chapter" data-level="5.3" data-path="functional-clustering.html"><a href="functional-clustering.html#k-means-clustering-for-functional-data"><i class="fa fa-check"></i><b>5.3</b> K-Means Clustering for Functional Data</a></li>
+<li class="chapter" data-level="5.4" data-path="functional-clustering.html"><a href="functional-clustering.html#functional-data-clustering-with-dbscan-fdbscan"><i class="fa fa-check"></i><b>5.4</b> Functional Data Clustering with DBSCAN (<code>fdbscan</code>)</a></li>
+<li class="chapter" data-level="5.5" data-path="functional-clustering.html"><a href="functional-clustering.html#functional-data-clustering-with-mean-shift-fmeanshift"><i class="fa fa-check"></i><b>5.5</b> Functional Data Clustering with Mean Shift (<code>fmeanshift</code>)</a></li>
+<li class="chapter" data-level="5.6" data-path="functional-clustering.html"><a href="functional-clustering.html#multivariate-functional-data-clustering"><i class="fa fa-check"></i><b>5.6</b> Multivariate Functional Data Clustering</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="functional-clustering.html"><a href="functional-clustering.html#hierarchical-clustering-with-mfhclust"><i class="fa fa-check"></i><b>5.6.1</b> Hierarchical Clustering with <code>mfhclust()</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="functional-clustering.html"><a href="functional-clustering.html#k-means-clustering-with-mfkmeans"><i class="fa fa-check"></i><b>5.6.2</b> K-means Clustering with mfkmeans()</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="functional-clustering.html"><a href="functional-clustering.html"><i class="fa fa-check"></i><b>6</b> Functional Clustering</a>
+<li class="chapter" data-level="5.7" data-path="functional-clustering.html"><a href="functional-clustering.html#cluster-validation-measures"><i class="fa fa-check"></i><b>5.7</b> Cluster Validation Measures</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="functional-clustering.html"><a href="functional-clustering.html#k-means-clustering-for-functional-data-hartigan1979algorithm"><i class="fa fa-check"></i><b>6.1</b> K-Means Clustering for functional data, <span class="citation">Hartigan and Wong (1979)</span></a></li>
-<li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#references-4"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="5.7.1" data-path="functional-clustering.html"><a href="functional-clustering.html#silhouette-index"><i class="fa fa-check"></i><b>5.7.1</b> Silhouette Index</a></li>
+<li class="chapter" data-level="5.7.2" data-path="functional-clustering.html"><a href="functional-clustering.html#dunn-index"><i class="fa fa-check"></i><b>5.7.2</b> Dunn Index</a></li>
+<li class="chapter" data-level="5.7.3" data-path="functional-clustering.html"><a href="functional-clustering.html#davies-bouldin-index"><i class="fa fa-check"></i><b>5.7.3</b> Davies-Bouldin Index</a></li>
+<li class="chapter" data-level="5.7.4" data-path="functional-clustering.html"><a href="functional-clustering.html#calinski-harabasz-index"><i class="fa fa-check"></i><b>5.7.4</b> Calinski-Harabasz Index</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#chapter-references"><i class="fa fa-check"></i>Chapter references</a></li>
+<li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#funding-and-financial-support"><i class="fa fa-check"></i>Funding and Financial Support</a></li>
+<li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#references"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
@@ -281,7 +288,6 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="variable-selection" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Variable Selection<a href="variable-selection.html#variable-selection" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Chapter under construction</p>
 <!-- 
 ---
 output: html_document
@@ -320,24 +326,24 @@ Only the significant local maxima for a default level of significance are select
 Denoting the arguments values (argvals) of the local maxima a <span class="math inline">\(\tilde t_1,\tilde t_2,\ldots,\tilde t_{\tilde{N}}\)</span> (<span class="math inline">\(\tilde{N}&lt;N\)</span>), we ordered them from highest to lowest values of DC, that is <span class="math inline">\(\hat{\mathcal{R}}(\tilde t_1) \geq
 \hat{ \mathcal{R}}(\tilde t_2) &gt;\ldots \geq    \hat {\mathcal{R}}(\tilde t_{\tilde{N}})\)</span></p></li>
 </ol>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="variable-selection.html#cb182-1" tabindex="-1"></a><span class="fu">library</span>(fda.usc)</span>
-<span id="cb182-2"><a href="variable-selection.html#cb182-2" tabindex="-1"></a>pred2gsam <span class="ot">&lt;-</span> fda.usc.devel<span class="sc">:::</span>pred2gsam </span>
-<span id="cb182-3"><a href="variable-selection.html#cb182-3" tabindex="-1"></a>predict.classif <span class="ot">&lt;-</span>  fda.usc.devel<span class="sc">:::</span>predict.classif</span>
-<span id="cb182-4"><a href="variable-selection.html#cb182-4" tabindex="-1"></a>predict.fregre.gsam  <span class="ot">&lt;-</span>  fda.usc.devel<span class="sc">:::</span>predict.fregre.gsam </span></code></pre></div>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="variable-selection.html#cb183-1" tabindex="-1"></a><span class="fu">data</span>(tecator)</span>
-<span id="cb183-2"><a href="variable-selection.html#cb183-2" tabindex="-1"></a>X.d2<span class="ot">&lt;-</span><span class="fu">fdata.deriv</span>(tecator[[<span class="st">&quot;absorp.fdata&quot;</span>]],</span>
-<span id="cb183-3"><a href="variable-selection.html#cb183-3" tabindex="-1"></a><span class="at">nderiv =</span> <span class="dv">2</span>)</span>
-<span id="cb183-4"><a href="variable-selection.html#cb183-4" tabindex="-1"></a><span class="fu">colnames</span>(X.d2[[<span class="st">&quot;data&quot;</span>]])<span class="ot">&lt;-</span><span class="fu">paste0</span>(<span class="st">&quot;X&quot;</span>,<span class="fu">round</span>(X.d2[[<span class="st">&quot;argvals&quot;</span>]]))</span>
-<span id="cb183-5"><a href="variable-selection.html#cb183-5" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;y&quot;</span><span class="ot">=</span>tecator[[<span class="st">&quot;y&quot;</span>]][[<span class="st">&quot;Fat&quot;</span>]],X.d2[[<span class="st">&quot;data&quot;</span>]] )</span>
-<span id="cb183-6"><a href="variable-selection.html#cb183-6" tabindex="-1"></a>tol<span class="ot">&lt;-</span>.<span class="dv">2</span></span>
-<span id="cb183-7"><a href="variable-selection.html#cb183-7" tabindex="-1"></a>dc.raw <span class="ot">&lt;-</span> <span class="fu">LMDC.select</span>(<span class="st">&quot;y&quot;</span>,<span class="at">data =</span> dat, <span class="at">tol =</span> tol,<span class="at">pvalue =</span> <span class="fl">0.05</span>,</span>
-<span id="cb183-8"><a href="variable-selection.html#cb183-8" tabindex="-1"></a><span class="at">plot=</span>F)</span>
-<span id="cb183-9"><a href="variable-selection.html#cb183-9" tabindex="-1"></a><span class="co"># Preselected impact points </span></span>
-<span id="cb183-10"><a href="variable-selection.html#cb183-10" tabindex="-1"></a>covar<span class="ot">&lt;-</span><span class="fu">names</span>(dat)[<span class="sc">-</span><span class="dv">1</span>][dc.raw[[<span class="st">&quot;maxLocal&quot;</span>]]]</span>
-<span id="cb183-11"><a href="variable-selection.html#cb183-11" tabindex="-1"></a>covar</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="variable-selection.html#cb189-1" tabindex="-1"></a><span class="fu">library</span>(fda.usc)</span>
+<span id="cb189-2"><a href="variable-selection.html#cb189-2" tabindex="-1"></a>pred2gsam <span class="ot">&lt;-</span> fda.usc.devel<span class="sc">:::</span>pred2gsam </span>
+<span id="cb189-3"><a href="variable-selection.html#cb189-3" tabindex="-1"></a>predict.classif <span class="ot">&lt;-</span>  fda.usc.devel<span class="sc">:::</span>predict.classif</span>
+<span id="cb189-4"><a href="variable-selection.html#cb189-4" tabindex="-1"></a>predict.fregre.gsam  <span class="ot">&lt;-</span>  fda.usc.devel<span class="sc">:::</span>predict.fregre.gsam </span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="variable-selection.html#cb190-1" tabindex="-1"></a><span class="fu">data</span>(tecator)</span>
+<span id="cb190-2"><a href="variable-selection.html#cb190-2" tabindex="-1"></a>X.d2<span class="ot">&lt;-</span><span class="fu">fdata.deriv</span>(tecator[[<span class="st">&quot;absorp.fdata&quot;</span>]],</span>
+<span id="cb190-3"><a href="variable-selection.html#cb190-3" tabindex="-1"></a><span class="at">nderiv =</span> <span class="dv">2</span>)</span>
+<span id="cb190-4"><a href="variable-selection.html#cb190-4" tabindex="-1"></a><span class="fu">colnames</span>(X.d2[[<span class="st">&quot;data&quot;</span>]])<span class="ot">&lt;-</span><span class="fu">paste0</span>(<span class="st">&quot;X&quot;</span>,<span class="fu">round</span>(X.d2[[<span class="st">&quot;argvals&quot;</span>]]))</span>
+<span id="cb190-5"><a href="variable-selection.html#cb190-5" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;y&quot;</span><span class="ot">=</span>tecator[[<span class="st">&quot;y&quot;</span>]][[<span class="st">&quot;Fat&quot;</span>]],X.d2[[<span class="st">&quot;data&quot;</span>]] )</span>
+<span id="cb190-6"><a href="variable-selection.html#cb190-6" tabindex="-1"></a>tol<span class="ot">&lt;-</span>.<span class="dv">2</span></span>
+<span id="cb190-7"><a href="variable-selection.html#cb190-7" tabindex="-1"></a>dc.raw <span class="ot">&lt;-</span> <span class="fu">LMDC.select</span>(<span class="st">&quot;y&quot;</span>,<span class="at">data =</span> dat, <span class="at">tol =</span> tol,<span class="at">pvalue =</span> <span class="fl">0.05</span>,</span>
+<span id="cb190-8"><a href="variable-selection.html#cb190-8" tabindex="-1"></a><span class="at">plot=</span>F)</span>
+<span id="cb190-9"><a href="variable-selection.html#cb190-9" tabindex="-1"></a><span class="co"># Preselected impact points </span></span>
+<span id="cb190-10"><a href="variable-selection.html#cb190-10" tabindex="-1"></a>covar<span class="ot">&lt;-</span><span class="fu">names</span>(dat)[<span class="sc">-</span><span class="dv">1</span>][dc.raw[[<span class="st">&quot;maxLocal&quot;</span>]]]</span>
+<span id="cb190-11"><a href="variable-selection.html#cb190-11" tabindex="-1"></a>covar</span></code></pre></div>
 <pre><code>##  [1] &quot;X933&quot;  &quot;X1046&quot; &quot;X907&quot;  &quot;X886&quot;  &quot;X896&quot;  &quot;X1010&quot; &quot;X1020&quot; &quot;X1030&quot; &quot;X945&quot; 
 ## [10] &quot;X876&quot;  &quot;X915&quot;  &quot;X862&quot;  &quot;X993&quot;</code></pre>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="variable-selection.html#cb185-1" tabindex="-1"></a><span class="fu">length</span>(covar)</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="variable-selection.html#cb192-1" tabindex="-1"></a><span class="fu">length</span>(covar)</span></code></pre></div>
 <pre><code>## [1] 13</code></pre>
 </div>
 <div id="lmdc-algorithm-lmdc.regre-function" class="section level3 hasAnchor" number="4.1.4">
@@ -345,27 +351,27 @@ Denoting the arguments values (argvals) of the local maxima a <span class="math 
 <ol start="3" style="list-style-type: decimal">
 <li>(Optionally) Check if the relationship between the reponse and the predictor variables is linear: <span class="math inline">\(H_0:\,Y=\big&lt;X,\beta\big&gt;+\epsilon\)</span>, versus a general alternative using a test of linearity proposed in <span class="citation">Garcı́a-Portugués, González-Manteiga, and Febrero-Bande (<a href="#ref-garcia2014goodness">2014</a>)</span>.</li>
 </ol>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="variable-selection.html#cb187-1" tabindex="-1"></a>ftest<span class="ot">&lt;-</span><span class="fu">flm.test</span>(dat[,<span class="sc">-</span><span class="dv">1</span>], dat[,<span class="st">&quot;y&quot;</span>],</span>
-<span id="cb187-2"><a href="variable-selection.html#cb187-2" tabindex="-1"></a><span class="at">verbose=</span>F,<span class="at">plot.it=</span>F)</span>
-<span id="cb187-3"><a href="variable-selection.html#cb187-3" tabindex="-1"></a>ftest</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="variable-selection.html#cb194-1" tabindex="-1"></a>ftest<span class="ot">&lt;-</span><span class="fu">flm.test</span>(dat[,<span class="sc">-</span><span class="dv">1</span>], dat[,<span class="st">&quot;y&quot;</span>],</span>
+<span id="cb194-2"><a href="variable-selection.html#cb194-2" tabindex="-1"></a><span class="at">verbose=</span>F,<span class="at">plot.it=</span>F)</span>
+<span id="cb194-3"><a href="variable-selection.html#cb194-3" tabindex="-1"></a>ftest</span></code></pre></div>
 <pre><code>## 
 ##  PCvM test for the functional linear model using optimal PLS basis
 ##  representation
 ## 
 ## data:  Y=&lt;X,b&gt;+e
 ## PCvM statistic = 216.48, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="variable-selection.html#cb189-1" tabindex="-1"></a>ftest[[<span class="st">&quot;p.value&quot;</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="variable-selection.html#cb196-1" tabindex="-1"></a>ftest[[<span class="st">&quot;p.value&quot;</span>]]</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li><p>Fit a regression model to the response of interest <span class="math inline">\(Y\)</span> using the vector of covariates <span class="math inline">\(X(\tilde{t})=\{X(\tilde t_1), \ldots, X(\tilde{t}_{\tilde{N}})\}\)</span>. A linear model will be used if the null hypothesis is not rejected and a nonparametric (e.g. generalized additive model) model otherwise.</p></li>
 <li><p>(Optionally) Once the type model has been selected, we propose to
 Apply a forward stepwise regression method to determine the significant covariates, taking advantage of the fact that the local maxima have been ordered. This means we start with a model with the first covariate (the one with the highest value of distance correlation), and the rest of the ordered covariates are added to the model in turn. This substantially reduces the computing time.</p></li>
 </ol>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="variable-selection.html#cb191-1" tabindex="-1"></a><span class="cf">if</span> (ftest<span class="sc">$</span>p.value <span class="sc">&gt;</span> <span class="fl">0.05</span>) { <span class="co"># Linear relationship, step-wise lm is recommended</span></span>
-<span id="cb191-2"><a href="variable-selection.html#cb191-2" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">LMDC.regre</span>(<span class="at">y =</span> <span class="st">&quot;y&quot;</span>, <span class="at">covar =</span> covar, <span class="at">data =</span> dat, <span class="at">pvalue=</span>.<span class="dv">05</span>, <span class="at">method =</span><span class="st">&quot;lm&quot;</span>)</span>
-<span id="cb191-3"><a href="variable-selection.html#cb191-3" tabindex="-1"></a>} <span class="cf">else</span> {<span class="co"># Non-Linear relationship, step-wise gam is recommended</span></span>
-<span id="cb191-4"><a href="variable-selection.html#cb191-4" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">LMDC.regre</span>(<span class="at">y =</span> <span class="st">&quot;y&quot;</span>, <span class="at">covar =</span> covar, <span class="at">data =</span> dat,<span class="at">pvalue=</span>.<span class="dv">05</span>, <span class="at">method =</span><span class="st">&quot;gam&quot;</span>)}  </span>
-<span id="cb191-5"><a href="variable-selection.html#cb191-5" tabindex="-1"></a>out</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="variable-selection.html#cb198-1" tabindex="-1"></a><span class="cf">if</span> (ftest<span class="sc">$</span>p.value <span class="sc">&gt;</span> <span class="fl">0.05</span>) { <span class="co"># Linear relationship, step-wise lm is recommended</span></span>
+<span id="cb198-2"><a href="variable-selection.html#cb198-2" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">LMDC.regre</span>(<span class="at">y =</span> <span class="st">&quot;y&quot;</span>, <span class="at">covar =</span> covar, <span class="at">data =</span> dat, <span class="at">pvalue=</span>.<span class="dv">05</span>, <span class="at">method =</span><span class="st">&quot;lm&quot;</span>)</span>
+<span id="cb198-3"><a href="variable-selection.html#cb198-3" tabindex="-1"></a>} <span class="cf">else</span> {<span class="co"># Non-Linear relationship, step-wise gam is recommended</span></span>
+<span id="cb198-4"><a href="variable-selection.html#cb198-4" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">LMDC.regre</span>(<span class="at">y =</span> <span class="st">&quot;y&quot;</span>, <span class="at">covar =</span> covar, <span class="at">data =</span> dat,<span class="at">pvalue=</span>.<span class="dv">05</span>, <span class="at">method =</span><span class="st">&quot;gam&quot;</span>)}  </span>
+<span id="cb198-5"><a href="variable-selection.html#cb198-5" tabindex="-1"></a>out</span></code></pre></div>
 <pre><code>## $model
 ## 
 ## Family: gaussian 
@@ -396,37 +402,37 @@ Apply a forward stepwise regression method to determine the significant covariat
 ## $nvar
 ## [1] 12</code></pre>
 <p>Differences in mean square prediction error between linear (usign <code>lm</code> model) and non-linear (usign <code>gam</code> model) model</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="variable-selection.html#cb193-1" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">LMDC.regre</span>(<span class="at">y =</span> <span class="st">&quot;y&quot;</span>, <span class="at">covar =</span> covar, <span class="at">data =</span> dat[<span class="dv">1</span><span class="sc">:</span><span class="dv">165</span>,],<span class="at">newdata=</span>dat[<span class="dv">166</span><span class="sc">:</span><span class="dv">215</span>,], <span class="at">pvalue=</span>.<span class="dv">05</span>, <span class="at">method =</span><span class="st">&quot;lm&quot;</span>)</span>
-<span id="cb193-2"><a href="variable-selection.html#cb193-2" tabindex="-1"></a><span class="fu">mean</span>((out<span class="sc">$</span>pred<span class="sc">-</span>dat<span class="sc">$</span>y[<span class="dv">166</span><span class="sc">:</span><span class="dv">215</span>])<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="variable-selection.html#cb200-1" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">LMDC.regre</span>(<span class="at">y =</span> <span class="st">&quot;y&quot;</span>, <span class="at">covar =</span> covar, <span class="at">data =</span> dat[<span class="dv">1</span><span class="sc">:</span><span class="dv">165</span>,],<span class="at">newdata=</span>dat[<span class="dv">166</span><span class="sc">:</span><span class="dv">215</span>,], <span class="at">pvalue=</span>.<span class="dv">05</span>, <span class="at">method =</span><span class="st">&quot;lm&quot;</span>)</span>
+<span id="cb200-2"><a href="variable-selection.html#cb200-2" tabindex="-1"></a><span class="fu">mean</span>((out<span class="sc">$</span>pred<span class="sc">-</span>dat<span class="sc">$</span>y[<span class="dv">166</span><span class="sc">:</span><span class="dv">215</span>])<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 11.75474</code></pre>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="variable-selection.html#cb195-1" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">LMDC.regre</span>(<span class="at">y =</span> <span class="st">&quot;y&quot;</span>, <span class="at">covar =</span> covar, <span class="at">data =</span> dat[<span class="dv">1</span><span class="sc">:</span><span class="dv">165</span>,],<span class="at">newdata=</span>dat[<span class="dv">166</span><span class="sc">:</span><span class="dv">215</span>,], <span class="at">pvalue=</span>.<span class="dv">05</span>, <span class="at">method =</span><span class="st">&quot;gam&quot;</span>)</span>
-<span id="cb195-2"><a href="variable-selection.html#cb195-2" tabindex="-1"></a><span class="fu">mean</span>((out<span class="sc">$</span>pred<span class="sc">-</span>dat<span class="sc">$</span>y[<span class="dv">166</span><span class="sc">:</span><span class="dv">215</span>])<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="variable-selection.html#cb202-1" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">LMDC.regre</span>(<span class="at">y =</span> <span class="st">&quot;y&quot;</span>, <span class="at">covar =</span> covar, <span class="at">data =</span> dat[<span class="dv">1</span><span class="sc">:</span><span class="dv">165</span>,],<span class="at">newdata=</span>dat[<span class="dv">166</span><span class="sc">:</span><span class="dv">215</span>,], <span class="at">pvalue=</span>.<span class="dv">05</span>, <span class="at">method =</span><span class="st">&quot;gam&quot;</span>)</span>
+<span id="cb202-2"><a href="variable-selection.html#cb202-2" tabindex="-1"></a><span class="fu">mean</span>((out<span class="sc">$</span>pred<span class="sc">-</span>dat<span class="sc">$</span>y[<span class="dv">166</span><span class="sc">:</span><span class="dv">215</span>])<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 1.148573</code></pre>
 <blockquote>
 <p>Binary classification example (Impact point selection, model estimation and prediction)</p>
 </blockquote>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="variable-selection.html#cb197-1" tabindex="-1"></a><span class="fu">data</span>(tecator)</span>
-<span id="cb197-2"><a href="variable-selection.html#cb197-2" tabindex="-1"></a>X.d2<span class="ot">&lt;-</span><span class="fu">fdata.deriv</span>(tecator[[<span class="st">&quot;absorp.fdata&quot;</span>]],</span>
-<span id="cb197-3"><a href="variable-selection.html#cb197-3" tabindex="-1"></a><span class="at">nderiv =</span> <span class="dv">2</span>)</span>
-<span id="cb197-4"><a href="variable-selection.html#cb197-4" tabindex="-1"></a><span class="fu">colnames</span>(X.d2[[<span class="st">&quot;data&quot;</span>]])<span class="ot">&lt;-</span><span class="fu">paste0</span>(<span class="st">&quot;X&quot;</span>,<span class="fu">round</span>(X.d2[[<span class="st">&quot;argvals&quot;</span>]]))</span>
-<span id="cb197-5"><a href="variable-selection.html#cb197-5" tabindex="-1"></a>y2groups <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(tecator[[<span class="st">&quot;y&quot;</span>]][[<span class="st">&quot;Fat&quot;</span>]]<span class="sc">&lt;</span><span class="dv">12</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb197-6"><a href="variable-selection.html#cb197-6" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;y2groups&quot;</span><span class="ot">=</span>y2groups,X.d2[[<span class="st">&quot;data&quot;</span>]] )</span>
-<span id="cb197-7"><a href="variable-selection.html#cb197-7" tabindex="-1"></a>tol<span class="ot">&lt;-</span>.<span class="dv">1</span></span>
-<span id="cb197-8"><a href="variable-selection.html#cb197-8" tabindex="-1"></a>dc.raw <span class="ot">&lt;-</span> <span class="fu">LMDC.select</span>(<span class="st">&quot;y2groups&quot;</span>,<span class="at">data =</span> dat, <span class="at">tol =</span> tol,<span class="at">pvalue =</span> <span class="fl">0.05</span>,</span>
-<span id="cb197-9"><a href="variable-selection.html#cb197-9" tabindex="-1"></a><span class="at">plot=</span>F)</span>
-<span id="cb197-10"><a href="variable-selection.html#cb197-10" tabindex="-1"></a><span class="co"># Preselected impact points </span></span>
-<span id="cb197-11"><a href="variable-selection.html#cb197-11" tabindex="-1"></a>covar<span class="ot">&lt;-</span><span class="fu">names</span>(dat)[<span class="sc">-</span><span class="dv">1</span>][dc.raw[[<span class="st">&quot;maxLocal&quot;</span>]]]</span>
-<span id="cb197-12"><a href="variable-selection.html#cb197-12" tabindex="-1"></a>covar</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="variable-selection.html#cb204-1" tabindex="-1"></a><span class="fu">data</span>(tecator)</span>
+<span id="cb204-2"><a href="variable-selection.html#cb204-2" tabindex="-1"></a>X.d2<span class="ot">&lt;-</span><span class="fu">fdata.deriv</span>(tecator[[<span class="st">&quot;absorp.fdata&quot;</span>]],</span>
+<span id="cb204-3"><a href="variable-selection.html#cb204-3" tabindex="-1"></a><span class="at">nderiv =</span> <span class="dv">2</span>)</span>
+<span id="cb204-4"><a href="variable-selection.html#cb204-4" tabindex="-1"></a><span class="fu">colnames</span>(X.d2[[<span class="st">&quot;data&quot;</span>]])<span class="ot">&lt;-</span><span class="fu">paste0</span>(<span class="st">&quot;X&quot;</span>,<span class="fu">round</span>(X.d2[[<span class="st">&quot;argvals&quot;</span>]]))</span>
+<span id="cb204-5"><a href="variable-selection.html#cb204-5" tabindex="-1"></a>y2groups <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(tecator[[<span class="st">&quot;y&quot;</span>]][[<span class="st">&quot;Fat&quot;</span>]]<span class="sc">&lt;</span><span class="dv">12</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb204-6"><a href="variable-selection.html#cb204-6" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;y2groups&quot;</span><span class="ot">=</span>y2groups,X.d2[[<span class="st">&quot;data&quot;</span>]] )</span>
+<span id="cb204-7"><a href="variable-selection.html#cb204-7" tabindex="-1"></a>tol<span class="ot">&lt;-</span>.<span class="dv">1</span></span>
+<span id="cb204-8"><a href="variable-selection.html#cb204-8" tabindex="-1"></a>dc.raw <span class="ot">&lt;-</span> <span class="fu">LMDC.select</span>(<span class="st">&quot;y2groups&quot;</span>,<span class="at">data =</span> dat, <span class="at">tol =</span> tol,<span class="at">pvalue =</span> <span class="fl">0.05</span>,</span>
+<span id="cb204-9"><a href="variable-selection.html#cb204-9" tabindex="-1"></a><span class="at">plot=</span>F)</span>
+<span id="cb204-10"><a href="variable-selection.html#cb204-10" tabindex="-1"></a><span class="co"># Preselected impact points </span></span>
+<span id="cb204-11"><a href="variable-selection.html#cb204-11" tabindex="-1"></a>covar<span class="ot">&lt;-</span><span class="fu">names</span>(dat)[<span class="sc">-</span><span class="dv">1</span>][dc.raw[[<span class="st">&quot;maxLocal&quot;</span>]]]</span>
+<span id="cb204-12"><a href="variable-selection.html#cb204-12" tabindex="-1"></a>covar</span></code></pre></div>
 <pre><code>##  [1] &quot;X945&quot;  &quot;X905&quot;  &quot;X933&quot;  &quot;X886&quot;  &quot;X1020&quot; &quot;X876&quot;  &quot;X1030&quot; &quot;X896&quot;  &quot;X1046&quot;
 ## [10] &quot;X862&quot;  &quot;X1010&quot; &quot;X915&quot;  &quot;X965&quot;</code></pre>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="variable-selection.html#cb199-1" tabindex="-1"></a><span class="fu">length</span>(covar)</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="variable-selection.html#cb206-1" tabindex="-1"></a><span class="fu">length</span>(covar)</span></code></pre></div>
 <pre><code>## [1] 13</code></pre>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="variable-selection.html#cb201-1" tabindex="-1"></a><span class="co"># GLM model (using binomial family), other multivariate model can be used</span></span>
-<span id="cb201-2"><a href="variable-selection.html#cb201-2" tabindex="-1"></a>ind <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">129</span></span>
-<span id="cb201-3"><a href="variable-selection.html#cb201-3" tabindex="-1"></a>ldata<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span>dat[ind,])</span>
-<span id="cb201-4"><a href="variable-selection.html#cb201-4" tabindex="-1"></a>form.glm<span class="ot">&lt;-</span><span class="fu">formula</span>(<span class="fu">paste0</span>(<span class="st">&quot;y2groups~&quot;</span>,<span class="fu">paste0</span>(covar,<span class="at">collapse=</span><span class="st">&quot;+&quot;</span>)))</span>
-<span id="cb201-5"><a href="variable-selection.html#cb201-5" tabindex="-1"></a>out.glm  <span class="ot">&lt;-</span> <span class="fu">classif.glm</span>(form.glm, <span class="at">data =</span> ldata)</span>
-<span id="cb201-6"><a href="variable-selection.html#cb201-6" tabindex="-1"></a><span class="fu">summary</span>(out.glm)</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="variable-selection.html#cb208-1" tabindex="-1"></a><span class="co"># GLM model (using binomial family), other multivariate model can be used</span></span>
+<span id="cb208-2"><a href="variable-selection.html#cb208-2" tabindex="-1"></a>ind <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">129</span></span>
+<span id="cb208-3"><a href="variable-selection.html#cb208-3" tabindex="-1"></a>ldata<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span>dat[ind,])</span>
+<span id="cb208-4"><a href="variable-selection.html#cb208-4" tabindex="-1"></a>form.glm<span class="ot">&lt;-</span><span class="fu">formula</span>(<span class="fu">paste0</span>(<span class="st">&quot;y2groups~&quot;</span>,<span class="fu">paste0</span>(covar,<span class="at">collapse=</span><span class="st">&quot;+&quot;</span>)))</span>
+<span id="cb208-5"><a href="variable-selection.html#cb208-5" tabindex="-1"></a>out.glm  <span class="ot">&lt;-</span> <span class="fu">classif.glm</span>(form.glm, <span class="at">data =</span> ldata)</span>
+<span id="cb208-6"><a href="variable-selection.html#cb208-6" tabindex="-1"></a><span class="fu">summary</span>(out.glm)</span></code></pre></div>
 <pre><code>##      - SUMMARY - 
 ## 
 ## -Probability of correct classification by group (prob.classification):
@@ -441,12 +447,12 @@ Apply a forward stepwise regression method to determine the significant covariat
 ##   1  0 71
 ## 
 ## -Probability of correct classification:  1</code></pre>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="variable-selection.html#cb203-1" tabindex="-1"></a><span class="co"># Prediction</span></span>
-<span id="cb203-2"><a href="variable-selection.html#cb203-2" tabindex="-1"></a>newldata<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span>dat[<span class="sc">-</span>ind,])</span>
-<span id="cb203-3"><a href="variable-selection.html#cb203-3" tabindex="-1"></a>pred.glm<span class="ot">&lt;-</span><span class="fu">predict</span>(out.glm,newldata)</span>
-<span id="cb203-4"><a href="variable-selection.html#cb203-4" tabindex="-1"></a></span>
-<span id="cb203-5"><a href="variable-selection.html#cb203-5" tabindex="-1"></a><span class="co"># Confusion matrix</span></span>
-<span id="cb203-6"><a href="variable-selection.html#cb203-6" tabindex="-1"></a><span class="fu">table</span>(newldata<span class="sc">$</span>df<span class="sc">$</span>y2groups,pred.glm)</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="variable-selection.html#cb210-1" tabindex="-1"></a><span class="co"># Prediction</span></span>
+<span id="cb210-2"><a href="variable-selection.html#cb210-2" tabindex="-1"></a>newldata<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span>dat[<span class="sc">-</span>ind,])</span>
+<span id="cb210-3"><a href="variable-selection.html#cb210-3" tabindex="-1"></a>pred.glm<span class="ot">&lt;-</span><span class="fu">predict</span>(out.glm,newldata)</span>
+<span id="cb210-4"><a href="variable-selection.html#cb210-4" tabindex="-1"></a></span>
+<span id="cb210-5"><a href="variable-selection.html#cb210-5" tabindex="-1"></a><span class="co"># Confusion matrix</span></span>
+<span id="cb210-6"><a href="variable-selection.html#cb210-6" tabindex="-1"></a><span class="fu">table</span>(newldata<span class="sc">$</span>df<span class="sc">$</span>y2groups,pred.glm)</span></code></pre></div>
 <pre><code>##    pred.glm
 ##      0  1
 ##   0 40  0
@@ -504,43 +510,43 @@ THEN <span class="math inline">\(M^{(i+1)}=M^{(i+1)}\backslash\{X^j\}\)</span> a
 </div>
 <div id="binary-classification-example" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Binary classification example<a href="variable-selection.html#binary-classification-example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="variable-selection.html#cb205-1" tabindex="-1"></a>Nt<span class="ot">=</span><span class="dv">250</span></span>
-<span id="cb205-2"><a href="variable-selection.html#cb205-2" tabindex="-1"></a>Np<span class="ot">=</span><span class="dv">250</span></span>
-<span id="cb205-3"><a href="variable-selection.html#cb205-3" tabindex="-1"></a>nB<span class="ot">=</span><span class="dv">100</span></span>
-<span id="cb205-4"><a href="variable-selection.html#cb205-4" tabindex="-1"></a>Nvar <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb205-5"><a href="variable-selection.html#cb205-5" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb205-6"><a href="variable-selection.html#cb205-6" tabindex="-1"></a>Xdat <span class="ot">&lt;-</span> <span class="fu">mariachi</span>(Nt,Np,Nvar)</span>
-<span id="cb205-7"><a href="variable-selection.html#cb205-7" tabindex="-1"></a>Xtrain <span class="ot">&lt;-</span> Xdat<span class="sc">$</span>Xtrain</span>
-<span id="cb205-8"><a href="variable-selection.html#cb205-8" tabindex="-1"></a>Xtest <span class="ot">&lt;-</span> Xdat<span class="sc">$</span>Xtest</span>
-<span id="cb205-9"><a href="variable-selection.html#cb205-9" tabindex="-1"></a>ytrain <span class="ot">&lt;-</span> Xtrain<span class="sc">$</span>grupo</span>
-<span id="cb205-10"><a href="variable-selection.html#cb205-10" tabindex="-1"></a>ytest <span class="ot">&lt;-</span> Xtest<span class="sc">$</span>grupo</span>
-<span id="cb205-11"><a href="variable-selection.html#cb205-11" tabindex="-1"></a><span class="fu">pairs</span>(Xtrain[,<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>],<span class="at">col=</span>ytrain)</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="variable-selection.html#cb212-1" tabindex="-1"></a>Nt<span class="ot">=</span><span class="dv">250</span></span>
+<span id="cb212-2"><a href="variable-selection.html#cb212-2" tabindex="-1"></a>Np<span class="ot">=</span><span class="dv">250</span></span>
+<span id="cb212-3"><a href="variable-selection.html#cb212-3" tabindex="-1"></a>nB<span class="ot">=</span><span class="dv">100</span></span>
+<span id="cb212-4"><a href="variable-selection.html#cb212-4" tabindex="-1"></a>Nvar <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb212-5"><a href="variable-selection.html#cb212-5" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb212-6"><a href="variable-selection.html#cb212-6" tabindex="-1"></a>Xdat <span class="ot">&lt;-</span> <span class="fu">mariachi</span>(Nt,Np,Nvar)</span>
+<span id="cb212-7"><a href="variable-selection.html#cb212-7" tabindex="-1"></a>Xtrain <span class="ot">&lt;-</span> Xdat<span class="sc">$</span>Xtrain</span>
+<span id="cb212-8"><a href="variable-selection.html#cb212-8" tabindex="-1"></a>Xtest <span class="ot">&lt;-</span> Xdat<span class="sc">$</span>Xtest</span>
+<span id="cb212-9"><a href="variable-selection.html#cb212-9" tabindex="-1"></a>ytrain <span class="ot">&lt;-</span> Xtrain<span class="sc">$</span>grupo</span>
+<span id="cb212-10"><a href="variable-selection.html#cb212-10" tabindex="-1"></a>ytest <span class="ot">&lt;-</span> Xtest<span class="sc">$</span>grupo</span>
+<span id="cb212-11"><a href="variable-selection.html#cb212-11" tabindex="-1"></a><span class="fu">pairs</span>(Xtrain[,<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>],<span class="at">col=</span>ytrain)</span></code></pre></div>
 <p><img src="bookdown_intro_files/figure-html/unnamed-chunk-80-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="variable-selection.html#cb206-1" tabindex="-1"></a>mdat <span class="ot">&lt;-</span> Xtrain[,<span class="dv">1</span><span class="sc">:</span>Nvar]</span>
-<span id="cb206-2"><a href="variable-selection.html#cb206-2" tabindex="-1"></a>newmdat <span class="ot">&lt;-</span> Xtest[,<span class="dv">1</span><span class="sc">:</span>Nvar]</span>
-<span id="cb206-3"><a href="variable-selection.html#cb206-3" tabindex="-1"></a><span class="fu">names</span>(mdat)</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="variable-selection.html#cb213-1" tabindex="-1"></a>mdat <span class="ot">&lt;-</span> Xtrain[,<span class="dv">1</span><span class="sc">:</span>Nvar]</span>
+<span id="cb213-2"><a href="variable-selection.html#cb213-2" tabindex="-1"></a>newmdat <span class="ot">&lt;-</span> Xtest[,<span class="dv">1</span><span class="sc">:</span>Nvar]</span>
+<span id="cb213-3"><a href="variable-selection.html#cb213-3" tabindex="-1"></a><span class="fu">names</span>(mdat)</span></code></pre></div>
 <pre><code>##  [1] &quot;grupo&quot; &quot;X1&quot;    &quot;X2&quot;    &quot;Z1&quot;    &quot;Z2&quot;    &quot;Z3&quot;    &quot;Z4&quot;    &quot;Z5&quot;    &quot;Z6&quot;   
 ## [10] &quot;Z7&quot;    &quot;Z8&quot;    &quot;Z9&quot;    &quot;Z10&quot;   &quot;Z11&quot;   &quot;Z12&quot;   &quot;Z13&quot;   &quot;Z14&quot;   &quot;Z15&quot;  
 ## [19] &quot;Z16&quot;   &quot;Z17&quot;   &quot;Z18&quot;   &quot;Z19&quot;   &quot;Z20&quot;   &quot;Z21&quot;   &quot;Z22&quot;   &quot;Z23&quot;   &quot;Z24&quot;  
 ## [28] &quot;Z25&quot;   &quot;Z26&quot;   &quot;Z27&quot;   &quot;Z28&quot;   &quot;Z29&quot;   &quot;Z30&quot;   &quot;Z31&quot;   &quot;Z32&quot;   &quot;Z33&quot;  
 ## [37] &quot;Z34&quot;   &quot;Z35&quot;   &quot;Z36&quot;   &quot;Z37&quot;   &quot;Z38&quot;   &quot;Z39&quot;   &quot;Z40&quot;   &quot;Z41&quot;   &quot;Z42&quot;  
 ## [46] &quot;Z43&quot;   &quot;Z44&quot;   &quot;Z45&quot;   &quot;Z46&quot;   &quot;Z47&quot;</code></pre>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="variable-selection.html#cb208-1" tabindex="-1"></a>meas <span class="ot">&lt;-</span> <span class="st">&quot;accuracy&quot;</span></span>
-<span id="cb208-2"><a href="variable-selection.html#cb208-2" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span>
-<span id="cb208-3"><a href="variable-selection.html#cb208-3" tabindex="-1"></a>rf1 <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(grupo<span class="sc">~</span>.,<span class="at">data=</span>mdat)</span>
-<span id="cb208-4"><a href="variable-selection.html#cb208-4" tabindex="-1"></a><span class="fu">varImpPlot</span>(rf1)</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="variable-selection.html#cb215-1" tabindex="-1"></a>meas <span class="ot">&lt;-</span> <span class="st">&quot;accuracy&quot;</span></span>
+<span id="cb215-2"><a href="variable-selection.html#cb215-2" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span>
+<span id="cb215-3"><a href="variable-selection.html#cb215-3" tabindex="-1"></a>rf1 <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(grupo<span class="sc">~</span>.,<span class="at">data=</span>mdat)</span>
+<span id="cb215-4"><a href="variable-selection.html#cb215-4" tabindex="-1"></a><span class="fu">varImpPlot</span>(rf1)</span></code></pre></div>
 <p><img src="bookdown_intro_files/figure-html/unnamed-chunk-82-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="variable-selection.html#cb209-1" tabindex="-1"></a>pred.rf1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf1,newmdat,<span class="at">measure=</span>meas)</span>
-<span id="cb209-2"><a href="variable-selection.html#cb209-2" tabindex="-1"></a><span class="fu">cat2meas</span>(ytest,pred.rf1)</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="variable-selection.html#cb216-1" tabindex="-1"></a>pred.rf1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf1,newmdat,<span class="at">measure=</span>meas)</span>
+<span id="cb216-2"><a href="variable-selection.html#cb216-2" tabindex="-1"></a><span class="fu">cat2meas</span>(ytest,pred.rf1)</span></code></pre></div>
 <pre><code>## accuracy 
 ##    0.672</code></pre>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="variable-selection.html#cb211-1" tabindex="-1"></a><span class="fu">table</span>(ytest,pred.rf1)</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="variable-selection.html#cb218-1" tabindex="-1"></a><span class="fu">table</span>(ytest,pred.rf1)</span></code></pre></div>
 <pre><code>##      pred.rf1
 ## ytest  1  2
 ##     1 95 14
 ##     2 68 73</code></pre>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="variable-selection.html#cb213-1" tabindex="-1"></a>rf.vs <span class="ot">&lt;-</span> fda.usc.devel<span class="sc">:::</span><span class="fu">classif.ML.vs</span>(<span class="fu">ldata</span>(mdat),<span class="st">&quot;grupo&quot;</span>,<span class="at">classif=</span><span class="st">&quot;classif.randomForest&quot;</span>)</span>
-<span id="cb213-2"><a href="variable-selection.html#cb213-2" tabindex="-1"></a><span class="fu">summary</span>(rf.vs)</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="variable-selection.html#cb220-1" tabindex="-1"></a>rf.vs <span class="ot">&lt;-</span> fda.usc.devel<span class="sc">:::</span><span class="fu">classif.ML.vs</span>(<span class="fu">ldata</span>(mdat),<span class="st">&quot;grupo&quot;</span>,<span class="at">classif=</span><span class="st">&quot;classif.randomForest&quot;</span>)</span>
+<span id="cb220-2"><a href="variable-selection.html#cb220-2" tabindex="-1"></a><span class="fu">summary</span>(rf.vs)</span></code></pre></div>
 <pre><code>##      - SUMMARY - 
 ## 
 ## -Probability of correct classification by group (prob.classification):
@@ -554,16 +560,16 @@ THEN <span class="math inline">\(M^{(i+1)}=M^{(i+1)}\backslash\{X^j\}\)</span> a
 ##   2  13 102
 ## 
 ## -Probability of correct classification:  0.904</code></pre>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="variable-selection.html#cb215-1" tabindex="-1"></a>rf.vs<span class="sc">$</span>i.predictor</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="variable-selection.html#cb222-1" tabindex="-1"></a>rf.vs<span class="sc">$</span>i.predictor</span></code></pre></div>
 <pre><code>##  X1  X2  Z1  Z2  Z3  Z4  Z5  Z6  Z7  Z8  Z9 Z10 Z11 Z12 Z13 Z14 Z15 Z16 Z17 Z18 
 ##   1   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
 ## Z19 Z20 Z21 Z22 Z23 Z24 Z25 Z26 Z27 Z28 Z29 Z30 Z31 Z32 Z33 Z34 Z35 Z36 Z37 Z38 
 ##   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
 ## Z39 Z40 Z41 Z42 Z43 Z44 Z45 Z46 Z47 
 ##   0   0   0   0   0   0   0   0   0</code></pre>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="variable-selection.html#cb217-1" tabindex="-1"></a>rf.vs<span class="sc">$</span>ipredictor</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="variable-selection.html#cb224-1" tabindex="-1"></a>rf.vs<span class="sc">$</span>ipredictor</span></code></pre></div>
 <pre><code>## [1] &quot;X2&quot; &quot;X1&quot;</code></pre>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="variable-selection.html#cb219-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">round</span>(rf.vs<span class="sc">$</span>dcor,<span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="variable-selection.html#cb226-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">round</span>(rf.vs<span class="sc">$</span>dcor,<span class="dv">3</span>))</span></code></pre></div>
 <pre><code>##      X1    X2 Z1 Z2 Z3 Z4 Z5 Z6 Z7 Z8 Z9 Z10  Z11 Z12 Z13   Z14 Z15 Z16 Z17
 ## 1 0.016 0.018  0  0  0  0  0  0  0  0  0   0 0.01   0   0 0.010   0   0   0
 ## 2 0.032 0.000  0  0  0  0  0  0  0  0  0   0 0.00   0   0 0.000   0   0   0
@@ -585,18 +591,18 @@ THEN <span class="math inline">\(M^{(i+1)}=M^{(i+1)}\backslash\{X^j\}\)</span> a
 ## 4   0 0.000   0   0   0   0   0   0   0   0   0   0
 ## 5   0 0.000   0   0   0   0   0   0   0   0   0   0
 ## 6   0 0.000   0   0   0   0   0   0   0   0   0   0</code></pre>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="variable-selection.html#cb221-1" tabindex="-1"></a>pred.rf.vs <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf.vs,<span class="fu">ldata</span>(newmdat))</span>
-<span id="cb221-2"><a href="variable-selection.html#cb221-2" tabindex="-1"></a><span class="fu">cat2meas</span>(ytest,pred.rf.vs)</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="variable-selection.html#cb228-1" tabindex="-1"></a>pred.rf.vs <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf.vs,<span class="fu">ldata</span>(newmdat))</span>
+<span id="cb228-2"><a href="variable-selection.html#cb228-2" tabindex="-1"></a><span class="fu">cat2meas</span>(ytest,pred.rf.vs)</span></code></pre></div>
 <pre><code>## accuracy 
 ##    0.896</code></pre>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="variable-selection.html#cb223-1" tabindex="-1"></a><span class="fu">table</span>(ytest,pred.rf.vs)</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="variable-selection.html#cb230-1" tabindex="-1"></a><span class="fu">table</span>(ytest,pred.rf.vs)</span></code></pre></div>
 <pre><code>##      pred.rf.vs
 ## ytest   1   2
 ##     1 103   6
 ##     2  20 121</code></pre>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="variable-selection.html#cb225-1" tabindex="-1"></a>predictors <span class="ot">&lt;-</span> <span class="fu">names</span>(mdat)[<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb225-2"><a href="variable-selection.html#cb225-2" tabindex="-1"></a>form <span class="ot">&lt;-</span> <span class="fu">formula</span>(<span class="fu">paste0</span>(<span class="st">&quot;grupo~&quot;</span>,<span class="fu">paste0</span>(<span class="st">&quot;s(&quot;</span>,predictors,<span class="st">&quot;)&quot;</span>,<span class="at">collapse=</span><span class="st">&quot;+&quot;</span>)))</span>
-<span id="cb225-3"><a href="variable-selection.html#cb225-3" tabindex="-1"></a>form</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="variable-selection.html#cb232-1" tabindex="-1"></a>predictors <span class="ot">&lt;-</span> <span class="fu">names</span>(mdat)[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb232-2"><a href="variable-selection.html#cb232-2" tabindex="-1"></a>form <span class="ot">&lt;-</span> <span class="fu">formula</span>(<span class="fu">paste0</span>(<span class="st">&quot;grupo~&quot;</span>,<span class="fu">paste0</span>(<span class="st">&quot;s(&quot;</span>,predictors,<span class="st">&quot;)&quot;</span>,<span class="at">collapse=</span><span class="st">&quot;+&quot;</span>)))</span>
+<span id="cb232-3"><a href="variable-selection.html#cb232-3" tabindex="-1"></a>form</span></code></pre></div>
 <pre><code>## grupo ~ s(X1) + s(X2) + s(Z1) + s(Z2) + s(Z3) + s(Z4) + s(Z5) + 
 ##     s(Z6) + s(Z7) + s(Z8) + s(Z9) + s(Z10) + s(Z11) + s(Z12) + 
 ##     s(Z13) + s(Z14) + s(Z15) + s(Z16) + s(Z17) + s(Z18) + s(Z19) + 
@@ -604,24 +610,24 @@ THEN <span class="math inline">\(M^{(i+1)}=M^{(i+1)}\backslash\{X^j\}\)</span> a
 ##     s(Z27) + s(Z28) + s(Z29) + s(Z30) + s(Z31) + s(Z32) + s(Z33) + 
 ##     s(Z34) + s(Z35) + s(Z36) + s(Z37) + s(Z38) + s(Z39) + s(Z40) + 
 ##     s(Z41) + s(Z42) + s(Z43) + s(Z44) + s(Z45) + s(Z46) + s(Z47)</code></pre>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="variable-selection.html#cb227-1" tabindex="-1"></a>ldat <span class="ot">&lt;-</span> <span class="fu">ldata</span>(mdat)</span>
-<span id="cb227-2"><a href="variable-selection.html#cb227-2" tabindex="-1"></a><span class="co"># gsam &lt;- classif.gsam(form,data=ldat)</span></span>
-<span id="cb227-3"><a href="variable-selection.html#cb227-3" tabindex="-1"></a><span class="co"># Error in gam(formula = as.formula(pf), data = XX, family = family) : Model has more coefficients than data</span></span>
-<span id="cb227-4"><a href="variable-selection.html#cb227-4" tabindex="-1"></a></span>
-<span id="cb227-5"><a href="variable-selection.html#cb227-5" tabindex="-1"></a>form <span class="ot">&lt;-</span> <span class="fu">formula</span>(<span class="fu">paste0</span>(<span class="st">&quot;grupo~&quot;</span>,<span class="fu">paste0</span>(<span class="st">&quot;s(&quot;</span>,predictors,<span class="st">&quot;,k=5)&quot;</span>,<span class="at">collapse=</span><span class="st">&quot;+&quot;</span>)))</span>
-<span id="cb227-6"><a href="variable-selection.html#cb227-6" tabindex="-1"></a>ldat <span class="ot">&lt;-</span> <span class="fu">ldata</span>(mdat)</span>
-<span id="cb227-7"><a href="variable-selection.html#cb227-7" tabindex="-1"></a>gsam <span class="ot">&lt;-</span> <span class="fu">classif.gsam</span>(form,<span class="at">data=</span>ldat)</span>
-<span id="cb227-8"><a href="variable-selection.html#cb227-8" tabindex="-1"></a>pred.gsam <span class="ot">&lt;-</span> <span class="fu">predict</span>(gsam,<span class="fu">ldata</span>(newmdat))</span>
-<span id="cb227-9"><a href="variable-selection.html#cb227-9" tabindex="-1"></a><span class="fu">cat2meas</span>(ytest,pred.gsam)</span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="variable-selection.html#cb234-1" tabindex="-1"></a>ldat <span class="ot">&lt;-</span> <span class="fu">ldata</span>(mdat)</span>
+<span id="cb234-2"><a href="variable-selection.html#cb234-2" tabindex="-1"></a><span class="co"># gsam &lt;- classif.gsam(form,data=ldat)</span></span>
+<span id="cb234-3"><a href="variable-selection.html#cb234-3" tabindex="-1"></a><span class="co"># Error in gam(formula = as.formula(pf), data = XX, family = family) : Model has more coefficients than data</span></span>
+<span id="cb234-4"><a href="variable-selection.html#cb234-4" tabindex="-1"></a></span>
+<span id="cb234-5"><a href="variable-selection.html#cb234-5" tabindex="-1"></a>form <span class="ot">&lt;-</span> <span class="fu">formula</span>(<span class="fu">paste0</span>(<span class="st">&quot;grupo~&quot;</span>,<span class="fu">paste0</span>(<span class="st">&quot;s(&quot;</span>,predictors,<span class="st">&quot;,k=5)&quot;</span>,<span class="at">collapse=</span><span class="st">&quot;+&quot;</span>)))</span>
+<span id="cb234-6"><a href="variable-selection.html#cb234-6" tabindex="-1"></a>ldat <span class="ot">&lt;-</span> <span class="fu">ldata</span>(mdat)</span>
+<span id="cb234-7"><a href="variable-selection.html#cb234-7" tabindex="-1"></a>gsam <span class="ot">&lt;-</span> <span class="fu">classif.gsam</span>(form,<span class="at">data=</span>ldat)</span>
+<span id="cb234-8"><a href="variable-selection.html#cb234-8" tabindex="-1"></a>pred.gsam <span class="ot">&lt;-</span> <span class="fu">predict</span>(gsam,<span class="fu">ldata</span>(newmdat))</span>
+<span id="cb234-9"><a href="variable-selection.html#cb234-9" tabindex="-1"></a><span class="fu">cat2meas</span>(ytest,pred.gsam)</span></code></pre></div>
 <pre><code>## accuracy 
 ##    0.896</code></pre>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="variable-selection.html#cb229-1" tabindex="-1"></a><span class="fu">table</span>(ytest,pred.gsam)</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="variable-selection.html#cb236-1" tabindex="-1"></a><span class="fu">table</span>(ytest,pred.gsam)</span></code></pre></div>
 <pre><code>##      pred.gsam
 ## ytest   1   2
 ##     1  97  12
 ##     2  14 127</code></pre>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="variable-selection.html#cb231-1" tabindex="-1"></a>gsam.vs <span class="ot">&lt;-</span> <span class="fu">classif.gsam.vs</span>(<span class="fu">ldata</span>(mdat),<span class="st">&quot;grupo&quot;</span>)</span>
-<span id="cb231-2"><a href="variable-selection.html#cb231-2" tabindex="-1"></a><span class="fu">summary</span>(gsam.vs)</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="variable-selection.html#cb238-1" tabindex="-1"></a>gsam.vs <span class="ot">&lt;-</span> <span class="fu">classif.gsam.vs</span>(<span class="fu">ldata</span>(mdat),<span class="st">&quot;grupo&quot;</span>)</span>
+<span id="cb238-2"><a href="variable-selection.html#cb238-2" tabindex="-1"></a><span class="fu">summary</span>(gsam.vs)</span></code></pre></div>
 <pre><code>##      - SUMMARY - 
 ## 
 ## -Probability of correct classification by group (prob.classification):
@@ -636,20 +642,20 @@ THEN <span class="math inline">\(M^{(i+1)}=M^{(i+1)}\backslash\{X^j\}\)</span> a
 ##   2   0 115
 ## 
 ## -Probability of correct classification:  1</code></pre>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="variable-selection.html#cb233-1" tabindex="-1"></a>gsam.vs<span class="sc">$</span>i.predictor</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="variable-selection.html#cb240-1" tabindex="-1"></a>gsam.vs<span class="sc">$</span>i.predictor</span></code></pre></div>
 <pre><code>##  X1  X2  Z1  Z2  Z3  Z4  Z5  Z6  Z7  Z8  Z9 Z10 Z11 Z12 Z13 Z14 Z15 Z16 Z17 Z18 
 ##   1   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
 ## Z19 Z20 Z21 Z22 Z23 Z24 Z25 Z26 Z27 Z28 Z29 Z30 Z31 Z32 Z33 Z34 Z35 Z36 Z37 Z38 
 ##   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
 ## Z39 Z40 Z41 Z42 Z43 Z44 Z45 Z46 Z47 
 ##   0   0   0   0   0   0   0   0   0</code></pre>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="variable-selection.html#cb235-1" tabindex="-1"></a>gsam.vs<span class="sc">$</span>ipredictor</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="variable-selection.html#cb242-1" tabindex="-1"></a>gsam.vs<span class="sc">$</span>ipredictor</span></code></pre></div>
 <pre><code>## [1] &quot;X2&quot; &quot;X1&quot;</code></pre>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="variable-selection.html#cb237-1" tabindex="-1"></a>pred.gsam.vs <span class="ot">&lt;-</span> <span class="fu">predict</span>(gsam.vs,<span class="fu">ldata</span>(newmdat))</span>
-<span id="cb237-2"><a href="variable-selection.html#cb237-2" tabindex="-1"></a><span class="fu">cat2meas</span>(ytest,pred.gsam.vs)</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="variable-selection.html#cb244-1" tabindex="-1"></a>pred.gsam.vs <span class="ot">&lt;-</span> <span class="fu">predict</span>(gsam.vs,<span class="fu">ldata</span>(newmdat))</span>
+<span id="cb244-2"><a href="variable-selection.html#cb244-2" tabindex="-1"></a><span class="fu">cat2meas</span>(ytest,pred.gsam.vs)</span></code></pre></div>
 <pre><code>## accuracy 
 ##    0.984</code></pre>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="variable-selection.html#cb239-1" tabindex="-1"></a><span class="fu">table</span>(ytest,pred.gsam.vs)</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="variable-selection.html#cb246-1" tabindex="-1"></a><span class="fu">table</span>(ytest,pred.gsam.vs)</span></code></pre></div>
 <pre><code>##      pred.gsam.vs
 ## ytest   1   2
 ##     1 106   3
@@ -966,28 +972,28 @@ ytest    1    2    3    4    5    6    7    8    9
 </div>
 <div id="functional-data-example" class="section level3 hasAnchor" number="4.4.4">
 <h3><span class="header-section-number">4.4.4</span> Functional data example<a href="variable-selection.html#functional-data-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="variable-selection.html#cb243-1" tabindex="-1"></a><span class="fu">data</span>(tecator)</span>
-<span id="cb243-2"><a href="variable-selection.html#cb243-2" tabindex="-1"></a>y<span class="ot">=</span>tecator<span class="sc">$</span>y<span class="sc">$</span>Fat</span>
-<span id="cb243-3"><a href="variable-selection.html#cb243-3" tabindex="-1"></a></span>
-<span id="cb243-4"><a href="variable-selection.html#cb243-4" tabindex="-1"></a><span class="co"># Potential functional covariates</span></span>
-<span id="cb243-5"><a href="variable-selection.html#cb243-5" tabindex="-1"></a>x<span class="ot">=</span>tecator<span class="sc">$</span>absorp.fdata</span>
-<span id="cb243-6"><a href="variable-selection.html#cb243-6" tabindex="-1"></a>x1<span class="ot">&lt;-</span><span class="fu">fdata.deriv</span>(x)</span>
-<span id="cb243-7"><a href="variable-selection.html#cb243-7" tabindex="-1"></a>x2<span class="ot">&lt;-</span><span class="fu">fdata.deriv</span>(x,<span class="at">nderiv=</span><span class="dv">2</span>)</span>
-<span id="cb243-8"><a href="variable-selection.html#cb243-8" tabindex="-1"></a></span>
-<span id="cb243-9"><a href="variable-selection.html#cb243-9" tabindex="-1"></a><span class="co"># Potential factor covariates</span></span>
-<span id="cb243-10"><a href="variable-selection.html#cb243-10" tabindex="-1"></a>xcat0<span class="ot">&lt;-</span><span class="fu">cut</span>(<span class="fu">rnorm</span>(<span class="fu">length</span>(y)),<span class="dv">4</span>)</span>
-<span id="cb243-11"><a href="variable-selection.html#cb243-11" tabindex="-1"></a>xcat1<span class="ot">&lt;-</span><span class="fu">cut</span>(tecator<span class="sc">$</span>y<span class="sc">$</span>Protein,<span class="dv">4</span>)</span>
-<span id="cb243-12"><a href="variable-selection.html#cb243-12" tabindex="-1"></a>xcat2<span class="ot">&lt;-</span><span class="fu">cut</span>(tecator<span class="sc">$</span>y<span class="sc">$</span>Water,<span class="dv">4</span>)</span>
-<span id="cb243-13"><a href="variable-selection.html#cb243-13" tabindex="-1"></a>ind <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">129</span></span>
-<span id="cb243-14"><a href="variable-selection.html#cb243-14" tabindex="-1"></a></span>
-<span id="cb243-15"><a href="variable-selection.html#cb243-15" tabindex="-1"></a><span class="co"># 3 functionals (x,x1,x2), 3 factors (xcat0, xcat1, xcat2)</span></span>
-<span id="cb243-16"><a href="variable-selection.html#cb243-16" tabindex="-1"></a><span class="co"># and 100 potential scalars covariates (impact poitns of x1) </span></span>
-<span id="cb243-17"><a href="variable-selection.html#cb243-17" tabindex="-1"></a>dat    <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;Fat&quot;</span><span class="ot">=</span>y, x1<span class="sc">$</span>data, xcat1, xcat2)</span>
-<span id="cb243-18"><a href="variable-selection.html#cb243-18" tabindex="-1"></a>ldat <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span>dat[ind,],<span class="st">&quot;x&quot;</span><span class="ot">=</span>x[ind,],<span class="st">&quot;x1&quot;</span><span class="ot">=</span>x1[ind,],<span class="st">&quot;x2&quot;</span><span class="ot">=</span>x2[ind,])</span>
-<span id="cb243-19"><a href="variable-selection.html#cb243-19" tabindex="-1"></a></span>
-<span id="cb243-20"><a href="variable-selection.html#cb243-20" tabindex="-1"></a><span class="co"># Time consuming</span></span>
-<span id="cb243-21"><a href="variable-selection.html#cb243-21" tabindex="-1"></a>res.gam1<span class="ot">&lt;-</span><span class="fu">fregre.gsam.vs</span>(<span class="at">data=</span>ldat,<span class="at">y=</span><span class="st">&quot;Fat&quot;</span>)</span>
-<span id="cb243-22"><a href="variable-selection.html#cb243-22" tabindex="-1"></a><span class="fu">summary</span>(res.gam1<span class="sc">$</span>model)</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="variable-selection.html#cb250-1" tabindex="-1"></a><span class="fu">data</span>(tecator)</span>
+<span id="cb250-2"><a href="variable-selection.html#cb250-2" tabindex="-1"></a>y<span class="ot">=</span>tecator<span class="sc">$</span>y<span class="sc">$</span>Fat</span>
+<span id="cb250-3"><a href="variable-selection.html#cb250-3" tabindex="-1"></a></span>
+<span id="cb250-4"><a href="variable-selection.html#cb250-4" tabindex="-1"></a><span class="co"># Potential functional covariates</span></span>
+<span id="cb250-5"><a href="variable-selection.html#cb250-5" tabindex="-1"></a>x<span class="ot">=</span>tecator<span class="sc">$</span>absorp.fdata</span>
+<span id="cb250-6"><a href="variable-selection.html#cb250-6" tabindex="-1"></a>x1<span class="ot">&lt;-</span><span class="fu">fdata.deriv</span>(x)</span>
+<span id="cb250-7"><a href="variable-selection.html#cb250-7" tabindex="-1"></a>x2<span class="ot">&lt;-</span><span class="fu">fdata.deriv</span>(x,<span class="at">nderiv=</span><span class="dv">2</span>)</span>
+<span id="cb250-8"><a href="variable-selection.html#cb250-8" tabindex="-1"></a></span>
+<span id="cb250-9"><a href="variable-selection.html#cb250-9" tabindex="-1"></a><span class="co"># Potential factor covariates</span></span>
+<span id="cb250-10"><a href="variable-selection.html#cb250-10" tabindex="-1"></a>xcat0<span class="ot">&lt;-</span><span class="fu">cut</span>(<span class="fu">rnorm</span>(<span class="fu">length</span>(y)),<span class="dv">4</span>)</span>
+<span id="cb250-11"><a href="variable-selection.html#cb250-11" tabindex="-1"></a>xcat1<span class="ot">&lt;-</span><span class="fu">cut</span>(tecator<span class="sc">$</span>y<span class="sc">$</span>Protein,<span class="dv">4</span>)</span>
+<span id="cb250-12"><a href="variable-selection.html#cb250-12" tabindex="-1"></a>xcat2<span class="ot">&lt;-</span><span class="fu">cut</span>(tecator<span class="sc">$</span>y<span class="sc">$</span>Water,<span class="dv">4</span>)</span>
+<span id="cb250-13"><a href="variable-selection.html#cb250-13" tabindex="-1"></a>ind <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">129</span></span>
+<span id="cb250-14"><a href="variable-selection.html#cb250-14" tabindex="-1"></a></span>
+<span id="cb250-15"><a href="variable-selection.html#cb250-15" tabindex="-1"></a><span class="co"># 3 functionals (x,x1,x2), 3 factors (xcat0, xcat1, xcat2)</span></span>
+<span id="cb250-16"><a href="variable-selection.html#cb250-16" tabindex="-1"></a><span class="co"># and 100 potential scalars covariates (impact poitns of x1) </span></span>
+<span id="cb250-17"><a href="variable-selection.html#cb250-17" tabindex="-1"></a>dat    <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;Fat&quot;</span><span class="ot">=</span>y, x1<span class="sc">$</span>data, xcat1, xcat2)</span>
+<span id="cb250-18"><a href="variable-selection.html#cb250-18" tabindex="-1"></a>ldat <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span>dat[ind,],<span class="st">&quot;x&quot;</span><span class="ot">=</span>x[ind,],<span class="st">&quot;x1&quot;</span><span class="ot">=</span>x1[ind,],<span class="st">&quot;x2&quot;</span><span class="ot">=</span>x2[ind,])</span>
+<span id="cb250-19"><a href="variable-selection.html#cb250-19" tabindex="-1"></a></span>
+<span id="cb250-20"><a href="variable-selection.html#cb250-20" tabindex="-1"></a><span class="co"># Time consuming</span></span>
+<span id="cb250-21"><a href="variable-selection.html#cb250-21" tabindex="-1"></a>res.gam1<span class="ot">&lt;-</span><span class="fu">fregre.gsam.vs</span>(<span class="at">data=</span>ldat,<span class="at">y=</span><span class="st">&quot;Fat&quot;</span>)</span>
+<span id="cb250-22"><a href="variable-selection.html#cb250-22" tabindex="-1"></a><span class="fu">summary</span>(res.gam1<span class="sc">$</span>model)</span></code></pre></div>
 <pre><code>##       Fat            x2.PC1               x2.PC2               x2.PC3          
 ##  Min.   : 0.90   Min.   :-0.0033724   Min.   :-3.094e-03   Min.   :-0.0032994  
 ##  1st Qu.: 7.70   1st Qu.:-0.0023729   1st Qu.:-7.134e-04   1st Qu.:-0.0001902  
@@ -1002,10 +1008,10 @@ ytest    1    2    3    4    5    6    7    8    9
 ##  Mean   : 0.000e+00  
 ##  3rd Qu.: 1.294e-04  
 ##  Max.   : 1.125e-03</code></pre>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="variable-selection.html#cb245-1" tabindex="-1"></a><span class="co"># Prediction like fregre.gsam() </span></span>
-<span id="cb245-2"><a href="variable-selection.html#cb245-2" tabindex="-1"></a>newldat <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span>dat[<span class="sc">-</span>ind,],<span class="st">&quot;x&quot;</span><span class="ot">=</span>x[<span class="sc">-</span>ind,],<span class="st">&quot;x1&quot;</span><span class="ot">=</span>x1[<span class="sc">-</span>ind,],<span class="st">&quot;x2&quot;</span><span class="ot">=</span>x2[<span class="sc">-</span>ind,])</span>
-<span id="cb245-3"><a href="variable-selection.html#cb245-3" tabindex="-1"></a>pred.gam1<span class="ot">&lt;-</span><span class="fu">predict</span>(res.gam1,newldat)</span>
-<span id="cb245-4"><a href="variable-selection.html#cb245-4" tabindex="-1"></a><span class="fu">plot</span>(dat[<span class="sc">-</span>ind,<span class="st">&quot;Fat&quot;</span>],pred.gam1)</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="variable-selection.html#cb252-1" tabindex="-1"></a><span class="co"># Prediction like fregre.gsam() </span></span>
+<span id="cb252-2"><a href="variable-selection.html#cb252-2" tabindex="-1"></a>newldat <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span>dat[<span class="sc">-</span>ind,],<span class="st">&quot;x&quot;</span><span class="ot">=</span>x[<span class="sc">-</span>ind,],<span class="st">&quot;x1&quot;</span><span class="ot">=</span>x1[<span class="sc">-</span>ind,],<span class="st">&quot;x2&quot;</span><span class="ot">=</span>x2[<span class="sc">-</span>ind,])</span>
+<span id="cb252-3"><a href="variable-selection.html#cb252-3" tabindex="-1"></a>pred.gam1<span class="ot">&lt;-</span><span class="fu">predict</span>(res.gam1,newldat)</span>
+<span id="cb252-4"><a href="variable-selection.html#cb252-4" tabindex="-1"></a><span class="fu">plot</span>(dat[<span class="sc">-</span>ind,<span class="st">&quot;Fat&quot;</span>],pred.gam1)</span></code></pre></div>
 <p><img src="bookdown_intro_files/figure-html/unnamed-chunk-92-1.png" width="80%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -1084,6 +1090,7 @@ Figure 4.2: Forest scene
 </tr>
 </tbody>
 </table>
+
 </div>
 </div>
 <h3>References</h3>
@@ -1140,7 +1147,7 @@ Zhao, Yihong, Huaihou Chen, and R Todd Ogden. 2015. <span>“Wavelet-Based Weigh
         </div>
       </div>
 <a href="functional-supervised-classification.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="conclusions-and-future-work.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="functional-clustering.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

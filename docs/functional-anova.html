@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Functional Data Analysis using fda.usc and fda.clust packages</title>
+  <title>Chapter 6 Functional ANOVA | Functional Data Analysis using fda.usc and fda.clust packages</title>
   <meta name="description" content="Functional Data Analysis, Regression, Classification and Clustering using fda.usc and fda.clust packages" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Functional Data Analysis using fda.usc and fda.clust packages" />
+  <meta property="og:title" content="Chapter 6 Functional ANOVA | Functional Data Analysis using fda.usc and fda.clust packages" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Functional Data Analysis, Regression, Classification and Clustering using fda.usc and fda.clust packages" />
   <meta name="github-repo" content="moviedo5/bookdown_fda_clust" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Functional Data Analysis using fda.usc and fda.clust packages" />
+  <meta name="twitter:title" content="Chapter 6 Functional ANOVA | Functional Data Analysis using fda.usc and fda.clust packages" />
   
   <meta name="twitter:description" content="Functional Data Analysis, Regression, Classification and Clustering using fda.usc and fda.clust packages" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="functional-clustering.html"/>
+<link rel="next" href="documentation.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -263,8 +263,18 @@ div.csl-indent {
 <li class="chapter" data-level="5.7.4" data-path="functional-clustering.html"><a href="functional-clustering.html#calinski-harabasz-index"><i class="fa fa-check"></i><b>5.7.4</b> Calinski-Harabasz Index</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#chapter-references"><i class="fa fa-check"></i>Chapter references</a></li>
-<li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#funding-and-financial-support"><i class="fa fa-check"></i>Funding and Financial Support</a></li>
-<li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#references"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="functional-anova.html"><a href="functional-anova.html"><i class="fa fa-check"></i><b>6</b> Functional ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="functional-anova.html"><a href="functional-anova.html#oneway-anova-model-for-functional-data-cuevas2004"><i class="fa fa-check"></i><b>6.1</b> One–way anova model for functional data, <span class="citation">A. Cuevas, Febrero, and Fraiman (2004)</span></a></li>
+<li class="chapter" data-level="6.2" data-path="functional-anova.html"><a href="functional-anova.html#functional-anova-with-random-project-cuesta-albertos2010"><i class="fa fa-check"></i><b>6.2</b> Functional ANOVA with Random Project, <span class="citation">JA Cuesta-Albertos and Febrero-Bande (2010)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>7</b> Documentation</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="documentation.html"><a href="documentation.html#rpubs-documents"><i class="fa fa-check"></i><b>7.1</b> RPubs documents</a></li>
+<li class="chapter" data-level="7.2" data-path="documentation.html"><a href="documentation.html#links"><i class="fa fa-check"></i><b>7.2</b> Links</a></li>
+<li class="chapter" data-level="" data-path="documentation.html"><a href="documentation.html#funding-and-financial-support"><i class="fa fa-check"></i>Funding and Financial Support</a></li>
+<li class="chapter" data-level="" data-path="documentation.html"><a href="documentation.html#references"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
@@ -286,19 +296,101 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="functional-anova" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Functional ANOVA<a href="functional-anova.html#functional-anova" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><a id="anova"></a></p>
+<div id="oneway-anova-model-for-functional-data-cuevas2004" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> One–way anova model for functional data, <span class="citation">A. Cuevas, Febrero, and Fraiman (<a href="#ref-Cuevas2004">2004</a>)</span><a href="functional-anova.html#oneway-anova-model-for-functional-data-cuevas2004" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One–way anova model for k independent samples of functional data. The function contrasts the null hypothesis of equality of mean functions of functional data based on the an asymptotic version of the anova F–test. The function returns the p–value of test using one–way anova model over nboot runs.</p>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="functional-anova.html#cb275-1" tabindex="-1"></a><span class="fu">data</span>(MCO)</span>
+<span id="cb275-2"><a href="functional-anova.html#cb275-2" tabindex="-1"></a>grupo<span class="ot">&lt;-</span>MCO<span class="sc">$</span>classintact</span>
+<span id="cb275-3"><a href="functional-anova.html#cb275-3" tabindex="-1"></a>datos<span class="ot">&lt;-</span>MCO<span class="sc">$</span>intact</span>
+<span id="cb275-4"><a href="functional-anova.html#cb275-4" tabindex="-1"></a>res<span class="ot">=</span><span class="fu">fanova.onefactor</span>(datos,grupo,<span class="at">nboot=</span><span class="dv">50</span>,<span class="at">plot=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-102-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="functional-anova.html#cb276-1" tabindex="-1"></a>res<span class="sc">$</span>pvalue</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+</div>
+<div id="functional-anova-with-random-project-cuesta-albertos2010" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Functional ANOVA with Random Project, <span class="citation">JA Cuesta-Albertos and Febrero-Bande (<a href="#ref-Cuesta-Albertos2010">2010</a>)</span><a href="functional-anova.html#functional-anova-with-random-project-cuesta-albertos2010" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The procedure is based on the analysis of randomly chosen one-dimensional projections. The function tests ANOVA models for functional data with continuous covariates and perform special contrasts for the factors in the formula.</p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="functional-anova.html#cb278-1" tabindex="-1"></a><span class="fu">data</span>(phoneme)</span>
+<span id="cb278-2"><a href="functional-anova.html#cb278-2" tabindex="-1"></a><span class="fu">names</span>(phoneme)</span></code></pre></div>
+<pre><code>## [1] &quot;learn&quot;      &quot;test&quot;       &quot;classlearn&quot; &quot;classtest&quot;</code></pre>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="functional-anova.html#cb280-1" tabindex="-1"></a><span class="co"># A MV matrix obtained from functional data</span></span>
+<span id="cb280-2"><a href="functional-anova.html#cb280-2" tabindex="-1"></a>data<span class="ot">=</span><span class="fu">as.data.frame</span>(phoneme<span class="sc">$</span>learn<span class="sc">$</span>data[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">150</span>,<span class="dv">10</span>)[<span class="sc">-</span><span class="dv">1</span>])]) </span>
+<span id="cb280-3"><a href="functional-anova.html#cb280-3" tabindex="-1"></a>group<span class="ot">=</span>phoneme<span class="sc">$</span>classlearn</span>
+<span id="cb280-4"><a href="functional-anova.html#cb280-4" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">nrow</span>(data)</span>
+<span id="cb280-5"><a href="functional-anova.html#cb280-5" tabindex="-1"></a>group.rand<span class="ot">=</span><span class="fu">as.factor</span>(<span class="fu">sample</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="at">len=</span>n),n))</span>
+<span id="cb280-6"><a href="functional-anova.html#cb280-6" tabindex="-1"></a>RP<span class="ot">=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">15</span>,<span class="dv">30</span>)</span>
+<span id="cb280-7"><a href="functional-anova.html#cb280-7" tabindex="-1"></a><span class="co">#ex 1: real factor and random factor</span></span>
+<span id="cb280-8"><a href="functional-anova.html#cb280-8" tabindex="-1"></a>m03<span class="ot">=</span><span class="fu">data.frame</span>(group,group.rand)</span>
+<span id="cb280-9"><a href="functional-anova.html#cb280-9" tabindex="-1"></a>resul1<span class="ot">=</span><span class="fu">fanova.RPm</span>(phoneme<span class="sc">$</span>learn,<span class="sc">~</span>group<span class="sc">+</span>group.rand,m03,<span class="at">RP=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">30</span>))</span>
+<span id="cb280-10"><a href="functional-anova.html#cb280-10" tabindex="-1"></a><span class="fu">summary</span>(resul1)</span></code></pre></div>
+<pre><code>##      - SUMMARY fanova.RPm - 
+## 
+##  p-value for Bonferroni method 
+##      group group.rand
+## RP5      0    0.78202
+## RP30     0    1.00000
+## 
+##   p-value for False Discovery Rate method 
+##      group group.rand
+## RP5      0    0.78202
+## RP30     0    0.89286</code></pre>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="functional-anova.html#cb282-1" tabindex="-1"></a><span class="co">#ex 2: real factor with special contrast</span></span>
+<span id="cb282-2"><a href="functional-anova.html#cb282-2" tabindex="-1"></a>m0<span class="ot">=</span><span class="fu">data.frame</span>(group)</span>
+<span id="cb282-3"><a href="functional-anova.html#cb282-3" tabindex="-1"></a>cr5<span class="ot">=</span><span class="fu">contr.sum</span>(<span class="dv">5</span>)   <span class="co">#each level vs last level</span></span>
+<span id="cb282-4"><a href="functional-anova.html#cb282-4" tabindex="-1"></a>resul03c1<span class="ot">=</span><span class="fu">fanova.RPm</span>(data,<span class="sc">~</span>group,m0,<span class="at">contrast=</span><span class="fu">list</span>(<span class="at">group=</span>cr5))</span>
+<span id="cb282-5"><a href="functional-anova.html#cb282-5" tabindex="-1"></a><span class="fu">summary</span>(resul03c1)</span></code></pre></div>
+<pre><code>##      - SUMMARY fanova.RPm - 
+## 
+##  p-value for Bonferroni method 
+##      group C1.group C2.group C3.group C4.group
+## RP16     0        0        0        0        0
+## 
+##   p-value for False Discovery Rate method 
+##      group C1.group C2.group C3.group C4.group
+## RP16     0        0        0        0        0</code></pre>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="functional-anova.html#cb284-1" tabindex="-1"></a><span class="co">#ex 3: random factor with special contrast. Same projs as ex 2.</span></span>
+<span id="cb284-2"><a href="functional-anova.html#cb284-2" tabindex="-1"></a>m0<span class="ot">=</span><span class="fu">data.frame</span>(group.rand)</span>
+<span id="cb284-3"><a href="functional-anova.html#cb284-3" tabindex="-1"></a>zz<span class="ot">=</span>resul03c1<span class="sc">$</span>proj</span>
+<span id="cb284-4"><a href="functional-anova.html#cb284-4" tabindex="-1"></a>cr3<span class="ot">=</span><span class="fu">contr.sum</span>(<span class="dv">3</span>)   <span class="co">#each level vs last level</span></span>
+<span id="cb284-5"><a href="functional-anova.html#cb284-5" tabindex="-1"></a>resul03c1<span class="ot">=</span><span class="fu">fanova.RPm</span>(data,<span class="sc">~</span>group.rand,m0,<span class="at">contrast=</span><span class="fu">list</span>(<span class="at">group.rand=</span>cr3),<span class="at">zproj=</span>zz)</span>
+<span id="cb284-6"><a href="functional-anova.html#cb284-6" tabindex="-1"></a><span class="fu">summary</span>(resul03c1)</span></code></pre></div>
+<pre><code>##      - SUMMARY fanova.RPm - 
+## 
+##  p-value for Bonferroni method 
+##      group.rand C1.group.rand C2.group.rand
+## RP16    0.62644       0.42964             1
+## 
+##   p-value for False Discovery Rate method 
+##      group.rand C1.group.rand C2.group.rand
+## RP16    0.62644       0.22874       0.97827</code></pre>
+<!--
+# Functional missing
+# Functional stes
+artículos de manolo
+Functional 2D trayectories
+-->
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-Cuesta-Albertos2010" class="csl-entry">
+Cuesta-Albertos, JA, and M Febrero-Bande. 2010. <span>“A Simple Multiway Anova for Functional Data.”</span> <em>Test</em> 19 (3): 537–57.
+</div>
+<div id="ref-Cuevas2004" class="csl-entry">
+Cuevas, A., M. Febrero, and R. Fraiman. 2004. <span>“An Anova Test for Functional Data.”</span> <em>Comput. Statist. Data Anal.</em> 47 (1): 111–22. <a href="http://www.sciencedirect.com/science/article/pii/S016794730300269X">http://www.sciencedirect.com/science/article/pii/S016794730300269X</a>.
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="functional-clustering.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="documentation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -329,7 +421,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/moviedo5/bookdown_fda_usc/edit/master/%s",
+"link": "https://github.com/moviedo5/bookdown_fda_usc/edit/master/07-fanova.Rmd",
 "text": "Edit"
 },
 "history": {

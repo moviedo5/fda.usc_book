@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Functional Clustering | Functional Data Analysis using fda.usc and fda.clust packages</title>
+  <title>Chapter 5 Functional Clustering | Functional Data Analysis using fda.usc and fda.clust packages</title>
   <meta name="description" content="Functional Data Analysis, Regression, Classification and Clustering using fda.usc and fda.clust packages" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Functional Clustering | Functional Data Analysis using fda.usc and fda.clust packages" />
+  <meta property="og:title" content="Chapter 5 Functional Clustering | Functional Data Analysis using fda.usc and fda.clust packages" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Functional Data Analysis, Regression, Classification and Clustering using fda.usc and fda.clust packages" />
   <meta name="github-repo" content="moviedo5/bookdown_fda_clust" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Functional Clustering | Functional Data Analysis using fda.usc and fda.clust packages" />
+  <meta name="twitter:title" content="Chapter 5 Functional Clustering | Functional Data Analysis using fda.usc and fda.clust packages" />
   
   <meta name="twitter:description" content="Functional Data Analysis, Regression, Classification and Clustering using fda.usc and fda.clust packages" />
   
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="conclusions-and-future-work.html"/>
+<link rel="prev" href="variable-selection.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -182,13 +182,13 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="definition.html"><a href="definition.html#derivatives"><i class="fa fa-check"></i><b>1.3.1</b> Derivatives</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="definition.html"><a href="definition.html#correlation-distances-szekely2007"><i class="fa fa-check"></i><b>1.4</b> Correlation Distances <span class="citation">(G. J. Székely, Rizzo, and Bakirov 2007)</span></a>
+<li class="chapter" data-level="1.4" data-path="definition.html"><a href="definition.html#semi-metric-as-classification-rule"><i class="fa fa-check"></i><b>1.4</b> Semi-metric as classification rule</a></li>
+<li class="chapter" data-level="1.5" data-path="definition.html"><a href="definition.html#correlation-distances-szekely2007"><i class="fa fa-check"></i><b>1.5</b> Correlation Distances <span class="citation">(G. J. Székely, Rizzo, and Bakirov 2007)</span></a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="definition.html"><a href="definition.html#depth-for-functional-data"><i class="fa fa-check"></i><b>1.4.1</b> Depth for functional data</a></li>
-<li class="chapter" data-level="1.4.2" data-path="definition.html"><a href="definition.html#depth-and-distances-for-multivariate-functional-data-cuesta2017hbox"><i class="fa fa-check"></i><b>1.4.2</b> Depth (and distances) for multivariate functional data <span class="citation">(J. A. Cuesta-Albertos, Febrero-Bande, and Oviedo de la Fuente 2017)</span></a></li>
-<li class="chapter" data-level="1.4.3" data-path="definition.html"><a href="definition.html#outliers-detection"><i class="fa fa-check"></i><b>1.4.3</b> Outliers detection</a></li>
+<li class="chapter" data-level="1.5.1" data-path="definition.html"><a href="definition.html#depth-for-functional-data"><i class="fa fa-check"></i><b>1.5.1</b> Depth for functional data</a></li>
+<li class="chapter" data-level="1.5.2" data-path="definition.html"><a href="definition.html#depth-and-distances-for-multivariate-functional-data-cuesta2017hbox"><i class="fa fa-check"></i><b>1.5.2</b> Depth (and distances) for multivariate functional data <span class="citation">(J. A. Cuesta-Albertos, Febrero-Bande, and Oviedo de la Fuente 2017)</span></a></li>
+<li class="chapter" data-level="1.5.3" data-path="definition.html"><a href="definition.html#outliers-detection"><i class="fa fa-check"></i><b>1.5.3</b> Outliers detection</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="definition.html"><a href="definition.html#references"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>2</b> Functional Regression Model</a>
 <ul>
@@ -208,7 +208,6 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.9" data-path="regression.html"><a href="regression.html#functional-response-model"><i class="fa fa-check"></i><b>2.9</b> Functional Response Model</a></li>
 <li class="chapter" data-level="2.10" data-path="regression.html"><a href="regression.html#other-models"><i class="fa fa-check"></i><b>2.10</b> Other Models:</a></li>
-<li class="chapter" data-level="" data-path="regression.html"><a href="regression.html#references-1"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html"><i class="fa fa-check"></i><b>3</b> Functional Supervised Classification</a>
 <ul>
@@ -218,7 +217,6 @@ div.csl-indent {
 <li class="chapter" data-level="3.4" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#maximum-depth-classif.depth-li2012"><i class="fa fa-check"></i><b>3.4</b> Maximum depth: <code>classif.depth</code> <span class="citation">(Li, Cuesta-Albertos, and Liu 2012)</span></a></li>
 <li class="chapter" data-level="3.5" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#the-ddgclassifier-classif.dd-cuesta2017hbox"><i class="fa fa-check"></i><b>3.5</b> The DD<span class="math inline">\(^G\)</span>–classifier <code>classif.DD</code> <span class="citation">(J. A. Cuesta-Albertos, Febrero-Bande, and Oviedo de la Fuente 2017)</span></a></li>
 <li class="chapter" data-level="3.6" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#classifiers-adapted-from-multivariate-framework"><i class="fa fa-check"></i><b>3.6</b> Classifiers adapted from Multivariate Framework</a></li>
-<li class="chapter" data-level="" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#references-2"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="variable-selection.html"><a href="variable-selection.html"><i class="fa fa-check"></i><b>4</b> Variable Selection</a>
 <ul>
@@ -245,19 +243,28 @@ div.csl-indent {
 <li class="chapter" data-level="4.5" data-path="variable-selection.html"><a href="variable-selection.html#optimum-multiscale-selection-in-3d-point-cloud-classification-oviedo2021distance"><i class="fa fa-check"></i><b>4.5</b> Optimum Multiscale Selection in 3D Point Cloud Classification <span class="citation">(Oviedo-de la Fuente et al. 2021)</span></a></li>
 <li class="chapter" data-level="4.6" data-path="variable-selection.html"><a href="variable-selection.html#model-comparison"><i class="fa fa-check"></i><b>4.6</b> Model Comparison</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html"><i class="fa fa-check"></i><b>5</b> Conclusions and future work</a>
+<li class="chapter" data-level="5" data-path="functional-clustering.html"><a href="functional-clustering.html"><i class="fa fa-check"></i><b>5</b> Functional Clustering</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html#conclusions"><i class="fa fa-check"></i><b>5.1</b> Conclusions</a></li>
-<li class="chapter" data-level="5.2" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html#code-r-scripts-and-notebooks"><i class="fa fa-check"></i><b>5.2</b> Code: R scripts and notebooks</a></li>
-<li class="chapter" data-level="5.3" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html#future-work"><i class="fa fa-check"></i><b>5.3</b> Future work</a></li>
-<li class="chapter" data-level="5.4" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html#future-work-wells-riley-equation"><i class="fa fa-check"></i><b>5.4</b> Future work: Wells-Riley equation</a></li>
-<li class="chapter" data-level="" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html#references-3"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="5.1" data-path="functional-clustering.html"><a href="functional-clustering.html#r-packages-for-clustering"><i class="fa fa-check"></i><b>5.1</b> R Packages for Clustering</a></li>
+<li class="chapter" data-level="5.2" data-path="functional-clustering.html"><a href="functional-clustering.html#r-packages-for-clustering-functional-data"><i class="fa fa-check"></i><b>5.2</b> R Packages for Clustering Functional Data</a></li>
+<li class="chapter" data-level="5.3" data-path="functional-clustering.html"><a href="functional-clustering.html#k-means-clustering-for-functional-data"><i class="fa fa-check"></i><b>5.3</b> K-Means Clustering for Functional Data</a></li>
+<li class="chapter" data-level="5.4" data-path="functional-clustering.html"><a href="functional-clustering.html#functional-data-clustering-with-dbscan-fdbscan"><i class="fa fa-check"></i><b>5.4</b> Functional Data Clustering with DBSCAN (<code>fdbscan</code>)</a></li>
+<li class="chapter" data-level="5.5" data-path="functional-clustering.html"><a href="functional-clustering.html#functional-data-clustering-with-mean-shift-fmeanshift"><i class="fa fa-check"></i><b>5.5</b> Functional Data Clustering with Mean Shift (<code>fmeanshift</code>)</a></li>
+<li class="chapter" data-level="5.6" data-path="functional-clustering.html"><a href="functional-clustering.html#multivariate-functional-data-clustering"><i class="fa fa-check"></i><b>5.6</b> Multivariate Functional Data Clustering</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="functional-clustering.html"><a href="functional-clustering.html#hierarchical-clustering-with-mfhclust"><i class="fa fa-check"></i><b>5.6.1</b> Hierarchical Clustering with <code>mfhclust()</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="functional-clustering.html"><a href="functional-clustering.html#k-means-clustering-with-mfkmeans"><i class="fa fa-check"></i><b>5.6.2</b> K-means Clustering with mfkmeans()</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="functional-clustering.html"><a href="functional-clustering.html"><i class="fa fa-check"></i><b>6</b> Functional Clustering</a>
+<li class="chapter" data-level="5.7" data-path="functional-clustering.html"><a href="functional-clustering.html#cluster-validation-measures"><i class="fa fa-check"></i><b>5.7</b> Cluster Validation Measures</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="functional-clustering.html"><a href="functional-clustering.html#k-means-clustering-for-functional-data-hartigan1979algorithm"><i class="fa fa-check"></i><b>6.1</b> K-Means Clustering for functional data, <span class="citation">Hartigan and Wong (1979)</span></a></li>
-<li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#references-4"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="5.7.1" data-path="functional-clustering.html"><a href="functional-clustering.html#silhouette-index"><i class="fa fa-check"></i><b>5.7.1</b> Silhouette Index</a></li>
+<li class="chapter" data-level="5.7.2" data-path="functional-clustering.html"><a href="functional-clustering.html#dunn-index"><i class="fa fa-check"></i><b>5.7.2</b> Dunn Index</a></li>
+<li class="chapter" data-level="5.7.3" data-path="functional-clustering.html"><a href="functional-clustering.html#davies-bouldin-index"><i class="fa fa-check"></i><b>5.7.3</b> Davies-Bouldin Index</a></li>
+<li class="chapter" data-level="5.7.4" data-path="functional-clustering.html"><a href="functional-clustering.html#calinski-harabasz-index"><i class="fa fa-check"></i><b>5.7.4</b> Calinski-Harabasz Index</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#chapter-references"><i class="fa fa-check"></i>Chapter references</a></li>
+<li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#funding-and-financial-support"><i class="fa fa-check"></i>Funding and Financial Support</a></li>
+<li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#references"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
@@ -279,51 +286,360 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="functional-clustering" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Functional Clustering<a href="functional-clustering.html#functional-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>bla bla bla nuevas herramientas</p>
-<p><a id="cluster"></a></p>
-<div id="k-means-clustering-for-functional-data-hartigan1979algorithm" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> K-Means Clustering for functional data, <span class="citation">Hartigan and Wong (<a href="#ref-hartigan1979algorithm">1979</a>)</span><a href="functional-clustering.html#k-means-clustering-for-functional-data-hartigan1979algorithm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Perform k-means clustering on functional data.
-The method searches the locations around which are grouped data (for a predetermined number of groups).
-+ If ncl=NULL, randomizes the initial centers, ncl=2 using kmeans.center.ini function.
-+ If ncl is an integer, indicating the number of groups to classify,
-are selected ncl initial centers using kmeans.center.ini function.
-+ If ncl is a vector of integers, indicating the position of the initial centers with length(ncl) equal to number of groups.
-+ If ncl is a fdata class objecct, ncl are the initial centers curves with nrow(ncl) number of groups.</p>
-<p>The fucntion return a list with:
-+ cluster: Indexes of groups assigned.
-+ centers: Curves centers.</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="functional-clustering.html#cb246-1" tabindex="-1"></a><span class="fu">data</span>(phoneme)</span>
-<span id="cb246-2"><a href="functional-clustering.html#cb246-2" tabindex="-1"></a>mlearn<span class="ot">&lt;-</span>phoneme<span class="sc">$</span>learn[<span class="dv">1</span><span class="sc">:</span><span class="dv">150</span>,]</span>
-<span id="cb246-3"><a href="functional-clustering.html#cb246-3" tabindex="-1"></a>ylearn<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(phoneme<span class="sc">$</span>classlearn[<span class="dv">1</span><span class="sc">:</span><span class="dv">150</span>])</span>
-<span id="cb246-4"><a href="functional-clustering.html#cb246-4" tabindex="-1"></a><span class="co"># Unsupervised classification</span></span>
-<span id="cb246-5"><a href="functional-clustering.html#cb246-5" tabindex="-1"></a>kmeans.assig.groups <span class="ot">&lt;-</span> fda.usc<span class="sc">:::</span>kmeans.assig.groups </span>
-<span id="cb246-6"><a href="functional-clustering.html#cb246-6" tabindex="-1"></a>kmeans.center.ini <span class="ot">&lt;-</span> fda.usc<span class="sc">:::</span>kmeans.center.ini</span>
-<span id="cb246-7"><a href="functional-clustering.html#cb246-7" tabindex="-1"></a>kmeans.centers.update<span class="ot">&lt;-</span>fda.usc<span class="sc">:::</span>kmeans.centers.update</span>
-<span id="cb246-8"><a href="functional-clustering.html#cb246-8" tabindex="-1"></a>out.fd1<span class="ot">=</span>fda.usc<span class="sc">:::</span><span class="fu">kmeans.fd</span>(mlearn,<span class="at">ncl=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">51</span>,<span class="dv">101</span>),<span class="at">draw=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-97-1.png" width="80%" style="display: block; margin: auto;" /><img src="bookdown_intro_files/figure-html/unnamed-chunk-97-2.png" width="80%" style="display: block; margin: auto;" /><img src="bookdown_intro_files/figure-html/unnamed-chunk-97-3.png" width="80%" style="display: block; margin: auto;" /><img src="bookdown_intro_files/figure-html/unnamed-chunk-97-4.png" width="80%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="functional-clustering.html#cb247-1" tabindex="-1"></a><span class="fu">table</span>(out.fd1<span class="sc">$</span>cluster,ylearn)</span></code></pre></div>
+<div id="functional-clustering" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Functional Clustering<a href="functional-clustering.html#functional-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Clustering is a method of exploratory analysis used to identify patterns in data by grouping similar elements together, ensuring that the resulting groups are as distinct as possible from one another. In addition to data analysis, clustering can be used to detect outliers, recognize patterns, and generate hypotheses about the underlying population.</p>
+<p>When working with functional data, traditional clustering methods can be adapted by incorporating notions of distance between functions or curves. This section introduces the concepts and tools available for functional data clustering using the <code>fda.clust</code> package.</p>
+<div id="r-packages-for-clustering" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> R Packages for Clustering<a href="functional-clustering.html#r-packages-for-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here is a list of popular R packages for clustering:</p>
+<ul>
+<li><strong>cluster</strong>: General-purpose clustering methods, including k-means, PAM, and hierarchical clustering.</li>
+<li><strong>factoextra</strong>: Visualization and interpretation of clustering results.</li>
+<li><strong>fpc</strong>: Additional methods for clustering and cluster validation.</li>
+<li><strong>mclust</strong>: Model-based clustering, classification, and density estimation.</li>
+<li><strong>NbClust</strong>: Determination of the optimal number of clusters.</li>
+<li><strong>clustertend</strong>: Check clustering tendency of a dataset.</li>
+<li><strong>dendextend</strong>: Visualization and adjustment of dendrograms.</li>
+<li><strong>clValid</strong>: Cluster validation statistics.</li>
+<li><strong>dbscan</strong>: Density-based spatial clustering of applications with noise (DBSCAN).</li>
+<li><strong>tclust</strong>: Trimmed k-means and clustering methods for robust statistics.</li>
+<li><strong>fanny</strong>: Fuzzy clustering methods.</li>
+</ul>
+</div>
+<div id="r-packages-for-clustering-functional-data" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> R Packages for Clustering Functional Data<a href="functional-clustering.html#r-packages-for-clustering-functional-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here is a list of R packages specifically for clustering functional data:</p>
+<ul>
+<li><strong>fdacluster</strong>: Implements k-means, hierarchical agglomerative, and DBSCAN clustering methods for functional data, allowing for the joint alignment and clustering of curves.</li>
+<li><strong>fda.usc</strong>: Methods for functional data analysis, including clustering of functional data.</li>
+<li><strong>fda</strong>: Functional Data Analysis tools, with clustering capabilities.</li>
+<li><strong>fda.clust</strong>: Clustering of functional data using methods such as k-means and hierarchical clustering.</li>
+<li><strong>funHDDC</strong>: Mixture models for high-dimensional functional data.</li>
+<li><strong>FDboost</strong>: Boosting methods for functional data, which can be used for clustering.</li>
+<li><strong>funFEM</strong>: Clustering functional data by modeling the curves within a common and discriminative functional subspace.</li>
+<li><strong>funLBM</strong>: Model-based co-clustering of functional data.</li>
+<li><strong>fdasrvf</strong>: Functional data analysis with square-root velocity framework (SRVF) and clustering.</li>
+<li><strong>funcharts</strong>: Visual tools for functional clustering and data analysis.</li>
+<li><strong>ROpenFDA</strong>: Tools for FDA data analysis, which can be used for functional clustering.</li>
+</ul>
+</div>
+<div id="k-means-clustering-for-functional-data" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> K-Means Clustering for Functional Data<a href="functional-clustering.html#k-means-clustering-for-functional-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>K-means is one of the most popular clustering methods due to its simplicity and efficiency. The goal is to partition the data into <span class="math inline">\(k\)</span> groups in such a way that the within-group distances between points and their group center (centroid) are minimized.</p>
+<p>The optimization problem can be formulated as follows:</p>
+<p><span class="math display">\[
+\min_{\{m_1, \dots, m_k\}} \sum_{j=1}^k \sum_{\mathbf{x}_i\in C_j} \| \mathbf{x}_i - m_j \|^2
+\]</span></p>
+<p>Where <span class="math inline">\(m_j\)</span> represents the centroid of cluster <span class="math inline">\(C_j\)</span>, and the goal is to minimize the sum of squared distances between each point <span class="math inline">\(\mathbf{x}_i\)</span> in cluster <span class="math inline">\(C_j\)</span> and its corresponding centroid <span class="math inline">\(m_j\)</span>.</p>
+<p>The K-means algorithm follows these steps:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Initialization</strong>: Select <span class="math inline">\(k\)</span> initial centroids (randomly or using a heuristic).</li>
+<li><strong>Assignment</strong>: Assign each data point to the cluster with the nearest centroid.</li>
+<li><strong>Update</strong>: Recompute the centroids as the mean of all points assigned to the cluster.</li>
+<li><strong>Convergence</strong>: Repeat steps 2 and 3 until the centroids no longer change.</li>
+</ol>
+<p>However, some limitations or considerations should be noted:</p>
+<ul>
+<li><strong>Choice of k</strong>: The number of clusters <span class="math inline">\(k\)</span> must be specified beforehand.</li>
+<li><strong>Local optima</strong>: The algorithm can converge to local optima depending on the initialization.</li>
+<li><strong>Cluster size</strong>: If a cluster size is too small, it may require restarting the algorithm.</li>
+</ul>
+<p>To address the problem of choosing <span class="math inline">\(k\)</span>, the elbow method is commonly used, where the within-group sum of squares is plotted for different values of <span class="math inline">\(k\)</span> and the “elbow” point is selected as the optimal number of clusters.</p>
+<p>The <code>fda.clust</code> package provides tools to perform K-means clustering for functional data. The goal is to cluster curves instead of points, and the package allows for several initialization options:</p>
+<ul>
+<li><strong>ncl = NULL</strong>: Random initialization with 2 groups.</li>
+<li><strong>ncl = integer</strong>: Number of clusters to form, and initial centers are selected automatically.</li>
+<li><strong>ncl = vector of integers</strong>: Specifies the indices of initial cluster centers.</li>
+<li><strong>ncl = fdata object</strong>: Uses the provided functional data as the initial cluster centers.</li>
+</ul>
+<p>The main function for K-means clustering in <code>fda.clust</code> returns:</p>
+<ul>
+<li><strong>cluster</strong>: Indices of the groups assigned to each observation.</li>
+<li><strong>centers</strong>: Functional data objects representing the centers of the clusters.</li>
+</ul>
+<p>See an example of Functional Data Clustering</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="functional-clustering.html#cb253-1" tabindex="-1"></a><span class="fu">data</span>(phoneme)</span>
+<span id="cb253-2"><a href="functional-clustering.html#cb253-2" tabindex="-1"></a>mlearn <span class="ot">&lt;-</span> phoneme<span class="sc">$</span>learn[<span class="dv">1</span><span class="sc">:</span><span class="dv">150</span>, ]</span>
+<span id="cb253-3"><a href="functional-clustering.html#cb253-3" tabindex="-1"></a>ylearn <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(phoneme<span class="sc">$</span>classlearn[<span class="dv">1</span><span class="sc">:</span><span class="dv">150</span>])</span>
+<span id="cb253-4"><a href="functional-clustering.html#cb253-4" tabindex="-1"></a></span>
+<span id="cb253-5"><a href="functional-clustering.html#cb253-5" tabindex="-1"></a><span class="co"># Perform K-means clustering on functional data</span></span>
+<span id="cb253-6"><a href="functional-clustering.html#cb253-6" tabindex="-1"></a>out.fd1 <span class="ot">&lt;-</span> fda.usc<span class="sc">:::</span><span class="fu">kmeans.fd</span>(mlearn, <span class="at">ncl=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">51</span>, <span class="dv">101</span>))</span></code></pre></div>
+<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-96-1.png" width="80%" style="display: block; margin: auto;" /><img src="bookdown_intro_files/figure-html/unnamed-chunk-96-2.png" width="80%" style="display: block; margin: auto;" /><img src="bookdown_intro_files/figure-html/unnamed-chunk-96-3.png" width="80%" style="display: block; margin: auto;" /><img src="bookdown_intro_files/figure-html/unnamed-chunk-96-4.png" width="80%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="functional-clustering.html#cb254-1" tabindex="-1"></a><span class="fu">table</span>(out.fd1<span class="sc">$</span>cluster, ylearn)</span></code></pre></div>
 <pre><code>##    ylearn
 ##      1  2  3
 ##   1 50 10  3
 ##   2  0 40  1
 ##   3  0  0 46</code></pre>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="functional-clustering.html#cb249-1" tabindex="-1"></a><span class="co"># Time consuming</span></span>
-<span id="cb249-2"><a href="functional-clustering.html#cb249-2" tabindex="-1"></a><span class="co"># out.fd2=kmeans.fd(mlearn,ncl=3,draw=FALSE,par.ini=list(method=&quot;exact&quot;))</span></span>
-<span id="cb249-3"><a href="functional-clustering.html#cb249-3" tabindex="-1"></a></span>
-<span id="cb249-4"><a href="functional-clustering.html#cb249-4" tabindex="-1"></a><span class="co"># Different Depth function</span></span>
-<span id="cb249-5"><a href="functional-clustering.html#cb249-5" tabindex="-1"></a><span class="co"># ind=c(17,77,126)</span></span>
-<span id="cb249-6"><a href="functional-clustering.html#cb249-6" tabindex="-1"></a><span class="co"># out.fd3=kmeans.fd(mlearn,ncl=mlearn[ind,],draw=FALSE,</span></span>
-<span id="cb249-7"><a href="functional-clustering.html#cb249-7" tabindex="-1"></a><span class="co"># dfunc=func.trim.FM,par.dfunc=list(trim=0.1))</span></span></code></pre></div>
 </div>
-<div id="references-4" class="section level2 unnumbered hasAnchor">
-<h2>References<a href="functional-clustering.html#references-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="functional-data-clustering-with-dbscan-fdbscan" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Functional Data Clustering with DBSCAN (<code>fdbscan</code>)<a href="functional-clustering.html#functional-data-clustering-with-dbscan-fdbscan" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>DBSCAN (Density-Based Spatial Clustering of Applications with Noise) identifies clusters of points in regions of high density, separated by regions of low density. It defines clusters based on two parameters:</p>
+<ul>
+<li><span class="math inline">\(\varepsilon\)</span>: Maximum distance between two points to be considered neighbors.</li>
+<li><span class="math inline">\(\delta\)</span>: Minimum number of points required to form a dense region.</li>
+</ul>
+<p><strong>Algorithm</strong></p>
+<ol style="list-style-type: decimal">
+<li>Select a random unvisited point and compute its neighborhood <span class="math inline">\(N(\mathbf{x}_i)\)</span>.</li>
+<li>If <span class="math inline">\(|N(\mathbf{x}_i)| \ge \delta\)</span>, mark it as a core point and form a cluster by including its neighbors.</li>
+<li>Expand the cluster by adding points that are density-reachable from the core points.</li>
+<li>If <span class="math inline">\(|N(\mathbf{x}_i)| &lt; \delta\)</span>, mark the point as noise.</li>
+</ol>
+<p>See example of Functional Data Clustering using <code>fdbscan</code></p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="functional-clustering.html#cb256-1" tabindex="-1"></a><span class="fu">library</span>(fda.clust)</span>
+<span id="cb256-2"><a href="functional-clustering.html#cb256-2" tabindex="-1"></a></span>
+<span id="cb256-3"><a href="functional-clustering.html#cb256-3" tabindex="-1"></a><span class="co"># Load functional data</span></span>
+<span id="cb256-4"><a href="functional-clustering.html#cb256-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb256-5"><a href="functional-clustering.html#cb256-5" tabindex="-1"></a><span class="fu">data</span>(phoneme)</span>
+<span id="cb256-6"><a href="functional-clustering.html#cb256-6" tabindex="-1"></a>mlearn <span class="ot">&lt;-</span> phoneme<span class="sc">$</span>learn[<span class="dv">1</span><span class="sc">:</span><span class="dv">150</span>, ]</span>
+<span id="cb256-7"><a href="functional-clustering.html#cb256-7" tabindex="-1"></a></span>
+<span id="cb256-8"><a href="functional-clustering.html#cb256-8" tabindex="-1"></a><span class="co"># Optimize parameters for fdbscan</span></span>
+<span id="cb256-9"><a href="functional-clustering.html#cb256-9" tabindex="-1"></a>o <span class="ot">&lt;-</span> <span class="fu">optim.fdbscan</span>(mlearn, </span>
+<span id="cb256-10"><a href="functional-clustering.html#cb256-10" tabindex="-1"></a>                  <span class="at">eps=</span> <span class="fu">seq</span>(<span class="dv">5</span>, <span class="dv">45</span>, <span class="at">by =</span> <span class="dv">5</span>),</span>
+<span id="cb256-11"><a href="functional-clustering.html#cb256-11" tabindex="-1"></a>                  <span class="at">minPts =</span>  <span class="fu">seq</span>(<span class="dv">5</span>, <span class="dv">45</span>, <span class="at">by =</span><span class="dv">5</span>))</span>
+<span id="cb256-12"><a href="functional-clustering.html#cb256-12" tabindex="-1"></a></span>
+<span id="cb256-13"><a href="functional-clustering.html#cb256-13" tabindex="-1"></a><span class="co"># Perform DBSCAN clustering</span></span>
+<span id="cb256-14"><a href="functional-clustering.html#cb256-14" tabindex="-1"></a>result_fdbscan <span class="ot">&lt;-</span> <span class="fu">fdbscan</span>(mlearn, </span>
+<span id="cb256-15"><a href="functional-clustering.html#cb256-15" tabindex="-1"></a>                          <span class="at">eps =</span> o<span class="sc">$</span>optimal<span class="sc">$</span>eps,</span>
+<span id="cb256-16"><a href="functional-clustering.html#cb256-16" tabindex="-1"></a>                          <span class="at">minPts =</span> o<span class="sc">$</span>optimal<span class="sc">$</span>minPts)</span>
+<span id="cb256-17"><a href="functional-clustering.html#cb256-17" tabindex="-1"></a></span>
+<span id="cb256-18"><a href="functional-clustering.html#cb256-18" tabindex="-1"></a><span class="co"># Plot the clustering results</span></span>
+<span id="cb256-19"><a href="functional-clustering.html#cb256-19" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb256-20"><a href="functional-clustering.html#cb256-20" tabindex="-1"></a><span class="fu">plot</span>(mlearn, <span class="at">col =</span> result_fdbscan<span class="sc">$</span>cluster<span class="sc">+</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-97-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="functional-clustering.html#cb257-1" tabindex="-1"></a><span class="co"># Display cluster assignments</span></span>
+<span id="cb257-2"><a href="functional-clustering.html#cb257-2" tabindex="-1"></a><span class="fu">table</span>(result_fdbscan<span class="sc">$</span>cluster)</span></code></pre></div>
+<pre><code>## 
+##   0   1   2 
+## 113  24  13</code></pre>
 </div>
-<div id="acknowledgements" class="section level2 unnumbered hasAnchor">
-<h2>Acknowledgements<a href="functional-clustering.html#acknowledgements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="functional-data-clustering-with-mean-shift-fmeanshift" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Functional Data Clustering with Mean Shift (<code>fmeanshift</code>)<a href="functional-clustering.html#functional-data-clustering-with-mean-shift-fmeanshift" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Mean-Shift clustering is a non-parametric clustering algorithm based on density. It identifies areas of high data density as cluster centers. The mean shift vector is calculated as:</p>
+<p><span class="math display">\[
+\mathbf{x}_j^{(t+1)} = \mathbf{x}_j^{(t)} - \mathrm{m} \left( \mathbf{x}_j^{(t)} \right)
+\]</span></p>
+<p>Where the mean shift vector <span class="math inline">\(\mathrm{m}(\mathbf{x}_j^{(t)})\)</span> is given by:</p>
+<p><span class="math display">\[
+\mathrm{m} \left( \mathbf{x}_j^{(t)} \right) = \frac{ \sum_{\mathbf{x}_i \in N(\mathbf{x}_j^{(t)})} \mathbf{x}_i \cdot \mathrm{K}_h \left( \mathbf{x}_i - \mathbf{x}_j^{(t)} \right) }{ \sum_{\mathbf{x}_i \in N(\mathbf{x}_j^{(t)})} \mathrm{K}_h \left( \mathbf{x}_i - \mathbf{x}_j^{(t)} \right) }
+\]</span></p>
+<p>Example of Functional Data Clustering using <code>fmeanshift</code></p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="functional-clustering.html#cb259-1" tabindex="-1"></a><span class="fu">library</span>(fda.clust)</span>
+<span id="cb259-2"><a href="functional-clustering.html#cb259-2" tabindex="-1"></a></span>
+<span id="cb259-3"><a href="functional-clustering.html#cb259-3" tabindex="-1"></a><span class="co"># Load functional data</span></span>
+<span id="cb259-4"><a href="functional-clustering.html#cb259-4" tabindex="-1"></a><span class="fu">data</span>(phoneme)</span>
+<span id="cb259-5"><a href="functional-clustering.html#cb259-5" tabindex="-1"></a>mlearn <span class="ot">&lt;-</span> phoneme<span class="sc">$</span>learn[<span class="dv">1</span><span class="sc">:</span><span class="dv">150</span>, ]</span>
+<span id="cb259-6"><a href="functional-clustering.html#cb259-6" tabindex="-1"></a></span>
+<span id="cb259-7"><a href="functional-clustering.html#cb259-7" tabindex="-1"></a><span class="co"># Perform mean shift clustering</span></span>
+<span id="cb259-8"><a href="functional-clustering.html#cb259-8" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb259-9"><a href="functional-clustering.html#cb259-9" tabindex="-1"></a>result_fmeanshift <span class="ot">&lt;-</span> <span class="fu">fmeanshift</span>(mlearn, <span class="at">h =</span> <span class="dv">15</span>)  <span class="co"># h is the bandwidth parameter</span></span></code></pre></div>
+<pre><code>## Min. Dist. InterPares: 20.0270419183663</code></pre>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="functional-clustering.html#cb261-1" tabindex="-1"></a><span class="co"># Plot the clustering results</span></span>
+<span id="cb261-2"><a href="functional-clustering.html#cb261-2" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb261-3"><a href="functional-clustering.html#cb261-3" tabindex="-1"></a><span class="fu">plot</span>(mlearn, <span class="at">col =</span> result_fmeanshift<span class="sc">$</span>cluster)</span></code></pre></div>
+<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-98-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="functional-clustering.html#cb262-1" tabindex="-1"></a><span class="co"># Display cluster assignments</span></span>
+<span id="cb262-2"><a href="functional-clustering.html#cb262-2" tabindex="-1"></a><span class="fu">table</span>(result_fmeanshift<span class="sc">$</span>cluster)</span></code></pre></div>
+<pre><code>## 
+##   1   2 
+## 104  46</code></pre>
+</div>
+<div id="multivariate-functional-data-clustering" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Multivariate Functional Data Clustering<a href="functional-clustering.html#multivariate-functional-data-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When dealing with multivariate functional data, clustering can be performed using a multidimensional metric. The aim is to cluster multivariate functional observations, where each observation may have multiple functional components.</p>
+<p>Two key approaches for multivariate functional clustering are:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Hierarchical clustering</strong> using the <code>mfhclust()</code> function from the <code>fda.clust</code> package, which combines information from multiple functional components.</li>
+<li><strong>K-means clustering</strong> for multivariate functional data using the <code>mfkmeans()</code> function, which partitions the data into <span class="math inline">\(k\)</span> clusters to minimize within-cluster variance.</li>
+</ol>
+<div id="hierarchical-clustering-with-mfhclust" class="section level3 hasAnchor" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Hierarchical Clustering with <code>mfhclust()</code><a href="functional-clustering.html#hierarchical-clustering-with-mfhclust" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>mfhclust()</code> function performs hierarchical clustering on multivariate functional data. The following example demonstrates how to use <code>mfhclust()</code> with the Spanish weather dataset, which contains information on temperature and log-precipitation.</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="functional-clustering.html#cb264-1" tabindex="-1"></a><span class="fu">data</span>(aemet, <span class="at">package =</span> <span class="st">&quot;fda.usc&quot;</span>)</span>
+<span id="cb264-2"><a href="functional-clustering.html#cb264-2" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">mfdata</span>(<span class="st">&quot;temp&quot;</span><span class="ot">=</span>aemet<span class="sc">$</span>temp, <span class="st">&quot;logprec&quot;</span><span class="ot">=</span>aemet<span class="sc">$</span>logprec)</span>
+<span id="cb264-3"><a href="functional-clustering.html#cb264-3" tabindex="-1"></a><span class="co"># Perform hierarchical clustering using Ward&#39;s method</span></span>
+<span id="cb264-4"><a href="functional-clustering.html#cb264-4" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">mfhclust</span>(datos, <span class="at">method =</span> <span class="st">&quot;ward.D2&quot;</span>)</span>
+<span id="cb264-5"><a href="functional-clustering.html#cb264-5" tabindex="-1"></a></span>
+<span id="cb264-6"><a href="functional-clustering.html#cb264-6" tabindex="-1"></a><span class="co"># Plot the dendrogram</span></span>
+<span id="cb264-7"><a href="functional-clustering.html#cb264-7" tabindex="-1"></a><span class="fu">plot</span>(result, <span class="at">main =</span> <span class="st">&quot;Dendrogram of Multivariate Functional Data (Ward&#39;s Method)&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-99-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="functional-clustering.html#cb265-1" tabindex="-1"></a><span class="co"># Cut the dendrogram into 3 clusters</span></span>
+<span id="cb265-2"><a href="functional-clustering.html#cb265-2" tabindex="-1"></a>groups <span class="ot">&lt;-</span> <span class="fu">cutree</span>(result, <span class="at">k =</span> <span class="dv">3</span>)</span>
+<span id="cb265-3"><a href="functional-clustering.html#cb265-3" tabindex="-1"></a></span>
+<span id="cb265-4"><a href="functional-clustering.html#cb265-4" tabindex="-1"></a><span class="co"># Visualize the clustering results for the multivariate functional data</span></span>
+<span id="cb265-5"><a href="functional-clustering.html#cb265-5" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb265-6"><a href="functional-clustering.html#cb265-6" tabindex="-1"></a><span class="fu">plot</span>(aemet<span class="sc">$</span>temp, <span class="at">col=</span>groups)</span>
+<span id="cb265-7"><a href="functional-clustering.html#cb265-7" tabindex="-1"></a><span class="fu">plot</span>(aemet<span class="sc">$</span>logprec, <span class="at">col=</span>groups)</span>
+<span id="cb265-8"><a href="functional-clustering.html#cb265-8" tabindex="-1"></a><span class="fu">plot</span>(aemet<span class="sc">$</span>df[<span class="dv">7</span><span class="sc">:</span><span class="dv">8</span>], <span class="at">col=</span>groups, <span class="at">asp=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-99-2.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="k-means-clustering-with-mfkmeans" class="section level3 hasAnchor" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> K-means Clustering with mfkmeans()<a href="functional-clustering.html#k-means-clustering-with-mfkmeans" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The mfkmeans() function performs k-means clustering for multivariate functional data. Similar to standard k-means, this approach aims to partition the multivariate functional data into <span class="math inline">\(k\)</span> clusters by minimizing the within-cluster variance.</p>
+<p>The following example demonstrates how to apply k-means clustering to the Spanish weather dataset using mfkmeans().</p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="functional-clustering.html#cb266-1" tabindex="-1"></a><span class="co"># Set the number of clusters</span></span>
+<span id="cb266-2"><a href="functional-clustering.html#cb266-2" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb266-3"><a href="functional-clustering.html#cb266-3" tabindex="-1"></a></span>
+<span id="cb266-4"><a href="functional-clustering.html#cb266-4" tabindex="-1"></a><span class="co"># Perform k-means clustering for multivariate functional data</span></span>
+<span id="cb266-5"><a href="functional-clustering.html#cb266-5" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) <span class="co"># Ensures reproducibility</span></span>
+<span id="cb266-6"><a href="functional-clustering.html#cb266-6" tabindex="-1"></a>result_kmeans <span class="ot">&lt;-</span> <span class="fu">mfkmeans</span>(datos, <span class="at">ncl =</span> k)</span>
+<span id="cb266-7"><a href="functional-clustering.html#cb266-7" tabindex="-1"></a></span>
+<span id="cb266-8"><a href="functional-clustering.html#cb266-8" tabindex="-1"></a><span class="co"># Visualize the cluster assignments for the functional components</span></span>
+<span id="cb266-9"><a href="functional-clustering.html#cb266-9" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb266-10"><a href="functional-clustering.html#cb266-10" tabindex="-1"></a><span class="fu">plot</span>(aemet<span class="sc">$</span>temp, <span class="at">col=</span>result_kmeans<span class="sc">$</span>cluster)</span>
+<span id="cb266-11"><a href="functional-clustering.html#cb266-11" tabindex="-1"></a><span class="fu">plot</span>(aemet<span class="sc">$</span>logprec, <span class="at">col=</span>result_kmeans<span class="sc">$</span>cluster)</span>
+<span id="cb266-12"><a href="functional-clustering.html#cb266-12" tabindex="-1"></a><span class="fu">plot</span>(aemet<span class="sc">$</span>df[<span class="dv">7</span><span class="sc">:</span><span class="dv">8</span>], <span class="at">col=</span>result_kmeans<span class="sc">$</span>cluster, <span class="at">asp=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-100-1.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="cluster-validation-measures" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> Cluster Validation Measures<a href="functional-clustering.html#cluster-validation-measures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="silhouette-index" class="section level3 hasAnchor" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> Silhouette Index<a href="functional-clustering.html#silhouette-index" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Silhouette Index <span class="math inline">\(IS_k\)</span> measures the quality of the clusters. The formula is:</p>
+<p><span class="math display">\[
+IS_k = \frac{1}{n} \sum_{i=1}^n \frac{\mathrm{b}(\mathbf{x}_i) - \mathrm{a}(\mathbf{x}_i)}{\max \{ \mathrm{a}(\mathbf{x}_i), \mathrm{b}(\mathbf{x}_i) \}}
+\]</span></p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="functional-clustering.html#cb267-1" tabindex="-1"></a>result_silhouette <span class="ot">&lt;-</span> fda.clust<span class="sc">::</span><span class="fu">fclust.measures</span>(mlearn, result_kmeans<span class="sc">$</span>cluster, <span class="at">index =</span> <span class="st">&quot;silhouette&quot;</span>)</span>
+<span id="cb267-2"><a href="functional-clustering.html#cb267-2" tabindex="-1"></a>result_silhouette</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+</div>
+<div id="dunn-index" class="section level3 hasAnchor" number="5.7.2">
+<h3><span class="header-section-number">5.7.2</span> Dunn Index<a href="functional-clustering.html#dunn-index" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Dunn Index <span class="math inline">\(ID_k\)</span> is given by:</p>
+<p><span class="math display">\[
+ID_k = \frac{\min_{i \neq j} \mathrm{d}(C_i, C_j)}{\max_{i} \mathrm{d}(C_i)}
+\]</span></p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="functional-clustering.html#cb269-1" tabindex="-1"></a>result_dunn <span class="ot">&lt;-</span> fda.clust<span class="sc">::</span><span class="fu">fclust.measures</span>(mlearn, result_kmeans<span class="sc">$</span>cluster, <span class="at">index =</span> <span class="st">&quot;dunn&quot;</span>)</span>
+<span id="cb269-2"><a href="functional-clustering.html#cb269-2" tabindex="-1"></a>result_dunn</span></code></pre></div>
+<pre><code>## [1] 0.1479544</code></pre>
+</div>
+<div id="davies-bouldin-index" class="section level3 hasAnchor" number="5.7.3">
+<h3><span class="header-section-number">5.7.3</span> Davies-Bouldin Index<a href="functional-clustering.html#davies-bouldin-index" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Davies-Bouldin index <span class="math inline">\(IDB_k\)</span> is defined as:</p>
+<p><span class="math display">\[
+IDB_k = \frac{1}{K} \sum_{j=1}^K \max_{i \neq j} \left( \frac{\sigma_i + \sigma_j}{d(m_i, m_j)} \right)
+\]</span></p>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="functional-clustering.html#cb271-1" tabindex="-1"></a>result_db_index <span class="ot">&lt;-</span> fda.clust<span class="sc">::</span><span class="fu">fclust.measures</span>(mlearn, result_kmeans<span class="sc">$</span>cluster, <span class="at">index =</span> <span class="st">&quot;db&quot;</span>)</span>
+<span id="cb271-2"><a href="functional-clustering.html#cb271-2" tabindex="-1"></a>result_db_index</span></code></pre></div>
+<pre><code>## [1] 6.099786</code></pre>
+</div>
+<div id="calinski-harabasz-index" class="section level3 hasAnchor" number="5.7.4">
+<h3><span class="header-section-number">5.7.4</span> Calinski-Harabasz Index<a href="functional-clustering.html#calinski-harabasz-index" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Calinski-Harabasz index <span class="math inline">\(ICH_k\)</span> is defined as:</p>
+<p><span class="math display">\[
+ICH_k = \frac{SS_M (n - k)}{SS_W (k - 1)}
+\]</span></p>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="functional-clustering.html#cb273-1" tabindex="-1"></a>result_ch_index <span class="ot">&lt;-</span> fda.clust<span class="sc">::</span><span class="fu">fclust.measures</span>(mlearn, result_kmeans<span class="sc">$</span>cluster, <span class="at">index =</span> <span class="st">&quot;ch&quot;</span>)</span>
+<span id="cb273-2"><a href="functional-clustering.html#cb273-2" tabindex="-1"></a>result_ch_index</span></code></pre></div>
+<pre><code>## [1] 0.5357454</code></pre>
+<p>The selection of the most appropriate measure depends on the shape, size, and separation of clusters.</p>
+<!--
+
+usuar mi codigo de hace años o este de aquí
+```
+
+# Heterogeneity Measures for Unsupervised Classification
+
+This document discusses the heterogeneity measure for unsupervised classification as presented in Chapter 9, Section 9.3 of *Nonparametric Functional Data Analysis: Theory and Practice*. The goal is to evaluate the heterogeneity of a sample and its potential subdivisions during clustering. This measure is useful for determining how homogeneous a cluster is, and it is often used in hierarchical clustering.
+
+## Heterogeneity Index (HI)
+
+The Heterogeneity Index (HI) for a sample \(S\) is defined as:
+
+$$
+HI(S) = \frac{d(M_1,S, M_2,S)}{d(M_1,S, 0) + d(M_2,S, 0)}
+$$
+
+Where:
+- \(M_1,S\) and \(M_2,S\) are two measures of centrality (e.g., mean, median, or mode) for the distribution of functional data \(S\).
+- \(d\) is a semi-metric used to compute the distance between two functional objects.
+
+The choice of \(M_1,S\) and \(M_2,S\) plays a crucial role in the heterogeneity index. Often, they are set as:
+- \(M_1,S = X_{\text{mean},S}\) (the mean of the sample) and \(M_2,S = X_{\text{mod},S}\) (the mode of the sample), or
+- \(M_1,S = X_{\text{med},S}\) (the median of the sample) and \(M_2,S = X_{\text{mod},S}\).
+
+The larger the value of \(HI(S)\), the more heterogeneous the sample \(S\) is considered to be. This measure is crucial for evaluating the need to partition a sample during hierarchical clustering.
+
+## Subsampled Heterogeneity Index (SHI)
+
+To increase robustness, a subsampled version of the Heterogeneity Index (SHI) is introduced. It is defined as:
+
+$$
+SHI(S) = \frac{1}{L} \sum_{l=1}^L HI(S^{(l)})
+$$
+
+Where \(S^{(l)}\) represents \(L\) randomly generated subsamples of \(S\) with the same size. This approach allows for a more stable estimate of the heterogeneity of the sample.
+
+## Partitioning Heterogeneity Index (PHI) and Splitting Score (SC)
+
+When performing hierarchical clustering, the Partitioning Heterogeneity Index (PHI) is used to evaluate the heterogeneity of each partition. Given a partition \([S_1, \ldots, S_K]\) of the sample \(S\), the PHI is defined as:
+
+$$
+PHI(S; S_1, \ldots, S_K) = \frac{1}{\text{card}(S)} \sum_{k=1}^K \text{card}(S_k) \cdot SHI(S_k)
+$$
+
+The Splitting Score (SC) is then calculated to evaluate if a partition improves the homogeneity of the sample. It is defined as:
+
+$$
+SC(S; S_1, \ldots, S_K) = \frac{SHI(S) - PHI(S; S_1, \ldots, S_K)}{SHI(S)}
+$$
+
+If \(SC > 0\), it indicates a gain in homogeneity from splitting the sample into partitions.
+
+## R Implementation
+
+Below is an example of how to calculate the Heterogeneity Index (HI) and Subsampled Heterogeneity Index (SHI) using R. Note that this implementation is a simplified example.
+
+
+``` r
+# Sample implementation for Heterogeneity Index (HI)
+heterogeneity_index <- function(sample, M1, M2, d) {
+  numerator <- d(M1(sample), M2(sample))
+  denominator <- d(M1(sample), 0) + d(M2(sample), 0)
+  HI <- numerator / denominator
+  return(HI)
+}
+
+# Example distance function (Euclidean distance)
+distance_function <- function(x, y) {
+  sqrt(sum((x - y)^2))
+}
+
+# Example sample and centrality measures
+set.seed(123)
+sample_data <- matrix(rnorm(100), ncol = 10)
+mean_center <- function(sample) colMeans(sample)
+mode_center <- function(sample) apply(sample, 2, function(x) as.numeric(names(sort(table(x), decreasing = TRUE)[1])))
+
+# Calculate HI
+HI_value <- heterogeneity_index(sample_data, mean_center, mode_center, distance_function)
+print(paste("Heterogeneity Index (HI):", round(HI_value, 4)))
+```
+
+```
+## [1] "Heterogeneity Index (HI): 0.8531"
+```
+-->
+</div>
+</div>
+<div id="chapter-references" class="section level2 unnumbered hasAnchor">
+<h2>Chapter references<a href="functional-clustering.html#chapter-references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Bouveyron, C., Côme, E., &amp; Jacques, J. (2014). The functional latent block model for the co-clustering of electricity consumption curves. Journal of the Royal Statistical Society: Series C (Applied Statistics), 63(3), 403-427.</li>
+<li>Centofanti, F., Vichi, M., &amp; Vittadini, G. (2024). Sparse and smooth functional clustering (SaS-Funclust). Statistical Papers, 65(1), 1-26.</li>
+<li>Hartigan, J. A., &amp; Wong, M. A. (1979). A k-means clustering algorithm. Applied Statistics, 28(1), 100-108.</li>
+<li>Kaufman, L., &amp; Rousseeuw, P. J. (1990). Finding Groups in Data: An Introduction to Cluster Analysis. Wiley.</li>
+</ul>
+</div>
+<div id="funding-and-financial-support" class="section level2 unnumbered hasAnchor">
+<h2>Funding and Financial Support<a href="functional-clustering.html#funding-and-financial-support" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This research/work is part of the grants PID2020-113578RB-I00 and PID2023-147127OB-I00 “ERDF/EU”, funded by MCIN/AEI/10.13039/501100011033/. It has also been supported by the Xunta de Galicia (Grupos de Referencia Competitiva ED431C-2024/14) and by CITIC as a center accredited for excellence within the Galician University System and a member of the CIGUS Network, receives subsidies from the Department of Education, Science, Universities, and Vocational Training of the Xunta de Galicia. Additionally, it is co-financed by the EU through the FEDER Galicia 2021-27 operational program (Ref. ED431G 2023/01).</p>
+</div>
+<div id="references" class="section level2 unnumbered hasAnchor">
+<h2>References<a href="functional-clustering.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div class="csl-entry">
@@ -408,9 +724,6 @@ Fraiman, Ricardo, and Graciela Muniz. 2001. <span>“Trimmed Means for Functiona
 Garcı́a-Portugués, Eduardo, Wenceslao González-Manteiga, and Manuel Febrero-Bande. 2014. <span>“A Goodness-of-Fit Test for the Functional Linear Model with Scalar Response.”</span> <em>Journal of Computational and Graphical Statistics</em> 23 (3): 761–78.
 </div>
 <div class="csl-entry">
-Hartigan, John A, and Manchek A Wong. 1979. <span>“Algorithm AS 136: A k-Means Clustering Algorithm.”</span> <em>Journal of the Royal Statistical Society. Series C (Applied Statistics)</em> 28 (1): 100–108.
-</div>
-<div class="csl-entry">
 Kato, Kengo et al. 2012. <span>“Estimation in Functional Linear Quantile Regression.”</span> <em>The Annals of Statistics</em> 40 (6): 3108–36.
 </div>
 <div class="csl-entry">
@@ -476,18 +789,12 @@ Zivot, Eric, and Jiahui Wang. 2007. <em>Modeling Financial Time Series with s-Pl
 </div>
 </div>
 </div>
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div id="ref-hartigan1979algorithm" class="csl-entry">
-Hartigan, John A, and Manchek A Wong. 1979. <span>“Algorithm AS 136: A k-Means Clustering Algorithm.”</span> <em>Journal of the Royal Statistical Society. Series C (Applied Statistics)</em> 28 (1): 100–108.
-</div>
-</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="conclusions-and-future-work.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="variable-selection.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
