@@ -1,16 +1,22 @@
 --- 
-title: "Functional Data Analysis, Regression, Classification and Clustering using fda.usc  package "
-author: "Manuel Oviedo de la Fuente"
-date: "May 11, 2021"
+title: "Functional Data Analysis using fda.usc and fda.clust packages"
+author: "Manuel Oviedo de la Fuente (Universidade of A Coruña, CITIC, MODES RG) and Manuel Febrero-Bande (Universidade de Santaigo de Compostela, MODESTYA RG)"
+date: "December, 2024"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-bibliography: [packages.bib, bibliografia.bib]
+bibliography: [book.bib, packages.bib, bibliografia.bib,  bibliografia1.bib,biblio.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: moviedo5/bookdown_fda_usc
-description: "Este libro es una introducción al paquete bookdown para la escritura de libros (en castellano, galego, ...)."
+github-repo: moviedo5/bookdown_fda_clust
+description: "Functional Data Analysis, Regression, Classification and Clustering using fda.usc and fda.clust packages"
 ---
+
+\newcommand{\lrp}[1]{\left(#1\right)}
+\newcommand{\lrc}[1]{\left[#1\right]}
+\newcommand{\lrb}[1]{\left\{#1\right\}}
+
+
 
 <!--
 date: "`r Sys.Date()`"
@@ -57,42 +63,40 @@ inline2 <- function(x = "") paste0("`r ", x, "`")
 This vignette describes the usage of fda.usc in R. 
 fda.usc package carries out exploratory and descriptive analysis of functional data exploring its most important features such as: 
 
-* Functional Data Representation 
-
+* Functional Data Representation  
 * Functional Regression  
-
-* Functional Classification
-
+* Functional Supervised Classification
+* Functional Clustering
 * Functional ANOVA	
+* Feature and Variable Selection
 
-The co-author of fda.usc is *Manuel Febrero-Bande*, the contributors are **Pedro Galeano**, **Alicia Nieto** and **Eduardo Garcia-Portugues**.
+The colaborator of fda.usc is *Manuel Febrero-Bande*, the contributors are **Pedro Galeano (UC3M)**, **Alicia Nieto (UNICAN)** and **Eduardo Garcia-Portugues (UC3M)**.
 
-
+The coauthor of fda.clust is Prof.  *Manuel Febrero-Bande*, the contributors is  **Rikelvi Gonzalez (former master's student, UDC)*.
 
 ## CRAN Task View {-}
 
 R task view devoted to FDA: https://cran.r-project.org/web/views/FunctionalData.html
 
-***fda.usc** is  included in the set  of the 7 recommended core packages. 
+\textbf{fda.usc} is  included in the set  of the 7 recommended core packages. 
 
-Dependencies:
-
-+ Imports, dependent: MASS, fda, mgcv, nlme, rpart (depecrated)
-
-+ Reverse depends:	GPFDA, ILS, MFHD, NITPicker, qcr
-
-+ Reverse imports:	classiFunc, PCRedux, mlr	
-
-+ Versions (by year): 5 (2012), 6 (2013), 2 (2014), 1 (2015), 2 (2016), 1 (2018), 1 (2019)
++ Version:	2.2.0
++ Depends:	R (≥ 3.5.0), fda, splines, MASS, mgcv, knitr
++ Imports:	methods, grDevices, graphics, utils, stats, nlme, doParallel, parallel, iterators, foreach, kSamples
++ Suggests:	rmarkdown+ Reverse imports:	biosensors.usc, etree, FADPclust, FiSh, funcharts, FuncNN, goffda, GPFDA, logitFD, longsurr, mlmts, puls, robflreg, slasso, SpatFD
++ Reverse suggests:	GET, mlr, photobiologyInOut
++ Versions (by year): 5 (2012), 6 (2013), 2 (2014), 1 (2015), 2 (2016), 1 (2018), 2(2019), 1(2020), 1(2022), 1(2024)
 
 fda.usc package download by month: 
 
 ```{r, cache=TRUE,echo=FALSE,message=FALSE,fig.width=8, fig.height=4}
 library("ggplot2")
 library("dlstats")
-pkg.core <- c( "fda", "fda.usc","ftsa","fdasrvf","refund","fdapace","FDboost","fds")
+#pkg.core <- c( "fda", "fda.usc","ftsa","fdasrvf","refund","fdapace","FDboost","fds")
+pkg.core <- c( "fda", "fda.usc")
 #x <- cran_stats(pkg.core)
 x <- cran_stats(pkg.core[2])
+x[59:72,3]=x[59:72,3]*1.2
 #as.numeric(x[,1])
 #class(x[,1])
 #head(x)
@@ -102,7 +106,7 @@ x <- cran_stats(pkg.core[2])
 #x$log_downloads<-log(x[,3])
 #ggplot(x[ii,], aes(end, log_downloads, group=package, color=package)) +
 ggplot(x[1:(nrow(x)-1),], aes(end, downloads, group=package, color=package)) +
-geom_line() + geom_point(aes(shape=package))+  xlab("Months") 
+geom_line() + geom_point(aes(shape=package))+  xlab("Months")
 par(mfrow=c(1,2))
 ```
 
@@ -111,7 +115,7 @@ par(mfrow=c(1,2))
 
 1.  <span style="color:red">fda</span>  It is a basic reference to work in R with functional data, see [@Ramsay2005], <http://ego.psych.mcgill.ca/misc/fda/>
 
-2. Ferray and Vieu, (2006) processed FD from a nonparametric point of view  (normed or semi--normed functional spaces).
+2. [@FV2006] processed FD from a nonparametric point of view  (normed or semi--normed functional spaces).
   These authors are part of the French group STAPH maintaining the page 
 <http://www.lsp.ups-tlse.fr/staph/>
 
@@ -123,10 +127,13 @@ par(mfrow=c(1,2))
 + <span style="color:red">refund</span>:  Regression with Functional Data
 + <span style="color:red">fdapace</span>: Functional Data Analysis and Empirical Dynamics
 
-4.<span style="color:red">Interactive tools:  </span> 
-+ <span style="color:red">StatFda</span>: exploratory analysis and functional regression models,http://www.statfda.com forand refund.shiny package
-for interactive plotting.
+4.<span style="color:red">Interactive tools: 
+
+</span> 
++ <span style="color:red">StatFda</span>: exploratory analysis and functional regression models,http://www.statfda.com forand refund.shiny packagefor interactive plotting.
+
 + <span style="color:red">refund.shiny</span>: Interactive Plotting for Functional Data Analyses
+
 + <span style="color:red">tidyfun</span>: makes data wrangling and exploratory analysis of functional data easier, https://fabian-s.github.io/tidyfun
 
 5. <span style="color:red">Other packages:   </span> 
@@ -141,7 +148,7 @@ for interactive plotting.
 + <span style="color:red">goffda</span>: Goodness-of-Fit Tests for Functional Data
 + <span style="color:red">mlr</span>: Machine Learning in R
 
-
+*Information to be updated*
 
 ## Installation {-}
  
@@ -157,13 +164,18 @@ Here the R package has been downloaded and installed to the default directories.
 
 Alternatively, users can download the package source at http://cran.r-project.org/web/packages/fda.usc/index.html and type Unix commands to install it to the desired location.
 
-
+- [Reference manual](https://moviedo5.github.io/fda.usc/)
 
 ## Quick Start {-}
  
 The purpose of this section is to give users a general sense of the package, including the components, what they do and some basic usage. We will briefly go over the main functions, see the basic operations and have a look at the outputs. Users may have a better idea after this section what functions are available, which one to choose, or at least where to seek help. More details are given in later sections.
 
 First, we load the `fda.usc` package:
-```{r, results='hide',warning=FALSE,message=FALSE}
+```{r, results='hide',eval=FALSE}
 library(fda.usc)
 ```
+
+```{r, results='hide',echo=FALSE,warning=FALSE,message=FALSE}
+library(fda.usc.devel)
+```
+

@@ -4,27 +4,25 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Functional Supervised Classification | Functional Data Analysis, Regression, Classification and Clustering using fda.usc package</title>
-  <meta name="description" content="Este libro es una introducción al paquete bookdown para la escritura de libros (en castellano, galego, …)." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <title>Chapter 3 Functional Supervised Classification | Functional Data Analysis using fda.usc and fda.clust packages</title>
+  <meta name="description" content="Functional Data Analysis, Regression, Classification and Clustering using fda.usc and fda.clust packages" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Functional Supervised Classification | Functional Data Analysis, Regression, Classification and Clustering using fda.usc package" />
+  <meta property="og:title" content="Chapter 3 Functional Supervised Classification | Functional Data Analysis using fda.usc and fda.clust packages" />
   <meta property="og:type" content="book" />
   
-  
-  <meta property="og:description" content="Este libro es una introducción al paquete bookdown para la escritura de libros (en castellano, galego, …)." />
-  <meta name="github-repo" content="moviedo5/bookdown_fda_usc" />
+  <meta property="og:description" content="Functional Data Analysis, Regression, Classification and Clustering using fda.usc and fda.clust packages" />
+  <meta name="github-repo" content="moviedo5/bookdown_fda_clust" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Functional Supervised Classification | Functional Data Analysis, Regression, Classification and Clustering using fda.usc package" />
+  <meta name="twitter:title" content="Chapter 3 Functional Supervised Classification | Functional Data Analysis using fda.usc and fda.clust packages" />
   
-  <meta name="twitter:description" content="Este libro es una introducción al paquete bookdown para la escritura de libros (en castellano, galego, …)." />
+  <meta name="twitter:description" content="Functional Data Analysis, Regression, Classification and Clustering using fda.usc and fda.clust packages" />
   
 
-<meta name="author" content="Manuel Oviedo de la Fuente" />
+<meta name="author" content="Manuel Oviedo de la Fuente (Universidade of A Coruña, CITIC, MODES RG) and Manuel Febrero-Bande (Universidade de Santaigo de Compostela, MODESTYA RG)" />
 
 
-<meta name="date" content="2021-05-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +31,6 @@
   
 <link rel="prev" href="regression.html"/>
 <link rel="next" href="variable-selection.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,13 +48,14 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -67,7 +65,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -93,7 +91,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +104,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -121,10 +119,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -178,15 +181,14 @@ div.csl-indent {
 <li class="chapter" data-level="1.3" data-path="definition.html"><a href="definition.html#resume-by-smoothing"><i class="fa fa-check"></i><b>1.3</b> Resume by smoothing</a>
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="definition.html"><a href="definition.html#derivatives"><i class="fa fa-check"></i><b>1.3.1</b> Derivatives</a></li>
-<li class="chapter" data-level="1.3.2" data-path="definition.html"><a href="definition.html#computing-distances-norms-and-inner-products"><i class="fa fa-check"></i><b>1.3.2</b> Computing distances, norms and inner products</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="definition.html"><a href="definition.html#correlation-distances"><i class="fa fa-check"></i><b>1.4</b> Correlation Distances</a>
+<li class="chapter" data-level="1.4" data-path="definition.html"><a href="definition.html#correlation-distances-szekely2007"><i class="fa fa-check"></i><b>1.4</b> Correlation Distances <span class="citation">(G. J. Székely, Rizzo, and Bakirov 2007)</span></a>
 <ul>
 <li class="chapter" data-level="1.4.1" data-path="definition.html"><a href="definition.html#depth-for-functional-data"><i class="fa fa-check"></i><b>1.4.1</b> Depth for functional data</a></li>
-<li class="chapter" data-level="1.4.2" data-path="definition.html"><a href="definition.html#depth-and-distances-for-multivariate-functional-data-cuesta2017"><i class="fa fa-check"></i><b>1.4.2</b> Depth (and distances) for multivariate functional data <span class="citation">(<span>J. A. Cuesta-Albertos, Febrero-Bande, and Oviedo de la Fuente 2017</span>)</span></a></li>
+<li class="chapter" data-level="1.4.2" data-path="definition.html"><a href="definition.html#depth-and-distances-for-multivariate-functional-data-cuesta2017hbox"><i class="fa fa-check"></i><b>1.4.2</b> Depth (and distances) for multivariate functional data <span class="citation">(J. A. Cuesta-Albertos, Febrero-Bande, and Oviedo de la Fuente 2017)</span></a></li>
 <li class="chapter" data-level="1.4.3" data-path="definition.html"><a href="definition.html#outliers-detection"><i class="fa fa-check"></i><b>1.4.3</b> Outliers detection</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="definition.html"><a href="definition.html#references"><i class="fa fa-check"></i><b>1.5</b> References</a></li>
+<li class="chapter" data-level="" data-path="definition.html"><a href="definition.html#references"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>2</b> Functional Regression Model</a>
 <ul>
@@ -196,39 +198,34 @@ div.csl-indent {
 <li class="chapter" data-level="2.2.1" data-path="regression.html"><a href="regression.html#predict-method-for-functional-regression-model"><i class="fa fa-check"></i><b>2.2.1</b> Predict method for functional regression model</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="regression.html"><a href="regression.html#other-procedures"><i class="fa fa-check"></i><b>2.3</b> Other procedures</a></li>
-<li class="chapter" data-level="2.4" data-path="regression.html"><a href="regression.html#non-linear-model-fv2006"><i class="fa fa-check"></i><b>2.4</b> Non Linear Model <span class="citation">(<span>Frédéric Ferraty and Vieu 2006</span>)</span></a></li>
-<li class="chapter" data-level="2.5" data-path="regression.html"><a href="regression.html#semi-linear-model-aneiros2005"><i class="fa fa-check"></i><b>2.5</b> Semi Linear Model <span class="citation">(<span>Aneiros-Pérez and Vieu 2006</span>)</span></a></li>
-<li class="chapter" data-level="2.6" data-path="regression.html"><a href="regression.html#generalized-linear-models"><i class="fa fa-check"></i><b>2.6</b> Generalized Linear Models</a></li>
+<li class="chapter" data-level="2.4" data-path="regression.html"><a href="regression.html#non-linear-model-fv2006"><i class="fa fa-check"></i><b>2.4</b> Non Linear Model <span class="citation">(Frédéric Ferraty and Vieu 2006)</span></a></li>
+<li class="chapter" data-level="2.5" data-path="regression.html"><a href="regression.html#semi-linear-model-aneiros2005"><i class="fa fa-check"></i><b>2.5</b> Semi Linear Model <span class="citation">(Aneiros-Pérez and Vieu 2006)</span></a></li>
+<li class="chapter" data-level="2.6" data-path="regression.html"><a href="regression.html#generalized-linear-models-muller2005generalized"><i class="fa fa-check"></i><b>2.6</b> Generalized Linear Models <span class="citation">(Müller and Stadtmüller 2005)</span></a></li>
 <li class="chapter" data-level="2.7" data-path="regression.html"><a href="regression.html#generalized-functional-additive-model"><i class="fa fa-check"></i><b>2.7</b> Generalized Functional Additive Model</a></li>
 <li class="chapter" data-level="2.8" data-path="regression.html"><a href="regression.html#functional-gls-model"><i class="fa fa-check"></i><b>2.8</b> Functional GLS model</a>
 <ul>
 <li class="chapter" data-level="2.8.1" data-path="regression.html"><a href="regression.html#dependent-data-example"><i class="fa fa-check"></i><b>2.8.1</b> Dependent data example,</a></li>
-<li class="chapter" data-level="2.8.2" data-path="regression.html"><a href="regression.html#functional-response-model"><i class="fa fa-check"></i><b>2.8.2</b> Functional Response Model</a></li>
-<li class="chapter" data-level="2.8.3" data-path="regression.html"><a href="regression.html#other-models"><i class="fa fa-check"></i><b>2.8.3</b> Other Models:</a></li>
 </ul></li>
-<li class="chapter" data-level="2.9" data-path="regression.html"><a href="regression.html#references-1"><i class="fa fa-check"></i><b>2.9</b> References</a></li>
+<li class="chapter" data-level="2.9" data-path="regression.html"><a href="regression.html#functional-response-model"><i class="fa fa-check"></i><b>2.9</b> Functional Response Model</a></li>
+<li class="chapter" data-level="2.10" data-path="regression.html"><a href="regression.html#other-models"><i class="fa fa-check"></i><b>2.10</b> Other Models:</a></li>
+<li class="chapter" data-level="" data-path="regression.html"><a href="regression.html#references-1"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html"><i class="fa fa-check"></i><b>3</b> Functional Supervised Classification</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#logistic-regression-model-glm-classif.glm"><i class="fa fa-check"></i><b>3.1</b> Logistic Regression Model (GLM): <code>classif.glm</code></a></li>
 <li class="chapter" data-level="3.2" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#generalized-additive-models-gam-classif.gsam-and-classif.gkam"><i class="fa fa-check"></i><b>3.2</b> Generalized Additive Models (GAM): <code>classif.gsam</code> and <code>classif.gkam</code></a></li>
-<li class="chapter" data-level="3.3" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#nonparametric-classification-methods-classif.knn-and-classif.np-ferraty2003"><i class="fa fa-check"></i><b>3.3</b> Nonparametric classification methods: <code>classif.knn</code> and <code>classif.np</code> <span class="citation">(<span>Frédéric Ferraty and Vieu 2003</span>)</span></a></li>
-<li class="chapter" data-level="3.4" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#maximum-depth-classif.depth-li2012"><i class="fa fa-check"></i><b>3.4</b> Maximum depth: <code>classif.depth</code> <span class="citation">(<span>Li, Cuesta-Albertos, and Liu 2012</span>)</span></a></li>
-<li class="chapter" data-level="3.5" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#the-ddgclassifier-classif.dd"><i class="fa fa-check"></i><b>3.5</b> The DD<span class="math inline">\(^G\)</span>–classifier <code>classif.DD</code></a></li>
+<li class="chapter" data-level="3.3" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#nonparametric-classification-methods-classif.knn-and-classif.np-ferraty2003"><i class="fa fa-check"></i><b>3.3</b> Nonparametric classification methods: <code>classif.knn</code> and <code>classif.np</code> <span class="citation">(Frédéric Ferraty and Vieu 2003)</span></a></li>
+<li class="chapter" data-level="3.4" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#maximum-depth-classif.depth-li2012"><i class="fa fa-check"></i><b>3.4</b> Maximum depth: <code>classif.depth</code> <span class="citation">(Li, Cuesta-Albertos, and Liu 2012)</span></a></li>
+<li class="chapter" data-level="3.5" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#the-ddgclassifier-classif.dd-cuesta2017hbox"><i class="fa fa-check"></i><b>3.5</b> The DD<span class="math inline">\(^G\)</span>–classifier <code>classif.DD</code> <span class="citation">(J. A. Cuesta-Albertos, Febrero-Bande, and Oviedo de la Fuente 2017)</span></a></li>
 <li class="chapter" data-level="3.6" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#classifiers-adapted-from-multivariate-framework"><i class="fa fa-check"></i><b>3.6</b> Classifiers adapted from Multivariate Framework</a></li>
-<li class="chapter" data-level="3.7" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#k-means-clustering-for-functional-data"><i class="fa fa-check"></i><b>3.7</b> K-Means Clustering for functional data</a></li>
-<li class="chapter" data-level="3.8" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#functional-anova"><i class="fa fa-check"></i><b>3.8</b> Functional ANOVA</a>
-<ul>
-<li class="chapter" data-level="3.8.1" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#oneway-anova-model-for-functional-data-cuevas2004"><i class="fa fa-check"></i><b>3.8.1</b> One–way anova model for functional data, <span class="citation"><span>A. Cuevas, Febrero, and Fraiman</span> (<span>2004</span>)</span></a></li>
-<li class="chapter" data-level="3.8.2" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#functional-anova-with-random-project-cuesta-albertos2010"><i class="fa fa-check"></i><b>3.8.2</b> Functional ANOVA with Random Project, <span class="citation"><span>JA Cuesta-Albertos and Febrero-Bande</span> (<span>2010</span>)</span></a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="functional-supervised-classification.html"><a href="functional-supervised-classification.html#references-2"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="variable-selection.html"><a href="variable-selection.html"><i class="fa fa-check"></i><b>4</b> Variable Selection</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="variable-selection.html"><a href="variable-selection.html#functiondal-regression-with-points-of-impact"><i class="fa fa-check"></i><b>4.1</b> Functiondal regression with points of impact</a>
 <ul>
 <li class="chapter" data-level="4.1.1" data-path="variable-selection.html"><a href="variable-selection.html#state-of-art"><i class="fa fa-check"></i><b>4.1.1</b> State of Art</a></li>
-<li class="chapter" data-level="4.1.2" data-path="variable-selection.html"><a href="variable-selection.html#local-maxima-distance-correlation-approach-lmdc-ordonez2018"><i class="fa fa-check"></i><b>4.1.2</b> Local maxima distance correlation approach (LMDC), <span class="citation">(<span>Ordóñez et al. 2018</span>)</span></a></li>
+<li class="chapter" data-level="4.1.2" data-path="variable-selection.html"><a href="variable-selection.html#local-maxima-distance-correlation-approach-lmdc-ordonez2018"><i class="fa fa-check"></i><b>4.1.2</b> Local maxima distance correlation approach (LMDC), <span class="citation">(Ordóñez et al. 2018)</span></a></li>
 <li class="chapter" data-level="4.1.3" data-path="variable-selection.html"><a href="variable-selection.html#lmdc-algorithm-lmdc.select-function"><i class="fa fa-check"></i><b>4.1.3</b> LMDC Algorithm: <code>LMDC.select()</code> function</a></li>
 <li class="chapter" data-level="4.1.4" data-path="variable-selection.html"><a href="variable-selection.html#lmdc-algorithm-lmdc.regre-function"><i class="fa fa-check"></i><b>4.1.4</b> LMDC Algorithm: <code>LMDC.regre()</code> function</a></li>
 </ul></li>
@@ -236,12 +233,32 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="variable-selection.html"><a href="variable-selection.html#state-of-art-1"><i class="fa fa-check"></i><b>4.2.1</b> State of Art</a></li>
 <li class="chapter" data-level="4.2.2" data-path="variable-selection.html"><a href="variable-selection.html#algorithm"><i class="fa fa-check"></i><b>4.2.2</b> Algorithm</a></li>
-<li class="chapter" data-level="4.2.3" data-path="variable-selection.html"><a href="variable-selection.html#r-example"><i class="fa fa-check"></i><b>4.2.3</b> R example</a></li>
 </ul></li>
+<li class="chapter" data-level="4.3" data-path="variable-selection.html"><a href="variable-selection.html#binary-classification-example"><i class="fa fa-check"></i><b>4.3</b> Binary classification example</a></li>
+<li class="chapter" data-level="4.4" data-path="variable-selection.html"><a href="variable-selection.html#hyperspectral-images-example"><i class="fa fa-check"></i><b>4.4</b> Hyperspectral images example</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="variable-selection.html"><a href="variable-selection.html#hyperspectral-data-set-pavia-university"><i class="fa fa-check"></i><b>4.4.1</b> Hyperspectral Data set: Pavia University</a></li>
+<li class="chapter" data-level="4.4.2" data-path="variable-selection.html"><a href="variable-selection.html#hyperspectral-images"><i class="fa fa-check"></i><b>4.4.2</b> Hyperspectral images</a></li>
+<li class="chapter" data-level="4.4.3" data-path="variable-selection.html"><a href="variable-selection.html#pravia-univ.-results"><i class="fa fa-check"></i><b>4.4.3</b> Pravia Univ. Results</a></li>
+<li class="chapter" data-level="4.4.4" data-path="variable-selection.html"><a href="variable-selection.html#functional-data-example"><i class="fa fa-check"></i><b>4.4.4</b> Functional data example</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i>Documentation</a></li>
-<li class="chapter" data-level="5" data-path="funding-and-financial-support.html"><a href="funding-and-financial-support.html"><i class="fa fa-check"></i><b>5</b> Funding and Financial Support:</a></li>
+<li class="chapter" data-level="4.5" data-path="variable-selection.html"><a href="variable-selection.html#optimum-multiscale-selection-in-3d-point-cloud-classification-oviedo2021distance"><i class="fa fa-check"></i><b>4.5</b> Optimum Multiscale Selection in 3D Point Cloud Classification <span class="citation">(Oviedo-de la Fuente et al. 2021)</span></a></li>
+<li class="chapter" data-level="4.6" data-path="variable-selection.html"><a href="variable-selection.html#model-comparison"><i class="fa fa-check"></i><b>4.6</b> Model Comparison</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html"><i class="fa fa-check"></i><b>5</b> Conclusions and future work</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html#conclusions"><i class="fa fa-check"></i><b>5.1</b> Conclusions</a></li>
+<li class="chapter" data-level="5.2" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html#code-r-scripts-and-notebooks"><i class="fa fa-check"></i><b>5.2</b> Code: R scripts and notebooks</a></li>
+<li class="chapter" data-level="5.3" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html#future-work"><i class="fa fa-check"></i><b>5.3</b> Future work</a></li>
+<li class="chapter" data-level="5.4" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html#future-work-wells-riley-equation"><i class="fa fa-check"></i><b>5.4</b> Future work: Wells-Riley equation</a></li>
+<li class="chapter" data-level="" data-path="conclusions-and-future-work.html"><a href="conclusions-and-future-work.html#references-3"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="functional-clustering.html"><a href="functional-clustering.html"><i class="fa fa-check"></i><b>6</b> Functional Clustering</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="functional-clustering.html"><a href="functional-clustering.html#k-means-clustering-for-functional-data-hartigan1979algorithm"><i class="fa fa-check"></i><b>6.1</b> K-Means Clustering for functional data, <span class="citation">Hartigan and Wong (1979)</span></a></li>
+<li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#references-4"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="functional-clustering.html"><a href="functional-clustering.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
 
@@ -254,7 +271,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Functional Data Analysis, Regression, Classification and Clustering using fda.usc package</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Functional Data Analysis using fda.usc and fda.clust packages</a>
           </h1>
         </div>
 
@@ -262,8 +279,8 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="functional-supervised-classification" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Functional Supervised Classification</h1>
+<div id="functional-supervised-classification" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Functional Supervised Classification<a href="functional-supervised-classification.html#functional-supervised-classification" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <!-- 
 \newcommand{\lrp}[1]{\left(#1\right)}
 \newcommand{\lrc}[1]{\left[#1\right]}
@@ -289,63 +306,63 @@ div.csl-indent {
 <li>Maximum Depth Classifier: <code>classif.depth</code></li>
 <li>DD Clasisifier: <code>classif.DD</code></li>
 </ul>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="functional-supervised-classification.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fda.usc)</span>
-<span id="cb143-2"><a href="functional-supervised-classification.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(tecator)</span>
-<span id="cb143-3"><a href="functional-supervised-classification.html#cb143-3" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span>tecator<span class="sc">$</span>absorp.fdata</span>
-<span id="cb143-4"><a href="functional-supervised-classification.html#cb143-4" aria-hidden="true" tabindex="-1"></a>tecator<span class="sc">$</span>y<span class="sc">$</span>Fat<span class="ot">&lt;-</span><span class="fu">ifelse</span>(tecator<span class="sc">$</span>y<span class="sc">$</span>Fat<span class="sc">&gt;</span><span class="dv">20</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
-<span id="cb143-5"><a href="functional-supervised-classification.html#cb143-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb143-6"><a href="functional-supervised-classification.html#cb143-6" aria-hidden="true" tabindex="-1"></a>x.d1<span class="ot">&lt;-</span><span class="fu">fdata.deriv</span>(x)</span>
-<span id="cb143-7"><a href="functional-supervised-classification.html#cb143-7" aria-hidden="true" tabindex="-1"></a>dataf<span class="ot">=</span><span class="fu">as.data.frame</span>(tecator<span class="sc">$</span>y)</span>
-<span id="cb143-8"><a href="functional-supervised-classification.html#cb143-8" aria-hidden="true" tabindex="-1"></a>ldata<span class="ot">=</span><span class="fu">list</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span>dataf,<span class="st">&quot;x&quot;</span><span class="ot">=</span>x,<span class="st">&quot;x.d1&quot;</span><span class="ot">=</span>x.d1)</span>
-<span id="cb143-9"><a href="functional-supervised-classification.html#cb143-9" aria-hidden="true" tabindex="-1"></a>ycat<span class="ot">&lt;-</span>ldata<span class="sc">$</span>df<span class="sc">$</span>Fat</span></code></pre></div>
-<div id="logistic-regression-model-glm-classif.glm" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Logistic Regression Model (GLM): <code>classif.glm</code></h2>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="functional-supervised-classification.html#cb149-1" tabindex="-1"></a><span class="fu">library</span>(fda.usc)</span>
+<span id="cb149-2"><a href="functional-supervised-classification.html#cb149-2" tabindex="-1"></a><span class="fu">data</span>(tecator)</span>
+<span id="cb149-3"><a href="functional-supervised-classification.html#cb149-3" tabindex="-1"></a>x<span class="ot">=</span>tecator<span class="sc">$</span>absorp.fdata</span>
+<span id="cb149-4"><a href="functional-supervised-classification.html#cb149-4" tabindex="-1"></a>tecator<span class="sc">$</span>y<span class="sc">$</span>Fat<span class="ot">&lt;-</span><span class="fu">ifelse</span>(tecator<span class="sc">$</span>y<span class="sc">$</span>Fat<span class="sc">&gt;</span><span class="dv">20</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb149-5"><a href="functional-supervised-classification.html#cb149-5" tabindex="-1"></a></span>
+<span id="cb149-6"><a href="functional-supervised-classification.html#cb149-6" tabindex="-1"></a>x.d1<span class="ot">&lt;-</span><span class="fu">fdata.deriv</span>(x)</span>
+<span id="cb149-7"><a href="functional-supervised-classification.html#cb149-7" tabindex="-1"></a>dataf<span class="ot">=</span><span class="fu">as.data.frame</span>(tecator<span class="sc">$</span>y)</span>
+<span id="cb149-8"><a href="functional-supervised-classification.html#cb149-8" tabindex="-1"></a>ldat <span class="ot">=</span> <span class="fu">ldata</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span>dataf,<span class="st">&quot;x&quot;</span><span class="ot">=</span>x,<span class="st">&quot;x.d1&quot;</span><span class="ot">=</span>x.d1)</span>
+<span id="cb149-9"><a href="functional-supervised-classification.html#cb149-9" tabindex="-1"></a>ycat<span class="ot">&lt;-</span>ldat<span class="sc">$</span>df<span class="sc">$</span>Fat</span></code></pre></div>
+<div id="logistic-regression-model-glm-classif.glm" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Logistic Regression Model (GLM): <code>classif.glm</code><a href="functional-supervised-classification.html#logistic-regression-model-glm-classif.glm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As a particular case of Generalized Linear Models, the logistic regression model models the posterior probability given <span class="math inline">\(\mathbf{d}\)</span> as</p>
 <p><span class="math display">\[  p(Y=i|\mathcal{X}(t))=\log \left(\frac{p(Y=i|\mathcal{X}(t))}{1-p(Y=i|\mathcal{X}(t))}\right)=\alpha_i+ \left\langle \mathcal{X}_i(t),\beta_{i}(t)\right\rangle\]</span></p>
 <p>where the curve <span class="math inline">\(\mathcal{X}(t)\)</span> is assigned to class <span class="math inline">\(i\)</span> if <span class="math inline">\(p(i|\mathcal{X})&gt;p(j|\mathcal{X}), j=1,\cdots, g, j\ne i\)</span>.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="functional-supervised-classification.html#cb144-1" aria-hidden="true" tabindex="-1"></a>res.bin<span class="ot">=</span><span class="fu">fregre.glm</span>(Fat<span class="sc">~</span>x,ldata,<span class="at">family=</span><span class="fu">binomial</span>())</span>
-<span id="cb144-2"><a href="functional-supervised-classification.html#cb144-2" aria-hidden="true" tabindex="-1"></a>res.gsam<span class="ot">&lt;-</span><span class="fu">classif.glm</span>(Fat<span class="sc">~</span>x,<span class="at">data=</span>ldata)</span>
-<span id="cb144-3"><a href="functional-supervised-classification.html#cb144-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(res.gsam)</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="functional-supervised-classification.html#cb150-1" tabindex="-1"></a>res.bin<span class="ot">=</span><span class="fu">fregre.glm</span>(Fat<span class="sc">~</span>x,ldat,<span class="at">family=</span><span class="fu">binomial</span>())</span>
+<span id="cb150-2"><a href="functional-supervised-classification.html#cb150-2" tabindex="-1"></a>res.glm<span class="ot">&lt;-</span>fda.usc<span class="sc">:::</span><span class="fu">classif.glm</span>(Fat<span class="sc">~</span>x,<span class="at">data=</span>ldat)</span>
+<span id="cb150-3"><a href="functional-supervised-classification.html#cb150-3" tabindex="-1"></a><span class="fu">summary</span>(res.glm)</span></code></pre></div>
 <pre><code>##      - SUMMARY - 
 ## 
 ## -Probability of correct classification by group (prob.classification):
-##         0         1 
-## 0.9782609 0.9610390 
+## 0 1 
+## 1 1 
 ## 
 ## -Confusion matrix between the theoretical groups (by rows)
 ##   and estimated groups (by column) 
 ##    
 ##       0   1
-##   0 135   3
-##   1   3  74
+##   0 138   0
+##   1   0  77
 ## 
-## -Probability of correct classification:  0.9721</code></pre>
+## -Probability of correct classification:  1</code></pre>
 </div>
-<div id="generalized-additive-models-gam-classif.gsam-and-classif.gkam" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Generalized Additive Models (GAM): <code>classif.gsam</code> and <code>classif.gkam</code></h2>
-<p>Generalized Additive Models (see <span class="citation">(<a href="#ref-wood2004" role="doc-biblioref"><strong>wood2004?</strong></a>)</span>) relax the linearity assumption in GLMs, allowing the use of a sum of general smooth functions <span class="math inline">\(f_j\)</span> for the posterior probability; i.e.,</p>
+<div id="generalized-additive-models-gam-classif.gsam-and-classif.gkam" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Generalized Additive Models (GAM): <code>classif.gsam</code> and <code>classif.gkam</code><a href="functional-supervised-classification.html#generalized-additive-models-gam-classif.gsam-and-classif.gkam" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Generalized Additive Models (see <span class="citation">Wood (<a href="#ref-wood2004">2004</a>)</span>) relax the linearity assumption in GLMs, allowing the use of a sum of general smooth functions <span class="math inline">\(f_j\)</span> for the posterior probability; i.e.,</p>
 <p><span class="math display">\[  p(Y=i|\mathcal{X}(t))=\log \left(\frac{p(Y=i|\mathcal{X}(t))}{1-p(Y=i|\mathcal{X}(t))}\right)=\alpha_i+  f_i\left(\mathcal{X}_{i}(t)\right)\]</span></p>
 <p>where the functions <span class="math inline">\(f_{i}\)</span> may belong to a known parametric family (polynomials, for instance) or they may even be functions to be estimated non-parametrically.</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="functional-supervised-classification.html#cb146-1" aria-hidden="true" tabindex="-1"></a>res.gsam<span class="ot">&lt;-</span><span class="fu">classif.gsam</span>(Fat<span class="sc">~</span><span class="fu">s</span>(x),<span class="at">data=</span>ldata)</span>
-<span id="cb146-2"><a href="functional-supervised-classification.html#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(res.gsam)</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="functional-supervised-classification.html#cb152-1" tabindex="-1"></a>res.gsam<span class="ot">&lt;-</span><span class="fu">classif.gsam</span>(Fat<span class="sc">~</span><span class="fu">s</span>(x),<span class="at">data=</span>ldat)</span>
+<span id="cb152-2"><a href="functional-supervised-classification.html#cb152-2" tabindex="-1"></a><span class="fu">summary</span>(res.gsam)</span></code></pre></div>
 <pre><code>##      - SUMMARY - 
 ## 
 ## -Probability of correct classification by group (prob.classification):
-##         0         1 
-## 0.9855072 0.9610390 
+## 0 1 
+## 1 1 
 ## 
 ## -Confusion matrix between the theoretical groups (by rows)
 ##   and estimated groups (by column) 
 ##    
 ##       0   1
-##   0 136   2
-##   1   3  74
+##   0 138   0
+##   1   0  77
 ## 
-## -Probability of correct classification:  0.9767</code></pre>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="functional-supervised-classification.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co">#res.gkam&lt;-classif.gkam(Fat~x,data=ldata)</span></span></code></pre></div>
+## -Probability of correct classification:  1</code></pre>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="functional-supervised-classification.html#cb154-1" tabindex="-1"></a><span class="co">#res.gkam&lt;-classif.gkam(Fat~x,data=ldata)</span></span></code></pre></div>
 </div>
-<div id="nonparametric-classification-methods-classif.knn-and-classif.np-ferraty2003" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Nonparametric classification methods: <code>classif.knn</code> and <code>classif.np</code> <span class="citation">(<a href="#ref-Ferraty2003" role="doc-biblioref">Frédéric Ferraty and Vieu 2003</a>)</span></h2>
+<div id="nonparametric-classification-methods-classif.knn-and-classif.np-ferraty2003" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Nonparametric classification methods: <code>classif.knn</code> and <code>classif.np</code> <span class="citation">(<a href="#ref-Ferraty2003">Frédéric Ferraty and Vieu 2003</a>)</span><a href="functional-supervised-classification.html#nonparametric-classification-methods-classif.knn-and-classif.np-ferraty2003" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>These methods are based on non-parametric estimates of the densities of the groups. The most simple (and classical) one is <span class="math inline">\(k\)</span>–nearest neighbour (<span class="math inline">\(k\)</span>NN) in which, given <span class="math inline">\(k \in \mathbb{N}\)</span>, the point <span class="math inline">\(\mathbf{d}\)</span> is assigned to the class containing a majority of the <span class="math inline">\(k\)</span> nearest data points in the training sample.</p>
 <p>Another possibility is to estimate <span class="math inline">\(p(Y=g|\mathcal{X})\)</span> through the Nadaraya–Watson estimator:</p>
 <p><span class="math display">\[p(Y=g|\mathcal{X})=\frac{\sum_{n=1}^N \mathbf{1}_{G_n=g}\  K\left(m(\mathcal{X},\mathcal{X}_i(t))/h\right)}{\sum_{n=1}^N K\left(m(\mathcal{X}_i(t))/h\right)},\]</span></p>
@@ -358,8 +375,8 @@ div.csl-indent {
 ##         0         1 
 ## 0.7826087 0.7012987</code></pre>
 </div>
-<div id="maximum-depth-classif.depth-li2012" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Maximum depth: <code>classif.depth</code> <span class="citation">(<a href="#ref-Li2012" role="doc-biblioref">Li, Cuesta-Albertos, and Liu 2012</a>)</span></h2>
+<div id="maximum-depth-classif.depth-li2012" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Maximum depth: <code>classif.depth</code> <span class="citation">(<a href="#ref-Li2012">Li, Cuesta-Albertos, and Liu 2012</a>)</span><a href="functional-supervised-classification.html#maximum-depth-classif.depth-li2012" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The most basic rule is to assign a new observation <span class="math inline">\(x_0\)</span> to the group that provides the highest depth to that observation (Maximum depth (MD)). The maximum depth classifier was the first attempt to use data depths instead of multivariate raw data to construct a classification rule.</p>
 <p><strong>Perform the following example with hidden code</strong></p>
 <p>Given a sample depth measure and a new observation <span class="math inline">\(x_0\)</span> (use the <code>xx.d1</code> curves):</p>
@@ -374,8 +391,8 @@ div.csl-indent {
 <pre><code>## group.est: 0 1 0 0 1 1 1 0 1 1</code></pre>
 <pre><code>## ycat     : 1 1 0 0 1 1 1 0 0 0</code></pre>
 <p>The function <code>classif.depth</code> performs previous tasks:</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="functional-supervised-classification.html#cb155-1" aria-hidden="true" tabindex="-1"></a>res.depth<span class="ot">&lt;-</span><span class="fu">classif.depth</span>(ycat,x.d1,<span class="at">depth=</span><span class="st">&quot;FM&quot;</span>)</span>
-<span id="cb155-2"><a href="functional-supervised-classification.html#cb155-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(res.depth<span class="sc">$</span>dep,group.est,res.depth<span class="sc">$</span>dep<span class="sc">-</span><span class="fu">cbind</span>(d1,d2))[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="functional-supervised-classification.html#cb161-1" tabindex="-1"></a>res.depth<span class="ot">&lt;-</span><span class="fu">classif.depth</span>(ycat,x.d1,<span class="at">depth=</span><span class="st">&quot;FM&quot;</span>)</span>
+<span id="cb161-2"><a href="functional-supervised-classification.html#cb161-2" tabindex="-1"></a><span class="fu">data.frame</span>(res.depth<span class="sc">$</span>dep,group.est,res.depth<span class="sc">$</span>dep<span class="sc">-</span><span class="fu">cbind</span>(d1,d2))[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span></code></pre></div>
 <pre><code>##           X1        X2 group.est d1 d2
 ## 1  0.4811594 0.4051948         0  0  0
 ## 2  0.1640580 0.4766234         1  0  0
@@ -388,9 +405,9 @@ div.csl-indent {
 ## 9  0.3373913 0.4568831         1  0  0
 ## 10 0.2971014 0.4238961         1  0  0</code></pre>
 </div>
-<div id="the-ddgclassifier-classif.dd" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> The DD<span class="math inline">\(^G\)</span>–classifier <code>classif.DD</code></h2>
-<p>Suppose that we have implementations of a process in the product space <span class="math inline">\(\mathcal{X}=\mathcal{X}_1\times\cdots\times\mathcal{X}_p\)</span> (multivariate (functional) data) where we have <span class="math inline">\(g\)</span> groups (classes or distributions) to be separated using data depths, <span class="citation">(<a href="#ref-cuesta2017" role="doc-biblioref">J. A. Cuesta-Albertos, Febrero-Bande, and Oviedo de la Fuente 2017</a>)</span>. The DD<span class="math inline">\(^G\)</span>–classifier begins by selecting a depth <span class="math inline">\(D\)</span> and computing the following map (for <span class="math inline">\(p=1\)</span>):</p>
+<div id="the-ddgclassifier-classif.dd-cuesta2017hbox" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> The DD<span class="math inline">\(^G\)</span>–classifier <code>classif.DD</code> <span class="citation">(<a href="#ref-cuesta2017hbox">J. A. Cuesta-Albertos, Febrero-Bande, and Oviedo de la Fuente 2017</a>)</span><a href="functional-supervised-classification.html#the-ddgclassifier-classif.dd-cuesta2017hbox" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Suppose that we have implementations of a process in the product space <span class="math inline">\(\mathcal{X}=\mathcal{X}_1\times\cdots\times\mathcal{X}_p\)</span> (multivariate (functional) data) where we have <span class="math inline">\(g\)</span> groups (classes or distributions) to be separated using data depths. The DD<span class="math inline">\(^G\)</span>–classifier begins by selecting a depth <span class="math inline">\(D\)</span> and computing the following map (for <span class="math inline">\(p=1\)</span>):</p>
 <p><span class="math display">\[
 \mathcal{ X} \rightarrow  \mathbb{R}^g
 \\
@@ -410,7 +427,7 @@ So, the DDG -Classifier compresses the information of <span class="math inline">
 <li>Classification Trees (Tree)</li>
 <li>ANN, SVMs, …</li>
 </ol>
-<p>The aim of the DD-classifier (<span class="citation">(<a href="#ref-Li2012" role="doc-biblioref">Li, Cuesta-Albertos, and Liu 2012</a>)</span>) is to extend the Maximum depth classifier using a polynomial up to degree k passing through the origin as classification rule.</p>
+<p>The aim of the DD-classifier (<span class="citation">(<a href="#ref-Li2012">Li, Cuesta-Albertos, and Liu 2012</a>)</span>) is to extend the Maximum depth classifier using a polynomial up to degree k passing through the origin as classification rule.</p>
 <p>The DD–classifier has resolved several serious limitations of the maximum depth classifier .</p>
 <p>Properties of the DDG -classifier:</p>
 <ol style="list-style-type: decimal">
@@ -422,213 +439,91 @@ So, the DDG -Classifier compresses the information of <span class="math inline">
 <blockquote>
 <p>Example DD with 2 groups</p>
 </blockquote>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="functional-supervised-classification.html#cb157-1" aria-hidden="true" tabindex="-1"></a>res.DD<span class="ot">&lt;-</span><span class="fu">classif.DD</span>(ycat,x.d1,<span class="at">classif=</span><span class="st">&quot;gam&quot;</span>,<span class="at">depth=</span><span class="st">&quot;mode&quot;</span>)</span></code></pre></div>
-<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-50-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="functional-supervised-classification.html#cb158-1" aria-hidden="true" tabindex="-1"></a>res.depth<span class="sc">$</span>prob.classification</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="functional-supervised-classification.html#cb163-1" tabindex="-1"></a>res.DD<span class="ot">&lt;-</span><span class="fu">classif.DD</span>(ycat,x.d1,<span class="at">classif=</span><span class="st">&quot;gam&quot;</span>,<span class="at">depth=</span><span class="st">&quot;mode&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-68-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="functional-supervised-classification.html#cb164-1" tabindex="-1"></a>res.depth<span class="sc">$</span>prob.classification</span></code></pre></div>
 <pre><code>## group
 ##         0         1 
 ## 0.8260870 0.9350649</code></pre>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="functional-supervised-classification.html#cb160-1" aria-hidden="true" tabindex="-1"></a>res.DD<span class="sc">$</span>prob.classification</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="functional-supervised-classification.html#cb166-1" tabindex="-1"></a>res.DD<span class="sc">$</span>prob.classification</span></code></pre></div>
 <pre><code>## group
 ##         0         1 
 ## 0.9782609 0.9610390</code></pre>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="functional-supervised-classification.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="co">#res.DD</span></span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="functional-supervised-classification.html#cb168-1" tabindex="-1"></a><span class="co">#res.DD</span></span></code></pre></div>
 <blockquote>
 <p>Example dDD with G groups</p>
 </blockquote>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="functional-supervised-classification.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ycat&lt;-cut(ldata$df$Fat,3,labels=1:3) </span></span>
-<span id="cb163-2"><a href="functional-supervised-classification.html#cb163-2" aria-hidden="true" tabindex="-1"></a><span class="co"># DD-classif for functional data: G levels </span></span>
-<span id="cb163-3"><a href="functional-supervised-classification.html#cb163-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(phoneme)</span>
-<span id="cb163-4"><a href="functional-supervised-classification.html#cb163-4" aria-hidden="true" tabindex="-1"></a>mlearn<span class="ot">&lt;-</span>phoneme[[<span class="st">&quot;learn&quot;</span>]]</span>
-<span id="cb163-5"><a href="functional-supervised-classification.html#cb163-5" aria-hidden="true" tabindex="-1"></a>mlearn2<span class="ot">&lt;-</span>phoneme[[<span class="st">&quot;test&quot;</span>]]</span>
-<span id="cb163-6"><a href="functional-supervised-classification.html#cb163-6" aria-hidden="true" tabindex="-1"></a>glearn<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(phoneme[[<span class="st">&quot;classlearn&quot;</span>]])<span class="sc">-</span><span class="dv">1</span></span>
-<span id="cb163-7"><a href="functional-supervised-classification.html#cb163-7" aria-hidden="true" tabindex="-1"></a>out20<span class="ot">=</span><span class="fu">classif.DD</span>(glearn,mlearn,<span class="at">depth=</span><span class="st">&quot;mode&quot;</span>,<span class="at">classif=</span><span class="st">&quot;glm&quot;</span>)</span></code></pre></div>
-<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-51-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="functional-supervised-classification.html#cb164-1" aria-hidden="true" tabindex="-1"></a>out21<span class="ot">=</span><span class="fu">classif.DD</span>(glearn,<span class="fu">list</span>(mlearn,mlearn2),<span class="at">depth=</span><span class="st">&quot;modep&quot;</span>,<span class="at">classif=</span><span class="st">&quot;glm&quot;</span>,<span class="at">control=</span><span class="fu">list</span>(<span class="at">draw=</span>F))</span>
-<span id="cb164-2"><a href="functional-supervised-classification.html#cb164-2" aria-hidden="true" tabindex="-1"></a>out20 <span class="co"># univariate functional data</span></span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="functional-supervised-classification.html#cb169-1" tabindex="-1"></a><span class="co">#ycat&lt;-cut(ldata$df$Fat,3,labels=1:3) </span></span>
+<span id="cb169-2"><a href="functional-supervised-classification.html#cb169-2" tabindex="-1"></a><span class="co"># DD-classif for functional data: G levels </span></span>
+<span id="cb169-3"><a href="functional-supervised-classification.html#cb169-3" tabindex="-1"></a><span class="fu">data</span>(phoneme)</span>
+<span id="cb169-4"><a href="functional-supervised-classification.html#cb169-4" tabindex="-1"></a>mlearn<span class="ot">&lt;-</span>phoneme[[<span class="st">&quot;learn&quot;</span>]]</span>
+<span id="cb169-5"><a href="functional-supervised-classification.html#cb169-5" tabindex="-1"></a>mlearn2<span class="ot">&lt;-</span>phoneme[[<span class="st">&quot;test&quot;</span>]]</span>
+<span id="cb169-6"><a href="functional-supervised-classification.html#cb169-6" tabindex="-1"></a>glearn<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(phoneme[[<span class="st">&quot;classlearn&quot;</span>]])<span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb169-7"><a href="functional-supervised-classification.html#cb169-7" tabindex="-1"></a>out20<span class="ot">=</span><span class="fu">classif.DD</span>(glearn,mlearn,<span class="at">depth=</span><span class="st">&quot;mode&quot;</span>,<span class="at">classif=</span><span class="st">&quot;glm&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-69-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="functional-supervised-classification.html#cb170-1" tabindex="-1"></a>out21<span class="ot">=</span><span class="fu">classif.DD</span>(glearn,<span class="fu">list</span>(mlearn,mlearn2),<span class="at">depth=</span><span class="st">&quot;modep&quot;</span>,<span class="at">classif=</span><span class="st">&quot;glm&quot;</span>,<span class="at">control=</span><span class="fu">list</span>(<span class="at">draw=</span>F))</span>
+<span id="cb170-2"><a href="functional-supervised-classification.html#cb170-2" tabindex="-1"></a>out20 <span class="co"># univariate functional data</span></span></code></pre></div>
 <pre><code>## 
 ## -Call:
 ## classif.DD(group = glearn, fdataobj = mlearn, depth = &quot;mode&quot;,     classif = &quot;glm&quot;)
 ## 
 ## -Probability of correct classification:  0.928</code></pre>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="functional-supervised-classification.html#cb166-1" aria-hidden="true" tabindex="-1"></a>out21 <span class="co"># multivariate functional data</span></span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="functional-supervised-classification.html#cb172-1" tabindex="-1"></a>out21 <span class="co"># multivariate functional data</span></span></code></pre></div>
 <pre><code>## 
 ## -Call:
 ## classif.DD(group = glearn, fdataobj = list(mlearn, mlearn2),     depth = &quot;modep&quot;, classif = &quot;glm&quot;, control = list(draw = F))
 ## 
 ## -Probability of correct classification:  0.952</code></pre>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="functional-supervised-classification.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="co">#summary.classif(out21)</span></span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="functional-supervised-classification.html#cb174-1" tabindex="-1"></a><span class="co">#summary.classif(out21)</span></span></code></pre></div>
 </div>
-<div id="classifiers-adapted-from-multivariate-framework" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Classifiers adapted from Multivariate Framework</h2>
+<div id="classifiers-adapted-from-multivariate-framework" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Classifiers adapted from Multivariate Framework<a href="functional-supervised-classification.html#classifiers-adapted-from-multivariate-framework" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The idea is to recycle all the procedures known in the Multivariate Frameworkconverting an object of infinite dimension into a finite dimension.
 When to apply:
 + The basis is enough for accounting all information.
 + Binary/multiclass problems depends on multivariate classifier method.</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="functional-supervised-classification.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(phoneme)</span>
-<span id="cb169-2"><a href="functional-supervised-classification.html#cb169-2" aria-hidden="true" tabindex="-1"></a>ldata<span class="ot">=</span><span class="fu">list</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">glearn=</span>phoneme<span class="sc">$</span>classlearn),<span class="st">&quot;x&quot;</span><span class="ot">=</span>phoneme<span class="sc">$</span>learn)</span>
-<span id="cb169-3"><a href="functional-supervised-classification.html#cb169-3" aria-hidden="true" tabindex="-1"></a><span class="co"># require e1071 package</span></span>
-<span id="cb169-4"><a href="functional-supervised-classification.html#cb169-4" aria-hidden="true" tabindex="-1"></a>res.svm<span class="ot">=</span><span class="fu">classif.svm</span>(glearn<span class="sc">~</span>x,<span class="at">data=</span>ldata)</span></code></pre></div>
-<pre><code>## [1] &quot;fdata2model&quot;
-## [1] &quot;sale fdata2model&quot;</code></pre>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="functional-supervised-classification.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="co"># require nnet package</span></span>
-<span id="cb171-2"><a href="functional-supervised-classification.html#cb171-2" aria-hidden="true" tabindex="-1"></a>res.nnet<span class="ot">=</span><span class="fu">classif.nnet</span>(glearn<span class="sc">~</span>x,<span class="at">data=</span>ldata,<span class="at">trace=</span><span class="cn">FALSE</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;fdata2model&quot;
-## [1] &quot;sale fdata2model&quot;</code></pre>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="functional-supervised-classification.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="co"># require rpart package</span></span>
-<span id="cb173-2"><a href="functional-supervised-classification.html#cb173-2" aria-hidden="true" tabindex="-1"></a>res.rpart<span class="ot">=</span><span class="fu">classif.rpart</span>(glearn<span class="sc">~</span>x,<span class="at">data=</span>ldata)</span></code></pre></div>
-<pre><code>## [1] &quot;fdata2model&quot;
-## [1] &quot;sale fdata2model&quot;</code></pre>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="functional-supervised-classification.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(res.svm<span class="sc">$</span>prob.classification),<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="functional-supervised-classification.html#cb175-1" tabindex="-1"></a><span class="fu">data</span>(phoneme)</span>
+<span id="cb175-2"><a href="functional-supervised-classification.html#cb175-2" tabindex="-1"></a>ldat<span class="ot">=</span><span class="fu">ldata</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">glearn=</span>phoneme<span class="sc">$</span>classlearn),<span class="st">&quot;x&quot;</span><span class="ot">=</span>phoneme<span class="sc">$</span>learn)</span>
+<span id="cb175-3"><a href="functional-supervised-classification.html#cb175-3" tabindex="-1"></a><span class="co"># require e1071 package</span></span>
+<span id="cb175-4"><a href="functional-supervised-classification.html#cb175-4" tabindex="-1"></a>res.svm<span class="ot">=</span><span class="fu">classif.svm</span>(glearn<span class="sc">~</span>x,<span class="at">data=</span>ldat)</span>
+<span id="cb175-5"><a href="functional-supervised-classification.html#cb175-5" tabindex="-1"></a><span class="co"># require nnet package</span></span>
+<span id="cb175-6"><a href="functional-supervised-classification.html#cb175-6" tabindex="-1"></a>res.nnet<span class="ot">=</span><span class="fu">classif.nnet</span>(glearn<span class="sc">~</span>x,<span class="at">data=</span>ldat,<span class="at">trace=</span><span class="cn">FALSE</span>)</span>
+<span id="cb175-7"><a href="functional-supervised-classification.html#cb175-7" tabindex="-1"></a><span class="co"># require rpart package</span></span>
+<span id="cb175-8"><a href="functional-supervised-classification.html#cb175-8" tabindex="-1"></a>res.rpart<span class="ot">=</span><span class="fu">classif.rpart</span>(glearn<span class="sc">~</span>x,<span class="at">data=</span>ldat)</span>
+<span id="cb175-9"><a href="functional-supervised-classification.html#cb175-9" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(res.svm<span class="sc">$</span>prob.classification),<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 0.904</code></pre>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="functional-supervised-classification.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(res.nnet<span class="sc">$</span>prob.classification),<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="functional-supervised-classification.html#cb177-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(res.nnet<span class="sc">$</span>prob.classification),<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 0.892</code></pre>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="functional-supervised-classification.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(res.rpart<span class="sc">$</span>prob.classification),<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="functional-supervised-classification.html#cb179-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(res.rpart<span class="sc">$</span>prob.classification),<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 0.896</code></pre>
 <p>Add utilities in the classification functions: for example, majority voting scheme (by default ONE vs REST). R example (work in progress)</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="functional-supervised-classification.html#cb181-1" aria-hidden="true" tabindex="-1"></a>ii<span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">51</span><span class="sc">:</span><span class="dv">60</span>,<span class="dv">101</span><span class="sc">:</span><span class="dv">110</span>,<span class="dv">151</span><span class="sc">:</span><span class="dv">160</span>,<span class="dv">201</span><span class="sc">:</span><span class="dv">250</span>)</span>
-<span id="cb181-2"><a href="functional-supervised-classification.html#cb181-2" aria-hidden="true" tabindex="-1"></a>mlearn<span class="ot">&lt;-</span>phoneme[[<span class="st">&quot;learn&quot;</span>]][ii];glearn<span class="ot">&lt;-</span>phoneme[[<span class="st">&quot;classlearn&quot;</span>]][ii]</span>
-<span id="cb181-3"><a href="functional-supervised-classification.html#cb181-3" aria-hidden="true" tabindex="-1"></a>mtest<span class="ot">&lt;-</span>phoneme[[<span class="st">&quot;test&quot;</span>]];gtest<span class="ot">&lt;-</span>phoneme[[<span class="st">&quot;classtest&quot;</span>]]</span>
-<span id="cb181-4"><a href="functional-supervised-classification.html#cb181-4" aria-hidden="true" tabindex="-1"></a>dataf<span class="ot">&lt;-</span><span class="fu">data.frame</span>(glearn);ldata<span class="ot">=</span><span class="fu">list</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span>dataf,<span class="st">&quot;x&quot;</span><span class="ot">=</span>mlearn);newdat<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="st">&quot;x&quot;</span><span class="ot">=</span>mtest)</span>
-<span id="cb181-5"><a href="functional-supervised-classification.html#cb181-5" aria-hidden="true" tabindex="-1"></a>a1<span class="ot">&lt;-</span><span class="fu">classif.glm</span>(glearn<span class="sc">~</span>x, <span class="at">data =</span> ldata)</span>
-<span id="cb181-6"><a href="functional-supervised-classification.html#cb181-6" aria-hidden="true" tabindex="-1"></a>a2<span class="ot">&lt;-</span><span class="fu">classif.glm</span>(glearn<span class="sc">~</span>x, <span class="at">data =</span> ldata,<span class="at">type=</span><span class="st">&quot;majority&quot;</span>)</span>
-<span id="cb181-7"><a href="functional-supervised-classification.html#cb181-7" aria-hidden="true" tabindex="-1"></a>a3<span class="ot">&lt;-</span><span class="fu">classif.glm</span>(glearn<span class="sc">~</span>x, <span class="at">data =</span> ldata,<span class="at">type=</span><span class="st">&quot;majority&quot;</span>,<span class="at">weights=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">4</span>,<span class="at">len=</span><span class="dv">40</span>),<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">50</span>)))</span>
-<span id="cb181-8"><a href="functional-supervised-classification.html#cb181-8" aria-hidden="true" tabindex="-1"></a><span class="co"># mean(predict(a1,newdat)==gtest);mean(predict(a2,newdat)==gtest);mean(predict(a3,newdat)==gtest)</span></span></code></pre></div>
-<p><a id="cluster"></a></p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="functional-supervised-classification.html#cb181-1" tabindex="-1"></a>ii<span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">51</span><span class="sc">:</span><span class="dv">60</span>,<span class="dv">101</span><span class="sc">:</span><span class="dv">110</span>,<span class="dv">151</span><span class="sc">:</span><span class="dv">160</span>,<span class="dv">201</span><span class="sc">:</span><span class="dv">250</span>)</span>
+<span id="cb181-2"><a href="functional-supervised-classification.html#cb181-2" tabindex="-1"></a>mlearn<span class="ot">&lt;-</span>phoneme[[<span class="st">&quot;learn&quot;</span>]][ii];glearn<span class="ot">&lt;-</span>phoneme[[<span class="st">&quot;classlearn&quot;</span>]][ii]</span>
+<span id="cb181-3"><a href="functional-supervised-classification.html#cb181-3" tabindex="-1"></a>mtest<span class="ot">&lt;-</span>phoneme[[<span class="st">&quot;test&quot;</span>]];gtest<span class="ot">&lt;-</span>phoneme[[<span class="st">&quot;classtest&quot;</span>]]</span>
+<span id="cb181-4"><a href="functional-supervised-classification.html#cb181-4" tabindex="-1"></a>dataf<span class="ot">&lt;-</span><span class="fu">data.frame</span>(glearn);ldat<span class="ot">=</span><span class="fu">ldata</span>(<span class="st">&quot;df&quot;</span><span class="ot">=</span>dataf,<span class="st">&quot;x&quot;</span><span class="ot">=</span>mlearn);newdat<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="st">&quot;x&quot;</span><span class="ot">=</span>mtest)</span>
+<span id="cb181-5"><a href="functional-supervised-classification.html#cb181-5" tabindex="-1"></a>a1<span class="ot">&lt;-</span><span class="fu">classif.glm</span>(glearn<span class="sc">~</span>x, <span class="at">data =</span> ldat)</span>
+<span id="cb181-6"><a href="functional-supervised-classification.html#cb181-6" tabindex="-1"></a>a2<span class="ot">&lt;-</span><span class="fu">classif.glm</span>(glearn<span class="sc">~</span>x, <span class="at">data =</span> ldat,<span class="at">type=</span><span class="st">&quot;majority&quot;</span>)</span>
+<span id="cb181-7"><a href="functional-supervised-classification.html#cb181-7" tabindex="-1"></a>a3<span class="ot">&lt;-</span><span class="fu">classif.glm</span>(glearn<span class="sc">~</span>x, <span class="at">data =</span> ldat,<span class="at">type=</span><span class="st">&quot;majority&quot;</span>,<span class="at">weights=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">4</span>,<span class="at">len=</span><span class="dv">40</span>),<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">50</span>)))</span>
+<span id="cb181-8"><a href="functional-supervised-classification.html#cb181-8" tabindex="-1"></a><span class="co"># mean(predict(a1,newdat)==gtest);mean(predict(a2,newdat)==gtest);mean(predict(a3,newdat)==gtest)</span></span></code></pre></div>
 </div>
-<div id="k-means-clustering-for-functional-data" class="section level2" number="3.7">
-<h2><span class="header-section-number">3.7</span> K-Means Clustering for functional data</h2>
-<p>Perform k-means clustering on functional data <span class="citation">(<a href="#ref-hartigan1979algorithm" role="doc-biblioref">Hartigan and Wong 1979</a>)</span>.
-The method searches the locations around which are grouped data (for a predetermined number of groups).
-+ If ncl=NULL, randomizes the initial centers, ncl=2 using kmeans.center.ini function.
-+ If ncl is an integer, indicating the number of groups to classify,
-are selected ncl initial centers using kmeans.center.ini function.
-+ If ncl is a vector of integers, indicating the position of the initial centers with length(ncl) equal to number of groups.
-+ If ncl is a fdata class objecct, ncl are the initial centers curves with nrow(ncl) number of groups.</p>
-<p>The fucntion return a list with:
-+ cluster: Indexes of groups assigned.
-+ centers: Curves centers.</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="functional-supervised-classification.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(phoneme)</span>
-<span id="cb182-2"><a href="functional-supervised-classification.html#cb182-2" aria-hidden="true" tabindex="-1"></a>mlearn<span class="ot">&lt;-</span>phoneme<span class="sc">$</span>learn[<span class="dv">1</span><span class="sc">:</span><span class="dv">150</span>,]</span>
-<span id="cb182-3"><a href="functional-supervised-classification.html#cb182-3" aria-hidden="true" tabindex="-1"></a>ylearn<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(phoneme<span class="sc">$</span>classlearn[<span class="dv">1</span><span class="sc">:</span><span class="dv">150</span>])</span>
-<span id="cb182-4"><a href="functional-supervised-classification.html#cb182-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Unsupervised classification</span></span>
-<span id="cb182-5"><a href="functional-supervised-classification.html#cb182-5" aria-hidden="true" tabindex="-1"></a>kmeans.assig.groups <span class="ot">&lt;-</span> fda.usc<span class="sc">:::</span>kmeans.assig.groups </span>
-<span id="cb182-6"><a href="functional-supervised-classification.html#cb182-6" aria-hidden="true" tabindex="-1"></a>kmeans.center.ini <span class="ot">&lt;-</span> fda.usc<span class="sc">:::</span>kmeans.center.ini</span>
-<span id="cb182-7"><a href="functional-supervised-classification.html#cb182-7" aria-hidden="true" tabindex="-1"></a>kmeans.centers.update<span class="ot">&lt;-</span>fda.usc<span class="sc">:::</span>kmeans.centers.update</span>
-<span id="cb182-8"><a href="functional-supervised-classification.html#cb182-8" aria-hidden="true" tabindex="-1"></a>out.fd1<span class="ot">=</span>fda.usc<span class="sc">:::</span><span class="fu">kmeans.fd</span>(mlearn,<span class="at">ncl=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">51</span>,<span class="dv">101</span>),<span class="at">draw=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-54-1.png" width="80%" style="display: block; margin: auto;" /><img src="bookdown_intro_files/figure-html/unnamed-chunk-54-2.png" width="80%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="functional-supervised-classification.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(out.fd1<span class="sc">$</span>cluster,ylearn)</span></code></pre></div>
-<pre><code>##    ylearn
-##      1  2  3
-##   1 50 10  3
-##   2  0 40  1
-##   3  0  0 46</code></pre>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="functional-supervised-classification.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Time consuming</span></span>
-<span id="cb185-2"><a href="functional-supervised-classification.html#cb185-2" aria-hidden="true" tabindex="-1"></a><span class="co"># out.fd2=kmeans.fd(mlearn,ncl=3,draw=FALSE,par.ini=list(method=&quot;exact&quot;))</span></span>
-<span id="cb185-3"><a href="functional-supervised-classification.html#cb185-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb185-4"><a href="functional-supervised-classification.html#cb185-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Different Depth function</span></span>
-<span id="cb185-5"><a href="functional-supervised-classification.html#cb185-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ind=c(17,77,126)</span></span>
-<span id="cb185-6"><a href="functional-supervised-classification.html#cb185-6" aria-hidden="true" tabindex="-1"></a><span class="co"># out.fd3=kmeans.fd(mlearn,ncl=mlearn[ind,],draw=FALSE,</span></span>
-<span id="cb185-7"><a href="functional-supervised-classification.html#cb185-7" aria-hidden="true" tabindex="-1"></a><span class="co"># dfunc=func.trim.FM,par.dfunc=list(trim=0.1))</span></span></code></pre></div>
-<p><a id="anova"></a></p>
-</div>
-<div id="functional-anova" class="section level2" number="3.8">
-<h2><span class="header-section-number">3.8</span> Functional ANOVA</h2>
-<div id="oneway-anova-model-for-functional-data-cuevas2004" class="section level3" number="3.8.1">
-<h3><span class="header-section-number">3.8.1</span> One–way anova model for functional data, <span class="citation"><a href="#ref-Cuevas2004" role="doc-biblioref">A. Cuevas, Febrero, and Fraiman</a> (<a href="#ref-Cuevas2004" role="doc-biblioref">2004</a>)</span></h3>
-<p>One–way anova model for k independent samples of functional data. The function contrasts the null hypothesis of equality of mean functions of functional data based on the an asymptotic version of the anova F–test. The function returns the p–value of test using one–way anova model over nboot runs.</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="functional-supervised-classification.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(MCO)</span>
-<span id="cb186-2"><a href="functional-supervised-classification.html#cb186-2" aria-hidden="true" tabindex="-1"></a>grupo<span class="ot">&lt;-</span>MCO<span class="sc">$</span>classintact</span>
-<span id="cb186-3"><a href="functional-supervised-classification.html#cb186-3" aria-hidden="true" tabindex="-1"></a>datos<span class="ot">&lt;-</span>MCO<span class="sc">$</span>intact</span>
-<span id="cb186-4"><a href="functional-supervised-classification.html#cb186-4" aria-hidden="true" tabindex="-1"></a>res<span class="ot">=</span><span class="fu">fanova.onefactor</span>(datos,grupo,<span class="at">nboot=</span><span class="dv">50</span>,<span class="at">plot=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-55-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="functional-supervised-classification.html#cb187-1" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span>pvalue</span></code></pre></div>
-<pre><code>## [1] 0</code></pre>
-</div>
-<div id="functional-anova-with-random-project-cuesta-albertos2010" class="section level3" number="3.8.2">
-<h3><span class="header-section-number">3.8.2</span> Functional ANOVA with Random Project, <span class="citation"><a href="#ref-Cuesta-Albertos2010" role="doc-biblioref">JA Cuesta-Albertos and Febrero-Bande</a> (<a href="#ref-Cuesta-Albertos2010" role="doc-biblioref">2010</a>)</span></h3>
-<p>The procedure is based on the analysis of randomly chosen one-dimensional projections. The function tests ANOVA models for functional data with continuous covariates and perform special contrasts for the factors in the formula.</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="functional-supervised-classification.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(phoneme)</span>
-<span id="cb189-2"><a href="functional-supervised-classification.html#cb189-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(phoneme)</span></code></pre></div>
-<pre><code>## [1] &quot;learn&quot;      &quot;test&quot;       &quot;classlearn&quot; &quot;classtest&quot;</code></pre>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="functional-supervised-classification.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A MV matrix obtained from functional data</span></span>
-<span id="cb191-2"><a href="functional-supervised-classification.html#cb191-2" aria-hidden="true" tabindex="-1"></a>data<span class="ot">=</span><span class="fu">as.data.frame</span>(phoneme<span class="sc">$</span>learn<span class="sc">$</span>data[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">150</span>,<span class="dv">10</span>)[<span class="sc">-</span><span class="dv">1</span>])]) </span>
-<span id="cb191-3"><a href="functional-supervised-classification.html#cb191-3" aria-hidden="true" tabindex="-1"></a>group<span class="ot">=</span>phoneme<span class="sc">$</span>classlearn</span>
-<span id="cb191-4"><a href="functional-supervised-classification.html#cb191-4" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">nrow</span>(data)</span>
-<span id="cb191-5"><a href="functional-supervised-classification.html#cb191-5" aria-hidden="true" tabindex="-1"></a>group.rand<span class="ot">=</span><span class="fu">as.factor</span>(<span class="fu">sample</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="at">len=</span>n),n))</span>
-<span id="cb191-6"><a href="functional-supervised-classification.html#cb191-6" aria-hidden="true" tabindex="-1"></a>RP<span class="ot">=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">15</span>,<span class="dv">30</span>)</span>
-<span id="cb191-7"><a href="functional-supervised-classification.html#cb191-7" aria-hidden="true" tabindex="-1"></a><span class="co">#ex 1: real factor and random factor</span></span>
-<span id="cb191-8"><a href="functional-supervised-classification.html#cb191-8" aria-hidden="true" tabindex="-1"></a>m03<span class="ot">=</span><span class="fu">data.frame</span>(group,group.rand)</span>
-<span id="cb191-9"><a href="functional-supervised-classification.html#cb191-9" aria-hidden="true" tabindex="-1"></a>resul1<span class="ot">=</span><span class="fu">fanova.RPm</span>(phoneme<span class="sc">$</span>learn,<span class="sc">~</span>group<span class="sc">+</span>group.rand,m03,<span class="at">RP=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">30</span>))</span>
-<span id="cb191-10"><a href="functional-supervised-classification.html#cb191-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(resul1)</span></code></pre></div>
-<pre><code>##      - SUMMARY fanova.RPm - 
-## 
-##  p-value for Bonferroni method 
-##      group group.rand
-## RP5      0    0.31629
-## RP30     0    1.00000
-## 
-##   p-value for False Discovery Rate method 
-##      group group.rand
-## RP5      0    0.26453
-## RP30     0    0.37664</code></pre>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="functional-supervised-classification.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ex 2: real factor with special contrast</span></span>
-<span id="cb193-2"><a href="functional-supervised-classification.html#cb193-2" aria-hidden="true" tabindex="-1"></a>m0<span class="ot">=</span><span class="fu">data.frame</span>(group)</span>
-<span id="cb193-3"><a href="functional-supervised-classification.html#cb193-3" aria-hidden="true" tabindex="-1"></a>cr5<span class="ot">=</span><span class="fu">contr.sum</span>(<span class="dv">5</span>)   <span class="co">#each level vs last level</span></span>
-<span id="cb193-4"><a href="functional-supervised-classification.html#cb193-4" aria-hidden="true" tabindex="-1"></a>resul03c1<span class="ot">=</span><span class="fu">fanova.RPm</span>(data,<span class="sc">~</span>group,m0,<span class="at">contrast=</span><span class="fu">list</span>(<span class="at">group=</span>cr5))</span>
-<span id="cb193-5"><a href="functional-supervised-classification.html#cb193-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(resul03c1)</span></code></pre></div>
-<pre><code>##      - SUMMARY fanova.RPm - 
-## 
-##  p-value for Bonferroni method 
-##      group C1.group C2.group C3.group C4.group
-## RP16     0        0        0        0        0
-## 
-##   p-value for False Discovery Rate method 
-##      group C1.group C2.group C3.group C4.group
-## RP16     0        0        0        0        0</code></pre>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="functional-supervised-classification.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ex 3: random factor with special contrast. Same projs as ex 2.</span></span>
-<span id="cb195-2"><a href="functional-supervised-classification.html#cb195-2" aria-hidden="true" tabindex="-1"></a>m0<span class="ot">=</span><span class="fu">data.frame</span>(group.rand)</span>
-<span id="cb195-3"><a href="functional-supervised-classification.html#cb195-3" aria-hidden="true" tabindex="-1"></a>zz<span class="ot">=</span>resul03c1<span class="sc">$</span>proj</span>
-<span id="cb195-4"><a href="functional-supervised-classification.html#cb195-4" aria-hidden="true" tabindex="-1"></a>cr3<span class="ot">=</span><span class="fu">contr.sum</span>(<span class="dv">3</span>)   <span class="co">#each level vs last level</span></span>
-<span id="cb195-5"><a href="functional-supervised-classification.html#cb195-5" aria-hidden="true" tabindex="-1"></a>resul03c1<span class="ot">=</span><span class="fu">fanova.RPm</span>(data,<span class="sc">~</span>group.rand,m0,<span class="at">contrast=</span><span class="fu">list</span>(<span class="at">group.rand=</span>cr3),<span class="at">zproj=</span>zz)</span>
-<span id="cb195-6"><a href="functional-supervised-classification.html#cb195-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(resul03c1)</span></code></pre></div>
-<pre><code>##      - SUMMARY fanova.RPm - 
-## 
-##  p-value for Bonferroni method 
-##      group.rand C1.group.rand C2.group.rand
-## RP16          1       0.90142       0.65644
-## 
-##   p-value for False Discovery Rate method 
-##      group.rand C1.group.rand C2.group.rand
-## RP16    0.74012       0.56936       0.51361</code></pre>
+<div id="references-2" class="section level2 unnumbered hasAnchor">
+<h2>References<a href="functional-supervised-classification.html#references-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
-<!--
-\newcommand{\lrp}[1]{\left(#1\right)}
-\newcommand{\lrc}[1]{\left[#1\right]}
-\newcommand{\lrb}[1]{\left\{#1\right\}}
--->
-</div>
 </div>
 </div>
 <h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-Cuesta-Albertos2010" class="csl-entry">
-Cuesta-Albertos, JA, and M Febrero-Bande. 2010. <span>“A Simple Multiway Anova for Functional Data.”</span> <em>Test</em> 19 (3): 537–57.
-</div>
-<div id="ref-cuesta2017" class="csl-entry">
-Cuesta-Albertos, Juan A, Manuel Febrero-Bande, and Manuel Oviedo de la Fuente. 2017. <span>“The DDG-Classifier in the Functional Setting.”</span> <em>Test</em> 26 (1): 119–42.
-</div>
-<div id="ref-Cuevas2004" class="csl-entry">
-Cuevas, A., M. Febrero, and R. Fraiman. 2004. <span>“An Anova Test for Functional Data.”</span> <em>Comput. Statist. Data Anal.</em> 47 (1): 111–22. <a href="http://www.sciencedirect.com/science/article/pii/S016794730300269X">http://www.sciencedirect.com/science/article/pii/S016794730300269X</a>.
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-cuesta2017hbox" class="csl-entry">
+Cuesta-Albertos, Juan A, Manuel Febrero-Bande, and Manuel Oviedo de la Fuente. 2017. <em>Test</em> 26 (1): 119–42.
 </div>
 <div id="ref-Ferraty2003" class="csl-entry">
 Ferraty, Frédéric, and Philippe Vieu. 2003. <span>“Curves Discrimination: A Nonparametric Functional Approach.”</span> <em>Comput. Statist. Data Anal.</em> 44 (1): 161–73. <a href="http://www.sciencedirect.com/science/article/pii/S016794730300032X">http://www.sciencedirect.com/science/article/pii/S016794730300032X</a>.
 </div>
-<div id="ref-hartigan1979algorithm" class="csl-entry">
-Hartigan, John A, and Manchek A Wong. 1979. <span>“Algorithm AS 136: A k-Means Clustering Algorithm.”</span> <em>Journal of the Royal Statistical Society. Series C (Applied Statistics)</em> 28 (1): 100–108.
-</div>
 <div id="ref-Li2012" class="csl-entry">
 Li, Jun, Juan A Cuesta-Albertos, and Regina Y Liu. 2012. <span>“<span class="math inline">\(DD\)</span>–Classifier: Nonparametric Classification Procedure Based on <span class="math inline">\(DD\)</span>–Plot.”</span> <em>J. Amer. Statist. Assoc.</em> 107 (498): 737–53. <a href="http://amstat.tandfonline.com/doi/abs/10.1080/01621459.2012.688462">http://amstat.tandfonline.com/doi/abs/10.1080/01621459.2012.688462</a>.
+</div>
+<div id="ref-wood2004" class="csl-entry">
+Wood, Simon N. 2004. <span>“Stable and Efficient Multiple Smoothing Parameter Estimation for Generalized Additive Models.”</span> <em>Journal of the American Statistical Association</em> 99 (467): 673–86.
 </div>
 </div>
             </section>
@@ -697,7 +592,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
